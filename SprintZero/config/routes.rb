@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
   get 'index' => 'welcome#index'
+  get 'requests/index'
+  get 'welcome/homepage'
   
-  
+  resources :requests 
   
   devise_scope :user do
   root :to => 'devise/sessions#new'
