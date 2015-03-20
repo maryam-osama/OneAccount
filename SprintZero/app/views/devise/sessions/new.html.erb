@@ -1,9 +1,91 @@
-<h2>Log in</h2>
+<!DOCTYPE html>
+ <html> 
+<head>
+  <title>Login</title>
+  <link rel="stylesheet" href="">
 
+</head>
+<div class= bg><body  background="http://p1.pichost.me/i/24/1466799.jpg" style="background-size: cover;"></div>
+ 
+  <section class="container">
+    <div id="center_box">
+
+      <h1> Login </h1>
+      <form method="post" action="BlogsPage.html">
+       
+             </form>
+
+     
+</section>
+</body>
+</html>
+
+    <style>
+
+    
+a{
+  font-size: 12pt;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  color: white;
+  
+}
+
+h1{
+text-align: left;
+  font-size: 40px;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  text-shadow:20px,20px,#ff0000;
+  color :white;
+}
+body{
+
+   width: 300px;
+    padding: 30px;
+   
+    margin: 60px;
+    margin-left: 150px;
+    margin-right: auto;
+    color: white ;
+
+   font-size: 30px;
+
+   font-family: "Trebuchet MS", Helvetica, sans-serif;
+   text-align: left;
+
+
+}
+
+.myButton {
+  background-color:#2f5b9e;
+  -moz-border-radius:28px;
+  -webkit-border-radius:28px;
+  border-radius:28px;
+  border:1px solid #fcfcfc;
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  font-family:arial;
+  font-size:17px;
+  padding:16px 31px;
+  text-decoration:none;
+  text-shadow:0px 1px 0px #ffffff;
+}
+.myButton:hover {
+  background-color:#3065ba;
+}
+.myButton:active {
+  position:relative;
+  top:1px;
+}
+
+
+    </style>
+
+  
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+ <div class = "ay 7aga"> <div class="field">
+    <%= f.label :email  %><br />
+    <%= f.email_field :email, autofocus: true  %>
   </div>
 
   <div class="field">
@@ -21,6 +103,7 @@
   <div class="actions">
     <%= f.submit "Log in" %>
   </div>
+    </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<%= render "devise/shared/links" %> 

@@ -5,9 +5,10 @@ class ApplicationsController < ApplicationController
     end
     
    def index
+
    if params[:search]
     @applications = Application.search(params[:search]).order("created_at DESC")
-    end
+   
   end
   # It returns the articles whose titles contain one or more words that form the query
 
