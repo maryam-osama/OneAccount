@@ -11,9 +11,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150318170644) do
+ActiveRecord::Schema.define(version: 20150317205620) do
 
-  create_table "users", force: :cascade do |t|
+  create_table "applications", force: true do |t|
+    t.string   "appname"
+    t.text     "description"
+    t.integer  "price"
+    t.string   "publisher_email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "purchases", force: true do |t|
+    t.string   "user_email"
+    t.integer  "app_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "requests", force: true do |t|
+    t.string   "user_email"
+    t.integer  "user_id"
+    t.text     "reason"
+    t.boolean  "accept",     default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -26,6 +51,7 @@ ActiveRecord::Schema.define(version: 20150318170644) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "publisher"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

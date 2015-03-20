@@ -1,3 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Sign up</title>
+<style>
+body {
+  margin: 5% 0% 0% 5%;
+  background: url("http://i.imgur.com/r4RtXBr.png");
+  background-position: left;
+  color: white;
+  font-family: helvetica;
+  
+}
+  input{
+    
+  background-color: transparent;
+  color: white;
+  }
+</style>
+
+</head>
+
+<body>
 <h2>Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -6,6 +29,7 @@
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
+    
   </div>
 
   <div class="field">
@@ -27,3 +51,5 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+</body>
+</html>
