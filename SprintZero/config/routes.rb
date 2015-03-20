@@ -4,7 +4,12 @@ Rails.application.routes.draw do
   get 'requests/index'
   get 'welcome/homepage'
   
+
+ 
+
   resources :requests 
+
+  resources :applications
   
   devise_scope :user do
   root :to => 'devise/sessions#new'
