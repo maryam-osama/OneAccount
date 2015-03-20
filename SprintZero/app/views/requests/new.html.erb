@@ -1,0 +1,60 @@
+<style>
+    body{
+        background: black url(http://ak.picdn.net/shutterstock/videos/3925448/preview/stock-footage-industrial-background-with-object-light-bulb-swinging-on-plain-wall-background.jpg);
+        background-size: 890pt;
+        background-repeat: no-repeat;
+        font-size: 115%;
+        font-family: 'Times New Roman', cursive;
+ 
+        
+    }
+    h1{
+         font-family: 'Arial', bold;
+         color: white;
+         font-size: 170%;
+         text-align: center;
+    }
+    email{
+      visibility: hidden;
+    }
+    .form {
+      width: 550px;
+      margin: 0 auto;
+      color: white;
+    }
+     .email{
+      visibility: hidden;
+    }
+    p{
+      font-size: 100%;
+      font-family: 'Arial';
+      font-weight: bold;
+    }
+    .Request{
+      background-color: black;
+      border: black;
+      font-weight: bold;
+      color: white;
+      padding: 10px 20px;
+      position: relative;
+      top: -50px;
+      border-radius: 35%;
+    }
+    
+</style>
+
+<h1>Want to be a publisher? Share your reason below!</h1>
+<%= form_for :request, url: requests_path do |f| %>
+  
+ <div class= "form">
+  <p>
+    <%= f.label :reason %><br>
+    <%= f.text_area :reason, :size => "80x25" %>
+   <div class= "email"> <%= f.text_area :user_email, :value => current_user.email %> </div>
+  </p>
+ 
+  <p>
+    <%= f.submit 'Save Request' , :class => 'Request' %>
+  </p>
+  </div>
+<% end %>
