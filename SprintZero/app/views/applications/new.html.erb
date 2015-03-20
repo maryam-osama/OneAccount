@@ -1,0 +1,55 @@
+<%= form_for :application, url: applications_path do |f| %>
+<head>
+<style>
+header{
+text-align: center;
+background-size: cover;
+}
+input[type="submit"] 
+{
+  background: #339933;
+  color: white ;
+  border:0 ;
+  padding:15px;
+  font-size:12px;
+  margin:1% 0 0 0;
+ border-radius:40px;
+}
+body {
+      text-align: center;
+      background: url("http://dash.ga.co/assets/anna-bg.png");
+      background-size: cover;
+      background-position: center;
+      color: white;
+      font-family: Lucida Sans Unicode;
+    }
+
+
+</style>
+</head>
+
+<h2 style="font-family:Lucida Sans Unicode" text-align= "center">Would you add your new application data here   </h2>
+    <br>
+  
+
+
+
+  <p>
+    
+    <%= f.text_field :appname, :placeholder => "Application Name" %>
+  </p>
+ 
+  <p>
+    
+    <%= f.text_area :description, :size => "45x15", :placeholder => "Please state your application description here "%>
+  </p>
+  
+    <p>
+    \
+    <%= f.text_field :price ,:placeholder => "Application price" %>
+  </p>
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
