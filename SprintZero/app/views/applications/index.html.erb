@@ -1,0 +1,18 @@
+
+<table>
+  <tr>
+    <th>Appname</th>
+    <th>Price</th>
+     <th>Description</th>
+    <th colspan="3"></th>
+  </tr>
+ 
+  <% @applications.each do |application| %>
+    <tr>
+      <td><%= application.appname %></td>
+      <td><%= application.price %></td>
+      <td><%= application.description %></td>
+      <td><%= link_to 'Show' , application_path(application) %></td>
+     </tr>
+  <%end%>
+</table>
