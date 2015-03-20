@@ -2,6 +2,7 @@
 
 one:
   user_email: MyString
+<<<<<<< HEAD
   string: MyString
   user_id: MyString
   integer: MyString
@@ -23,3 +24,14 @@ two:
   boolean,: MyString
   : 
   =: MyString
+=======
+  user_id: 1
+  reason: MyText
+  accept: false
+
+two:
+  user_email: MyString
+  user_id: 1
+  reason: MyText
+  accept: false
+>>>>>>> master
