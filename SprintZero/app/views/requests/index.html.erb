@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<head>
+  <style>
+    body {
+ 
+    text-align: center;
+      background: url("http://i.imgur.com/mvqHMqk.jpg");
+      background-size: cover;
+      background-position: center;
+      color: black;
+      font-family: Times New Roman;
+      
+    }
+    h1 {
+   
+    font-size: 40px;
+    color: black;
+    text-align: center;
+   
+    }
+
+    div {
+      font-family: Times New Roman;
+      padding: 20px;
+      padding-right: 20px;
+    }
+    
+    img {
+      float: left;
+    }
+   
+ table {
+     
+       font-size: 20px;
+       font-family: Arial;
+       padding: 30px;
+       text-align: center ;
+       line-height: 2em;
+      
+}
+   td {
+   padding: 15px;
+}
+  </style>
+</head>
+
+<body>
+<img src="http://i.imgur.com/XvTnO5D.png" width="250" height="100"  >
+<div> <h1><b> Requests </b></h1> </div>
+ </body>
+ 
+<table>
+  <tr>
+  
+    <th><b>User Email </b></th>
+  </tr>
+ 
+  <% @requests.each do |request| %>
+    <tr>
+     
+      <td><%= request.user_email %></td>
+       <td><%= link_to 'Show' , request_path(request) %></td>
+     
+              
+      
+     
+    </tr>
+ 
+   <% end %>
+</table>

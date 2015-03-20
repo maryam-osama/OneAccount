@@ -1,0 +1,46 @@
+<style>
+    body{ background: #A9A9A9  url(http://media.gaje.us/business_user_info.png);
+        background-size: 330pt;
+        
+        background-repeat: no-repeat;
+        background-position: right center;
+         margin-top: 180px;
+         margin-left: 50px;
+    }
+    h1 {
+           font-family: "Trebuchet MS", Helvetica, sans-serif; font-size 50pt; font-style: normal ;
+           color: navy ;
+         
+          
+            margin-bottom:40px;
+           
+    }
+ 
+    p{ 
+      
+        font-family : "Trebuchet MS", Helvetica, sans-serif;font-size:18pt ; font-style: normal; 
+        margin-top:40px;
+      margin-left: 20px; 
+
+    }
+    strong{
+        color: #006400 ;
+    }
+  
+
+</style>
+<h1> User Request Details </h1>
+
+<p>
+  <strong>User Email:</strong>
+  <%= @request.user_email %>
+</p>
+ 
+<p>
+  <strong>Reason:</strong>
+  <%= @request.reason %>
+  
+  
+</p>
+ 
+<%= link_to 'Back', requests_path(request)%>
