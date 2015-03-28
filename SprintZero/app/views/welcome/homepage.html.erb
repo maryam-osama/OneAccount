@@ -6,6 +6,7 @@
 
 <% if current_user.email == "maryam.osama@gmail.com" %> 
 <%= link_to 'View Requests', requests_index_path %>
+<%= link_to 'View Notifications', notifications_path %>
 <% else %>
 
 
@@ -16,18 +17,19 @@
 
 
 
-
+<div class= "Search">
 
 <%= form_tag(applications_path, method: "get") do %>
-  <%= label_tag(:search, "Search for:") %>
+ 
   <%= text_field_tag :search , params[:search]%>
   <%= submit_tag("Search") %>
 <% end %>
+</div>
 <!DOCTYPE html>
 <html>
 
 
-<header style="background-color: #2c3e50;">
+<header style="background-color: #008B8B;">
 <h1 style="font-family:helvetica , sans-serif; text-align : left; color: white; "> One Account</h1>
 
 
@@ -89,7 +91,7 @@ overflow:hidden;
 }
 body{
 	overflow:scroll;
-	background-color:#2c3e50;
+	background-color:#008B8B;
 }
 
 section {
@@ -126,6 +128,19 @@ header{
  color: grey;
 
 }
+
+
+.Search {
+      width: 550px;
+      margin-left:950px;
+      margin-top:10px;
+      
+      color: white;
+   }
+
+
+
+
 .marquee-inner {
 
  position: absolute;
@@ -163,6 +178,7 @@ header{
  -webkit-transform: translateX(-100%); /* Browser bug fix */
  transform: translateX(-100%); 
  }
+ 
 }
 </style>
 
