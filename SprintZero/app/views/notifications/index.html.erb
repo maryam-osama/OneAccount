@@ -1,0 +1,28 @@
+<table>
+  <tr>
+  
+    <th><b>Publisher Email </b></th>
+    <th><b>Application Name </b></th>
+  </tr>
+ 
+  <% @notification.each do |notification| %>
+    <tr>
+     
+      <td><%= notification.user_email %></td>
+       <td><%= notification.appname%></td>
+       <td><%= link_to 'View' , application_path(notification.app_id) %></td>
+       
+        
+              
+              
+        <td><%= link_to 'Accept', notification_path(notification,:appid => notification.app_id, :number => "1"),
+
+
+              method: :delete %> </td>
+      <td><%= link_to 'Reject', notification_path(notification,request,:appid => notification.app_id, :number => "0"),
+              method: :delete %></td> 
+     
+   </tr>
+ 
+   <% end %>
+</table>

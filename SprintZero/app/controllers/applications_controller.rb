@@ -17,12 +17,18 @@ class ApplicationsController < ApplicationController
     def show
     @application = Application.find(params[:id])
     end
+    
     def create 
         @application = Application.new(application_params)
-        @application.save
-        
         @application.publisher_email  = current_user.email
         @application.save
+        
+        @notification =Notification.new
+        @notification.user_email = current_user.email
+        @notification.appname=@application.appname
+        @notification.app_id=@application.id
+        @notification.save
+       
         redirect_to @application
     end
     
