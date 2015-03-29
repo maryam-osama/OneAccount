@@ -17,6 +17,7 @@ class ApplicationsController < ApplicationController
     def show
     @application = Application.find(params[:id])
     end
+    
     def create 
         @application = Application.new(application_params)
         @application.save
