@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'requests/form'
   get 'requests/index'
   get 'welcome/homepage'
+  get 'applications/myapps'
   
   
   
