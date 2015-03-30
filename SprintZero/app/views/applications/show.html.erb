@@ -15,7 +15,15 @@
 
 
 
-<p>
+      
+
+ <% if !(Application.where(:publisher_email => current_user.email ,:id => @application).blank?)%> 
+ 
+  <td><%= link_to 'DeleteApp', application_path(@application),
+              method: :delete %></td>  
+   <% end %>
+   
+   
   <strong>appname:</strong>
   <%= @application.appname  %>
 </p>
