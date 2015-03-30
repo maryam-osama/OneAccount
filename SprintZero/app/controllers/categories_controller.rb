@@ -3,7 +3,7 @@ class CategoriesController < ApplicationController
      def new
      end
        def index
-    @categories = Category.all
+    @categories = Category.all 
        end
      def create
          @category = Category.new(params.require(:category).permit(:name))
