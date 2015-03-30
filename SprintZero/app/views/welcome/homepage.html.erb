@@ -8,6 +8,7 @@
 
 <% if current_user.email == "maryam.osama@gmail.com" %> 
 <%= link_to 'View Requests', requests_index_path %>
+<%= link_to 'my purchases' , :controller => "purchases", :action => "index" %>
 
 <% else %>
 
