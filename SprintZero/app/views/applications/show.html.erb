@@ -29,11 +29,10 @@
 <p>
   <strong>price: $</strong>
   <%=  @application.price %>
+  
+</p>
 
-<p>
-  <% if current_user.email == "maryam.osama@gmail.com" %>
-  <td><%= link_to 'DeleteApp', application_path(@application),
-              method: :delete %></td>
+
               
 <% @number =  @application.price * 100 %>
 
