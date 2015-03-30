@@ -1,5 +1,14 @@
-<b> Your purchases </b>
+<table>
+ <tr>
+    <th><b> My purchases </b></th>
+ </tr>
+
+
 <% @app_names.each do |application| %>
+<tr>
 <td><%= application.appname %></td>
-<br/>
+
 <% end %>
+ </tr>
+
+</table>
