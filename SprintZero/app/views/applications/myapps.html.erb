@@ -13,6 +13,7 @@
 <% @applications.each do |application| %>
     <tr>
       <td><%= application.appname %></td>
+       <td><%= link_to 'View' , application_path(application) %></td>
      </tr>
   <%end%>
 </table>
