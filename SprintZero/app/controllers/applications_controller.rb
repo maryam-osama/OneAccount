@@ -1,6 +1,7 @@
 class ApplicationsController < ApplicationController
     
     
+    
     def new 
     end
     
@@ -12,11 +13,22 @@ class ApplicationsController < ApplicationController
   end
   # It returns the articles whose titles contain one or more words that form the query
 
-    
-    
+
+
+
+    def destroy
+        
+  @Applications = Application.find(params[:id])
+  @Applications.destroy
+  @Applications.save
+  redirect_to welcome_homepage_url
+end
+
+
     def show
     @application = Application.find(params[:id])
     end
+    
     def create 
         @application = Application.new(application_params)
         @application.save
