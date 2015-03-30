@@ -2,19 +2,21 @@
 
 <% if current_user.try(:publisher?) %> 
 <%= link_to 'Add Application', new_application_path %>
+<%= link_to 'my purchases' , :controller => "purchases", :action => "index" %>
+
 <% end %>
 
 <% if current_user.email == "maryam.osama@gmail.com" %> 
 <%= link_to 'View Requests', requests_index_path %>
+
 <% else %>
 
 
 <% if current_user.publisher == nil %> 
 <%= link_to 'Request', new_request_path %>
+<%= link_to 'my purchases' , :controller => "purchases", :action => "index" %>
 <% end %>
 <% end %>
-
-
 
 
 

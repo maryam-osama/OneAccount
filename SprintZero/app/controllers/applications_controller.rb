@@ -12,8 +12,8 @@ class ApplicationsController < ApplicationController
   end
   # It returns the articles whose titles contain one or more words that form the query
 
-    
-    
+    #a method for viewing my purchases
+  
     def show
     @application = Application.find(params[:id])
     end
@@ -30,6 +30,7 @@ class ApplicationsController < ApplicationController
      def application_params
     params.require(:application).permit(:appname, :description, :price)
      end
+     
 end
     
     
