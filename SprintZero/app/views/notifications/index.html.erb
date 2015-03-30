@@ -13,16 +13,7 @@
        <td><%= link_to 'View' , application_path(notification.app_id) %></td>
        
         
-              
-              
-        <td><%= link_to 'Accept', notification_path(notification,:appid => notification.app_id, :number => "1"),
-
-
-              method: :delete %> </td>
-      <td><%= link_to 'Reject', notification_path(notification,request,:appid => notification.app_id, :number => "0"),
-              method: :delete %></td> 
-     
-   </tr>
+     </tr>
  
    <% end %>
 </table>
