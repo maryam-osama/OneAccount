@@ -24,7 +24,7 @@ class ApplicationsController < ApplicationController
         @application = Application.new(application_params)
    
 #      @application.save
-#         @application.publisher_email  = current_user.email
+       @application.publisher_email  = current_user.email
   
 #       @category =Category.where(:id => params[:category][:name]).take
       

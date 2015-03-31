@@ -8,13 +8,27 @@ body {
            
 } 
  p{ 
-       text-align: center;
-     font-family:Alpha Geometrique ;font-size:20pt ; font-style: normal; 
-     margin-top:60px;
+       text-align: left;
+      font-family:Times New Roman ;font-size:30pt ; 
+      margin-top:40px;
       margin-left: 20px; 
       color:black;
                  
     }
+    
+    table {
+     
+       font-size: 25px;
+       font-family: Times New Roman;
+       margin-left: 20px;
+       text-align: left ;
+       line-height: 2em;
+      
+}
+
+  td {
+   padding: 15px;
+}
     
     div {
         
@@ -24,18 +38,20 @@ body {
 
 </style>
 <p>
-  <strong> Category Name:</strong>
-  <%= @category.name %>
+  <b> Category Name:</b>
+  <i> <%= @category.name %> </i>
+  
 </p>
 <table>
   
  <% @applications.each do |application| %>
     <tr>
       <td><%= application.appname %></td>
+      <td><%= link_to 'View' , application_path(application) %></td>
 </tr>
 <% end %>
 </table>
 
-
+<div>
 <%= link_to 'Back', categories_path %>
-
+</div>
