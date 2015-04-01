@@ -4,11 +4,10 @@
 <%= link_to 'Add Application', new_application_path %>
 <% end %>
 
-<% if current_user.email == "maryam.osama@gmail.com" %> 
+<% if current_user.email == Sprint0::Application.config.my_key %> 
 <%= link_to 'View Requests', requests_index_path %>
 <%= link_to 'View Notifications', notifications_path %>
 <% else %>
-
 
 <% if current_user.publisher == nil %> 
 <%= link_to 'Request', new_request_path %>
