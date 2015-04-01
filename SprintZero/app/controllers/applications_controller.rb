@@ -27,6 +27,13 @@ class ApplicationsController < ApplicationController
         redirect_to @application
     end
     
+   def destroy
+      
+   @application = Application.find(params[:id])
+   @application.destroy
+   @application.save
+   redirect_to welcome_homepage_url
+   end 
  
    
     private
