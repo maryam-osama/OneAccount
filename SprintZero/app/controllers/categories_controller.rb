@@ -14,12 +14,10 @@ class CategoriesController < ApplicationController
     # If category with required ID is found, 
     # delete the category.
     def destroy
-      @category= Category.find(params[:id])
+      @category = Category.find(params[:id])
       @category.destroy
       redirect_to categories_path
     end
-    
-   
     
     def create
       @category = Category.new(params.require(:category).permit(:name))
@@ -34,7 +32,7 @@ class CategoriesController < ApplicationController
     #
     # Lists all the apps of the same category name.
     def show
-      @category=Category.find(params[:id])
+      @category = Category.find(params[:id])
       @applications = Application.where(:category_name => @category.name)
     end
 
