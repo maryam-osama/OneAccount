@@ -13,4 +13,5 @@ class CreateNotifications < ActiveRecord::Migration
       t.timestamps
     end
   end
+  
 end
