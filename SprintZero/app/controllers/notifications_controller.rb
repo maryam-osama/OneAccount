@@ -1,7 +1,6 @@
 ##
 # Lists,Shows and Creates Notifications
 class NotificationsController < ApplicationController
-  
   ##   
   # Returns all the Notifications stored in the database
   def index
@@ -12,7 +11,7 @@ class NotificationsController < ApplicationController
   # Returns a specific Notification from the database by supplying the id  
   def show
     @notification = Notification.find(params[:id])
-   end
+  end
 
   ##
   # Creates new instance of Notification model    

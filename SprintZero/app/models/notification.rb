@@ -1,1 +1,1 @@
-class Notification < ActiveRecord::Base; end
+Notification = Class.new(ActiveRecord::Base)
