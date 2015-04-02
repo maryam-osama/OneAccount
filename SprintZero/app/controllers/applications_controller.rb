@@ -5,10 +5,12 @@ class ApplicationsController < ApplicationController
     def new 
     end
     ## This method lists all the publisher's app
-    ## by  checking if the applications model have current_user_Email as a publisher email
-    ## Then it loops on these applications
-    ## and views the appname of this applications
+    # by  checking if the applications model have current_user_Email as a publisher email
+    # Then it loops on these applications
+    # and views the appname of this applications
+    
     def myapps
+        
         @applications = Application.where(:publisher_email => current_user.email)
     
     end
