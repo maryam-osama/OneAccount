@@ -1,6 +1,5 @@
 class ApplicationsController < ApplicationController
     
-    
     def new 
       @categories = Category.all
     end
@@ -19,25 +18,16 @@ class ApplicationsController < ApplicationController
     def create 
         
       @application = Application.new(application_params)
-   
-#     @application.save
       @application.publisher_email  = current_user.email
-  
-#     @category =Category.where(:id => params[:category][:name]).take
-      
-#     @application.category_name = @category.name
-       
       @application.save
-        
       redirect_to @application
     end
-    
- 
-   
-  private
+  
+    private
     def application_params
       params.require(:application).permit(:appname, :description, :price, :category_name)
     end
+    
 end
     
     
