@@ -1,24 +1,20 @@
 ##
 # This class represents the requests class.
-RequestsController = Class.new(ApplicationController)
+class RequestsController < ApplicationController
 
     ##
     # This Method lists all the requests
     def index
-      @requests=Request.all
+      @requests = Request.all
     end
    
-   
-   
     def show
-      @request=Request.find(params[:id])
+      @request = Request.find(params[:id])
     end
     
     def new
       @request = Request.new
     end
-    
-   
     
     def create
       @request = Request.new(requests_params)
@@ -40,8 +36,8 @@ RequestsController = Class.new(ApplicationController)
       @request.destroy
       @request.save
       if params[:number] == "1"
-       @user.publisher = true
-       @user.save
+        @user.publisher = true
+        @user.save
       end
       redirect_to requests_path
     end
