@@ -1,4 +1,4 @@
-Thu, 02 Apr 2015 10:40:53 +0000
+Thu, 02 Apr 2015 11:52:57 +0000
 ./app/assets/javascripts/welcome.js.coffee	Thu, 02 Apr 2015 09:30:31 +0000
 ./app/assets/javascripts/welcome.coffee	Thu, 02 Apr 2015 09:29:58 +0000
 ./app/assets/javascripts/account.js.coffee	Thu, 02 Apr 2015 09:30:31 +0000
@@ -57,11 +57,11 @@ Thu, 02 Apr 2015 10:40:53 +0000
 ./app/views/devise/registrations/new.html.erb	Thu, 02 Apr 2015 09:30:31 +0000
 ./app/views/devise/registrations/edit.html.erb	Thu, 02 Apr 2015 09:29:58 +0000
 ./app/views/notifications/new.html.erb	Thu, 02 Apr 2015 09:30:31 +0000
-./app/views/notifications/index.html.erb	Thu, 02 Apr 2015 09:30:31 +0000
+./app/views/notifications/index.html.erb	Thu, 02 Apr 2015 11:46:35 +0000
 ./app/controllers/requests_controller.rb	Thu, 02 Apr 2015 09:30:31 +0000
 ./app/controllers/account_controller.rb	Thu, 02 Apr 2015 09:30:31 +0000
 ./app/controllers/applications_controller.rb	Thu, 02 Apr 2015 10:33:00 +0000
-./app/controllers/notifications_controller.rb	Thu, 02 Apr 2015 10:40:32 +0000
+./app/controllers/notifications_controller.rb	Thu, 02 Apr 2015 11:52:12 +0000
 ./app/controllers/welcome_controller.rb	Thu, 02 Apr 2015 09:30:31 +0000
 ./app/controllers/application_controller.rb	Thu, 02 Apr 2015 09:30:31 +0000
 ./app/controllers/charges_controller.rb	Thu, 02 Apr 2015 09:30:31 +0000
@@ -73,7 +73,7 @@ Thu, 02 Apr 2015 10:40:53 +0000
 ./db/migrate/20150319175307_create_requests.rb	Thu, 02 Apr 2015 09:30:31 +0000
 ./db/migrate/20150318170644_devise_create_users.rb	Thu, 02 Apr 2015 09:29:58 +0000
 ./db/migrate/20150322204630_add_appname_to_notifications.rb	Thu, 02 Apr 2015 09:30:31 +0000
-./db/migrate/20150322202057_create_notifications.rb	Thu, 02 Apr 2015 10:40:06 +0000
+./db/migrate/20150322202057_create_notifications.rb	Thu, 02 Apr 2015 11:52:46 +0000
 ./db/migrate/20150319175553_add_publisher_to_users.rb	Thu, 02 Apr 2015 09:30:31 +0000
 ./db/migrate/20150317205620_create_purchases.rb	Thu, 02 Apr 2015 09:30:31 +0000
 ./db/schema.rb	Thu, 02 Apr 2015 09:30:31 +0000
@@ -99,7 +99,7 @@ Thu, 02 Apr 2015 10:40:53 +0000
 ./config/boot.rb	Thu, 02 Apr 2015 09:30:31 +0000
 ./config/environment.rb	Thu, 02 Apr 2015 09:29:58 +0000
 ./config/secrets.yml	Thu, 02 Apr 2015 09:30:31 +0000
-./config/application.rb	Thu, 02 Apr 2015 09:30:31 +0000
+./config/application.rb	Thu, 02 Apr 2015 11:48:12 +0000
 ./config/database.yml	Thu, 02 Apr 2015 09:29:58 +0000
 ./config/locales/devise.en.yml	Thu, 02 Apr 2015 09:29:58 +0000
 ./config/locales/en.yml	Thu, 02 Apr 2015 09:29:58 +0000

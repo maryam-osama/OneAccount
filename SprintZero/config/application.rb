@@ -8,8 +8,7 @@ Bundler.require(*Rails.groups)
 
 module Sprint0
   class Application < Rails::Application
-    
-   Sprint0::Application.configure do
+  Sprint0::Application.configure do
 
    config.my_key = 'maryam.osama@gmail.com'
    end

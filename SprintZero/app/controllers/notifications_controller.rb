@@ -1,19 +1,18 @@
-
-
+##
+# Lists,Shows and Creates Notifications
 class NotificationsController < ApplicationController
-
 ##   
 # Returns all the Notifications stored in the database
     
     def index
-        @notification=Notification.all
+        @notification = Notification.all
     end
     
 ##    
 # Returns a specific Notification from the database by supplying the id  
 
     def show
-        @notification=Notification.find(params[:id])
+        @notification = Notification.find(params[:id])
     end
 
 ##
@@ -36,7 +35,7 @@ class NotificationsController < ApplicationController
 
   private
   def notifications_params
-    params.require(:notification).permit(:user_email, :appname,:app_id)
+    params.require(:notification).permit(:user_email, :appname, :app_id)
   end
    
 end

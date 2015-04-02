@@ -1,5 +1,6 @@
+## 
+# Notification migration in the database
 class CreateNotifications < ActiveRecord::Migration
-  
 ##  
 # Lists each Notification model attribute and it's type
 #
