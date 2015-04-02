@@ -9,10 +9,10 @@ class ApplicationsController < ApplicationController
    if params[:search]
     @applications = Application.search(params[:search]).order("created_at DESC")
    end
-  end
+   end
   # It returns the articles whose titles contain one or more words that form the query
 
-    #a method for viewing my purchases
+    # a method for viewing my purchases
   
     def show
     @application = Application.find(params[:id])
