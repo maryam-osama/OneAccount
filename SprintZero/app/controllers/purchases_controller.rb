@@ -1,9 +1,11 @@
 class PurchasesController < ApplicationController
      ##
-     # This is a class of purchases,
-     # it has method index that saves all
+     # This is a class of purchases.
+     #
+     # It has method index that saves all
      # the application names purchased by
      # the user who logged in.
+     #
      # A variable appnames which saves all the user's purchases
      # will be listed in the view.
      def index
