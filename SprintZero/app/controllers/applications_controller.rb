@@ -24,10 +24,10 @@ class ApplicationsController < ApplicationController
         @application.publisher_email  = current_user.email
         @application.save
         
-        @notification =Notification.new
+        @notification = Notification.new
         @notification.user_email = current_user.email
-        @notification.appname=@application.appname
-        @notification.app_id=@application.id
+        @notification.appname = @application.appname
+        @notification.app_id = @application.id
         @notification.save
        
         redirect_to @application
