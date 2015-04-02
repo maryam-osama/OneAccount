@@ -132,19 +132,18 @@ href="Application.html">Application</a> is created</p>
 
           
           <div class="method-source-code" id="create-source">
-            <pre><span class="ruby-comment"># File app/controllers/applications_controller.rb, line 22</span>
+            <pre><span class="ruby-comment"># File app/controllers/applications_controller.rb, line 19</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">create</span> 
-    <span class="ruby-ivar">@application</span> = <span class="ruby-constant">Application</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">application_params</span>)
-    <span class="ruby-ivar">@application</span>.<span class="ruby-identifier">publisher_email</span>  = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">email</span>
-    <span class="ruby-ivar">@application</span>.<span class="ruby-identifier">save</span>
-    
-    <span class="ruby-ivar">@notification</span> =<span class="ruby-constant">Notification</span>.<span class="ruby-identifier">new</span>
-    <span class="ruby-ivar">@notification</span>.<span class="ruby-identifier">user_email</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">email</span>
-    <span class="ruby-ivar">@notification</span>.<span class="ruby-identifier">appname</span>=<span class="ruby-ivar">@application</span>.<span class="ruby-identifier">appname</span>
-    <span class="ruby-ivar">@notification</span>.<span class="ruby-identifier">app_id</span>=<span class="ruby-ivar">@application</span>.<span class="ruby-identifier">id</span>
-    <span class="ruby-ivar">@notification</span>.<span class="ruby-identifier">save</span>
-   
-    <span class="ruby-identifier">redirect_to</span> <span class="ruby-ivar">@application</span>
+  <span class="ruby-ivar">@application</span> = <span class="ruby-constant">Application</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">application_params</span>)
+  <span class="ruby-ivar">@application</span>.<span class="ruby-identifier">publisher_email</span>  = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">email</span>
+  <span class="ruby-ivar">@application</span>.<span class="ruby-identifier">save</span>
+      
+  <span class="ruby-ivar">@notification</span> = <span class="ruby-constant">Notification</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@notification</span>.<span class="ruby-identifier">user_email</span> = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">email</span>
+  <span class="ruby-ivar">@notification</span>.<span class="ruby-identifier">appname</span> = <span class="ruby-ivar">@application</span>.<span class="ruby-identifier">appname</span>
+  <span class="ruby-ivar">@notification</span>.<span class="ruby-identifier">app_id</span> = <span class="ruby-ivar">@application</span>.<span class="ruby-identifier">id</span>
+  <span class="ruby-ivar">@notification</span>.<span class="ruby-identifier">save</span>
+  <span class="ruby-identifier">redirect_to</span> <span class="ruby-ivar">@application</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -175,12 +174,13 @@ href="Application.html">Application</a> is created</p>
 
           
           <div class="method-source-code" id="index-source">
-            <pre><span class="ruby-comment"># File app/controllers/applications_controller.rb, line 7</span>
+            <pre><span class="ruby-comment"># File app/controllers/applications_controller.rb, line 5</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">index</span>
 
-<span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:search</span>]
- <span class="ruby-ivar">@applications</span> = <span class="ruby-constant">Application</span>.<span class="ruby-identifier">search</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:search</span>]).<span class="ruby-identifier">order</span>(<span class="ruby-string">&quot;created_at DESC&quot;</span>)
-<span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:search</span>]
+    <span class="ruby-ivar">@applications</span> = <span class="ruby-constant">Application</span>.<span class="ruby-identifier">search</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:search</span>]).<span class="ruby-identifier">order</span>(<span class="ruby-string">&quot;created_at DESC&quot;</span>)
+  <span class="ruby-keyword">end</span>
+  
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -211,9 +211,8 @@ href="Application.html">Application</a> is created</p>
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File app/controllers/applications_controller.rb, line 4</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">new</span> 
-<span class="ruby-keyword">end</span></pre>
+            <pre><span class="ruby-comment"># File app/controllers/applications_controller.rb, line 3</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">new</span>; <span class="ruby-keyword">end</span></pre>
           </div>
           
         </div>
@@ -243,9 +242,9 @@ href="Application.html">Application</a> is created</p>
 
           
           <div class="method-source-code" id="show-source">
-            <pre><span class="ruby-comment"># File app/controllers/applications_controller.rb, line 15</span>
+            <pre><span class="ruby-comment"># File app/controllers/applications_controller.rb, line 13</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">show</span>
-<span class="ruby-ivar">@application</span> = <span class="ruby-constant">Application</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+  <span class="ruby-ivar">@application</span> = <span class="ruby-constant">Application</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
 <span class="ruby-keyword">end</span></pre>
           </div>
           
