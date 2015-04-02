@@ -1,15 +1,14 @@
+##
+# This is a class of purchases.
 class PurchasesController < ApplicationController
      ##
-     # This is a class of purchases.
-     #
-     # It has method index that saves all
+     # It has method saves all
      # the application names purchased by
-     # the user who logged in.
-     #
-     # A variable appnames which saves all the user's purchases
+     # the user who logged in which
      # will be listed in the view.
      def index
-  purchases = Purchase.where(user_email: current_user.email)
-  @app_names = purchases.map { |p| Application.find(p.app_id) }
+       purchases = Purchase.where(user_email: current_user.email)
+       @app_names = purchases.map { |p| Application.find(p.app_id) }
      end
+     
 end

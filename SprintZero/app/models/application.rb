@@ -1,10 +1,7 @@
-
 class Application < ActiveRecord::Base
-	
-def self.search(query)
+   has_many :purchases
+   def self.search(query)
    where("appname like ?", "%#{query}%") 
    end
-   
-has_many :purchases
    
 end
