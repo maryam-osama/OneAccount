@@ -1,7 +1,4 @@
-##
-# This class represents the requests class.
 class RequestsController < ApplicationController
-
     ##
     # This Method lists all the requests
     def index
