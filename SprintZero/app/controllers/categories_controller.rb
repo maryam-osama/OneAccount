@@ -1,15 +1,10 @@
-c##
+##
 # This class represents the categories class.
-
 class CategoriesController < ApplicationController
-     
-    def new
-    end 
-    
-    
+    def new; end
     
     def index
-        @categories = Category.all 
+      @categories = Category.all 
     end
    
     ##
@@ -18,7 +13,6 @@ class CategoriesController < ApplicationController
     #
     # If category with required ID is found, 
     # delete the category.
-    
     def destroy
       @category= Category.find(params[:id])
       @category.destroy
@@ -28,9 +22,9 @@ class CategoriesController < ApplicationController
    
     
     def create
-        @category = Category.new(params.require(:category).permit(:name))
-        @category.save
-        redirect_to categories_path
+      @category = Category.new(params.require(:category).permit(:name))
+      @category.save
+      redirect_to categories_path
     end
    
     ##
@@ -39,10 +33,9 @@ class CategoriesController < ApplicationController
     # Gets applications which has the same category_name as the category.
     #
     # Lists all the apps of the same category name.
-   
     def show
-        @category=Category.find(params[:id])
-        @applications = Application.where(:category_name => @category.name)
+      @category=Category.find(params[:id])
+      @applications = Application.where(:category_name => @category.name)
     end
 
 end
