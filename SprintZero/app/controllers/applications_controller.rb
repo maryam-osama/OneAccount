@@ -9,15 +9,16 @@ class ApplicationsController < ApplicationController
    if params[:search]
     @applications = Application.search(params[:search]).order("created_at DESC")
    end
-  end
-  # It returns the articles whose titles contain one or more words that form the query
+   end
+ 
 
-    
-    
     def show
     @application = Application.find(params[:id])
     end
     
+##    
+# Creates a new Notification once the new Application is created   
+
     def create 
         @application = Application.new(application_params)
         @application.publisher_email  = current_user.email
