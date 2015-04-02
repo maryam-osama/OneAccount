@@ -1,7 +1,6 @@
 ##
 # This class represents the categories class.
 class CategoriesController < ApplicationController
-    
     def new; end
     
     def index
