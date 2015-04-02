@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>development.log - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="project-metadata">
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../Gemfile.html">Gemfile</a>
+  
+    <li><a href="../Gemfile_lock.html">Gemfile.lock</a>
+  
+    <li><a href="../README_rdoc.html">README</a>
+  
+    <li><a href="../Rakefile.html">Rakefile</a>
+  
+    <li><a href="../app/assets/javascripts/account_js_coffee.html">account.js.coffee</a>
+  
+    <li><a href="../app/assets/javascripts/application_js.html">application.js</a>
+  
+    <li><a href="../app/assets/javascripts/applications_coffee.html">applications.coffee</a>
+  
+    <li><a href="../app/assets/javascripts/applications_js_coffee.html">applications.js.coffee</a>
+  
+    <li><a href="../app/assets/javascripts/charges_js_coffee.html">charges.js.coffee</a>
+  
+    <li><a href="../app/assets/javascripts/requests_coffee.html">requests.coffee</a>
+  
+    <li><a href="../app/assets/javascripts/requests_js_coffee.html">requests.js.coffee</a>
+  
+    <li><a href="../app/assets/javascripts/welcome_coffee.html">welcome.coffee</a>
+  
+    <li><a href="../app/assets/javascripts/welcome_js_coffee.html">welcome.js.coffee</a>
+  
+    <li><a href="../app/assets/stylesheets/account_css_scss.html">account.css.scss</a>
+  
+    <li><a href="../app/assets/stylesheets/application_css.html">application.css</a>
+  
+    <li><a href="../app/assets/stylesheets/applications_css_scss.html">applications.css.scss</a>
+  
+    <li><a href="../app/assets/stylesheets/applications_scss.html">applications.scss</a>
+  
+    <li><a href="../app/assets/stylesheets/charges_css_scss.html">charges.css.scss</a>
+  
+    <li><a href="../app/assets/stylesheets/requests_css_scss.html">requests.css.scss</a>
+  
+    <li><a href="../app/assets/stylesheets/requests_scss.html">requests.scss</a>
+  
+    <li><a href="../app/assets/stylesheets/welcome_css_scss.html">welcome.css.scss</a>
+  
+    <li><a href="../app/assets/stylesheets/welcome_scss.html">welcome.scss</a>
+  
+    <li><a href="../config_ru.html">config.ru</a>
+  
+    <li><a href="../false.html">false</a>
+  
+    <li><a href="../log/development_log.html">development.log</a>
+  
+    <li><a href="../public/404_html.html">404.html</a>
+  
+    <li><a href="../public/422_html.html">422.html</a>
+  
+    <li><a href="../public/500_html.html">500.html</a>
+  
+    <li><a href="../public/favicon_ico.html">favicon.ico</a>
+  
+    <li><a href="../public/robots_txt.html">robots</a>
+  
+    <li><a href="../spring/0b86a7add42b1ec5cf1c118ae98dbf58_pid.html">0b86a7add42b1ec5cf1c118ae98dbf58.pid</a>
+  
+    <li><a href="../spring/0ba6da04bd79f0efe71cb39d8ae63280_pid.html">0ba6da04bd79f0efe71cb39d8ae63280.pid</a>
+  
+    <li><a href="../spring/6b5c1fccd814dbb51892d43fd668e458_pid.html">6b5c1fccd814dbb51892d43fd668e458.pid</a>
+  
+    <li><a href="../spring/955821a9238c05e11d2e18a59eb73a46_pid.html">955821a9238c05e11d2e18a59eb73a46.pid</a>
+  
+    <li><a href="../spring/ed1e59a0773d6fedecc2c74e8a2db406_pid.html">ed1e59a0773d6fedecc2c74e8a2db406.pid</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page log/development.log">
+
+<p>Started GET “/” for 197.135.234.224 at 2015-03-29 21:51:36 +0000</p>
+
+<p>ActiveRecord::PendingMigrationError (</p>
+
+<p>Migrations are pending. To resolve this issue, run:</p>
+
+<pre>bin/rake db:migrate RAILS_ENV=development</pre>
+
+<p>):</p>
+
+<pre>activerecord (4.1.6) lib/active_record/migration.rb:389:in `check_pending!&#39;
+activerecord (4.1.6) lib/active_record/migration.rb:377:in `call&#39;
+actionpack (4.1.6) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call&#39;
+activesupport (4.1.6) lib/active_support/callbacks.rb:82:in `run_callbacks&#39;
+actionpack (4.1.6) lib/action_dispatch/middleware/callbacks.rb:27:in `call&#39;
+actionpack (4.1.6) lib/action_dispatch/middleware/reloader.rb:73:in `call&#39;
+actionpack (4.1.6) lib/action_dispatch/middleware/remote_ip.rb:76:in `call&#39;
+actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call&#39;
+actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call&#39;
+railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app&#39;
+railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call&#39;
+activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged&#39;
+activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged&#39;
+activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged&#39;
+railties (4.1.6) lib/rails/rack/logger.rb:20:in `call&#39;
+actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call&#39;
+rack (1.5.2) lib/rack/methodoverride.rb:21:in `call&#39;
+rack (1.5.2) lib/rack/runtime.rb:17:in `call&#39;
+activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call&#39;
+rack (1.5.2) lib/rack/lock.rb:17:in `call&#39;
+actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call&#39;
+rack (1.5.2) lib/rack/sendfile.rb:112:in `call&#39;
+railties (4.1.6) lib/rails/engine.rb:514:in `call&#39;
+railties (4.1.6) lib/rails/application.rb:144:in `call&#39;
+rack (1.5.2) lib/rack/lock.rb:17:in `call&#39;
+rack (1.5.2) lib/rack/content_length.rb:14:in `call&#39;
+rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service&#39;
+/usr/local/rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service&#39;
+/usr/local/rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run&#39;
+/usr/local/rvm/rubies/ruby-2.1.5/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread&#39;
+
+Rendered /usr/local/rvm/gems/ruby-2.1.5@rails4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+Rendered /usr/local/rvm/gems/ruby-2.1.5@rails4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+Rendered /usr/local/rvm/gems/ruby-2.1.5@rails4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+Rendered /usr/local/rvm/gems/ruby-2.1.5@rails4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (24.5ms)
+[1m[36m (15.2ms)[0m  [1mCREATE TABLE &quot;schema_migrations&quot; (&quot;version&quot; varchar(255) NOT NULL) [0m
+[1m[35m (0.1ms)[0m  select sqlite_version(*)
+[1m[36m (8.6ms)[0m  [1mCREATE UNIQUE INDEX &quot;unique_schema_migrations&quot; ON &quot;schema_migrations&quot; (&quot;version&quot;)[0m
+[1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;</pre>
+
+<p>Migrating to <a href="../CreatePurchases.html">CreatePurchases</a>
+(20150317205620)</p>
+
+<pre>[1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+[1m[35m (0.4ms)[0m  CREATE TABLE &quot;purchases&quot; (&quot;id&quot; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;user_email&quot; varchar(255), &quot;app_id&quot; integer, &quot;created_at&quot; datetime, &quot;updated_at&quot; datetime) 
+[1m[36mSQL (0.2ms)[0m  [1mINSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)[0m  [[&quot;version&quot;, &quot;20150317205620&quot;]]
+[1m[35m (12.0ms)[0m  commit transaction</pre>
+
+<p>Migrating to <a href="../DeviseCreateUsers.html">DeviseCreateUsers</a>
+(20150318170644)</p>
+
+<pre>[1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+[1m[35m (0.4ms)[0m  CREATE TABLE &quot;users&quot; (&quot;id&quot; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;email&quot; varchar(255) DEFAULT &#39;&#39; NOT NULL, &quot;encrypted_password&quot; varchar(255) DEFAULT &#39;&#39; NOT NULL, &quot;reset_password_token&quot; varchar(255), &quot;reset_password_sent_at&quot; datetime, &quot;remember_created_at&quot; datetime, &quot;sign_in_count&quot; integer DEFAULT 0 NOT NULL, &quot;current_sign_in_at&quot; datetime, &quot;last_sign_in_at&quot; datetime, &quot;current_sign_in_ip&quot; varchar(255), &quot;last_sign_in_ip&quot; varchar(255), &quot;created_at&quot; datetime, &quot;updated_at&quot; datetime) 
+[1m[36m (0.3ms)[0m  [1mCREATE UNIQUE INDEX &quot;index_users_on_email&quot; ON &quot;users&quot; (&quot;email&quot;)[0m
+[1m[35m (0.1ms)[0m              SELECT sql
+          FROM sqlite_master
+          WHERE name=&#39;index_users_on_email&#39; AND type=&#39;index&#39;
+          UNION ALL
+          SELECT sql
+          FROM sqlite_temp_master
+          WHERE name=&#39;index_users_on_email&#39; AND type=&#39;index&#39;
+
+[1m[36m (0.2ms)[0m  [1mCREATE UNIQUE INDEX &quot;index_users_on_reset_password_token&quot; ON &quot;users&quot; (&quot;reset_password_token&quot;)[0m
+[1m[35mSQL (0.2ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20150318170644&quot;]]
+[1m[36m (10.4ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Migrating to <a href="../CreateRequests.html">CreateRequests</a>
+(20150319175307)</p>
+
+<pre>[1m[35m (0.1ms)[0m  begin transaction
+[1m[36m (0.3ms)[0m  [1mCREATE TABLE &quot;requests&quot; (&quot;id&quot; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;user_email&quot; varchar(255), &quot;user_id&quot; integer, &quot;reason&quot; text, &quot;accept&quot; boolean, &quot;created_at&quot; datetime NOT NULL, &quot;updated_at&quot; datetime NOT NULL) [0m
+[1m[35mSQL (0.1ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20150319175307&quot;]]
+[1m[36m (8.4ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Migrating to <a href="../AddPublisherToUsers.html">AddPublisherToUsers</a>
+(20150319175553)</p>
+
+<pre>[1m[35m (0.1ms)[0m  begin transaction
+[1m[36m (0.5ms)[0m  [1mALTER TABLE &quot;users&quot; ADD &quot;publisher&quot; boolean[0m
+[1m[35mSQL (0.1ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20150319175553&quot;]]
+[1m[36m (7.6ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Migrating to <a href="../CreateApplications.html">CreateApplications</a>
+(20150320125146)</p>
+
+<pre>[1m[35m (0.1ms)[0m  begin transaction
+[1m[36m (0.4ms)[0m  [1mCREATE TABLE &quot;applications&quot; (&quot;id&quot; INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, &quot;appname&quot; varchar(255), &quot;description&quot; text, &quot;price&quot; integer, &quot;publisher_email&quot; varchar(255), &quot;created_at&quot; datetime NOT NULL, &quot;updated_at&quot; datetime NOT NULL) [0m
+[1m[35mSQL (0.2ms)[0m  INSERT INTO &quot;schema_migrations&quot; (&quot;version&quot;) VALUES (?)  [[&quot;version&quot;, &quot;20150320125146&quot;]]
+[1m[36m (10.6ms)[0m  [1mcommit transaction[0m
+[1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;
+[1m[36m (0.2ms)[0m  [1m            SELECT sql
+          FROM sqlite_master
+          WHERE name=&#39;index_users_on_reset_password_token&#39; AND type=&#39;index&#39;
+          UNION ALL
+          SELECT sql
+          FROM sqlite_temp_master
+          WHERE name=&#39;index_users_on_reset_password_token&#39; AND type=&#39;index&#39;</pre>
+
+<p>[0m</p>
+
+<pre>[1m[35m (0.1ms)[0m              SELECT sql
+          FROM sqlite_master
+          WHERE name=&#39;index_users_on_email&#39; AND type=&#39;index&#39;
+          UNION ALL
+          SELECT sql
+          FROM sqlite_temp_master
+          WHERE name=&#39;index_users_on_email&#39; AND type=&#39;index&#39;</pre>
+
+<p>Started GET “/” for 197.135.234.224 at 2015-03-29 21:51:58 +0000</p>
+
+<pre>[1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m</pre>
+
+<p>Processing by Devise::SessionsController#new as HTML</p>
+
+<pre>Rendered devise/shared/_links.html.erb (1.3ms)
+Rendered devise/sessions/new.html.erb within layouts/application (38.2ms)</pre>
+
+<p>Completed 200 OK in 2276ms (Views: 2251.1ms | ActiveRecord: 0.5ms)</p>
+
+<p>Started GET “/assets/account.css?body=1” for 197.135.234.224 at 2015-03-29
+21:52:01 +0000</p>
+
+<p>Started GET “/assets/applications.css?body=1” for 197.135.234.224 at
+2015-03-29 21:52:01 +0000</p>
+
+<p>Started GET “/assets/charges.css?body=1” for 197.135.234.224 at 2015-03-29
+21:52:01 +0000</p>
+
+<p>Started GET “/assets/requests.css?body=1” for 197.135.234.224 at 2015-03-29
+21:52:01 +0000</p>
+
+<p>Started GET “/assets/welcome.css?body=1” for 197.135.234.224 at 2015-03-29
+21:52:01 +0000</p>
+
+<p>Started GET “/assets/application.css?body=1” for 197.135.234.224 at
+2015-03-29 21:52:01 +0000</p>
+
+<p>Started GET “/assets/requests.js?body=1” for 197.135.234.224 at 2015-03-29
+21:52:02 +0000</p>
+
+<p>Started GET “/assets/welcome.js?body=1” for 197.135.234.224 at 2015-03-29
+21:52:02 +0000</p>
+
+<p>Started GET “/assets/jquery_ujs.js?body=1” for 197.135.234.224 at
+2015-03-29 21:52:02 +0000</p>
+
+<p>Started GET “/assets/jquery.js?body=1” for 197.135.234.224 at 2015-03-29
+21:52:03 +0000</p>
+
+<p>Started GET “/assets/account.js?body=1” for 197.135.234.224 at 2015-03-29
+21:52:03 +0000</p>
+
+<p>Started GET “/assets/application.js?body=1” for 197.135.234.224 at
+2015-03-29 21:52:03 +0000</p>
+
+<p>Started GET “/assets/applications.js?body=1” for 197.135.234.224 at
+2015-03-29 21:52:04 +0000</p>
+
+<p>Started GET “/assets/turbolinks.js?body=1” for 197.135.234.224 at
+2015-03-29 21:52:04 +0000</p>
+
+<p>Started GET “/assets/charges.js?body=1” for 197.135.234.224 at 2015-03-29
+21:52:04 +0000</p>
+
+<p>Started GET “/users/sign_up” for 197.135.234.224 at 2015-03-29 21:52:08
++0000 Processing by Devise::RegistrationsController#new as HTML</p>
+
+<pre>Rendered devise/shared/_links.html.erb (0.5ms)
+Rendered devise/registrations/new.html.erb within layouts/application (4.5ms)</pre>
+
+<p>Completed 200 OK in 85ms (Views: 83.4ms | ActiveRecord: 0.0ms)</p>
+
+<p>Started POST “/users” for 197.135.234.224 at 2015-03-29 21:52:25 +0000
+Processing by Devise::RegistrationsController#create as HTML</p>
+
+<pre>Parameters: {&quot;utf8&quot;=&gt;&quot;✓&quot;, &quot;authenticity_token&quot;=&gt;&quot;29fz8srmfJ6Cqhpfv877O334q/IUUlH3lFEqrVF9cGA=&quot;, &quot;user&quot;=&gt;{&quot;email&quot;=&gt;&quot;khadija@hotmail.com&quot;, &quot;password&quot;=&gt;&quot;[FILTERED]&quot;, &quot;password_confirmation&quot;=&gt;&quot;[FILTERED]&quot;}, &quot;commit&quot;=&gt;&quot;Sign up&quot;}
+[1m[35m (0.1ms)[0m  begin transaction
+[1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;email&quot; = &#39;khadija@hotmail.com&#39; LIMIT 1[0m</pre>
+
+<p>Binary data inserted for `string` type on column `encrypted_password`</p>
+
+<pre>[1m[35mSQL (0.4ms)[0m  INSERT INTO &quot;users&quot; (&quot;created_at&quot;, &quot;email&quot;, &quot;encrypted_password&quot;, &quot;updated_at&quot;) VALUES (?, ?, ?, ?)  [[&quot;created_at&quot;, &quot;2015-03-29 21:52:26.016308&quot;], [&quot;email&quot;, &quot;khadija@hotmail.com&quot;], [&quot;encrypted_password&quot;, &quot;$2a$10$xCnM93MyqfymyhU0CahpIuotfj4JSGvCuPSh5jOTkNHOvwF2vI0SG&quot;], [&quot;updated_at&quot;, &quot;2015-03-29 21:52:26.016308&quot;]]
+[1m[36m (11.4ms)[0m  [1mcommit transaction[0m
+[1m[35m (0.1ms)[0m  begin transaction</pre>
+
+<p>Binary data inserted for `string` type on column `current_sign_in_ip`
+Binary data inserted for `string` type on column `last_sign_in_ip`</p>
+
+<pre>[1m[36mSQL (0.4ms)[0m  [1mUPDATE &quot;users&quot; SET &quot;current_sign_in_at&quot; = ?, &quot;current_sign_in_ip&quot; = ?, &quot;last_sign_in_at&quot; = ?, &quot;last_sign_in_ip&quot; = ?, &quot;sign_in_count&quot; = ?, &quot;updated_at&quot; = ? WHERE &quot;users&quot;.&quot;id&quot; = 1[0m  [[&quot;current_sign_in_at&quot;, &quot;2015-03-29 21:52:26.032668&quot;], [&quot;current_sign_in_ip&quot;, &quot;197.135.234.224&quot;], [&quot;last_sign_in_at&quot;, &quot;2015-03-29 21:52:26.032668&quot;], [&quot;last_sign_in_ip&quot;, &quot;197.135.234.224&quot;], [&quot;sign_in_count&quot;, 1], [&quot;updated_at&quot;, &quot;2015-03-29 21:52:26.033890&quot;]]
+[1m[35m (9.1ms)[0m  commit transaction</pre>
+
+<p>Redirected to <a
+href="https://demo-khadijaibrahim.c9.io/welcome/homepage">demo-khadijaibrahim.c9.io/welcome/homepage</a>
+Completed 302 Found in 125ms (ActiveRecord: 21.7ms)</p>
+
+<p>Started GET “/welcome/homepage” for 197.135.234.224 at 2015-03-29 21:52:26
++0000 Processing by <a
+href="../WelcomeController.html#method-i-homepage">WelcomeController#homepage</a>
+as HTML</p>
+
+<pre>[1m[36mUser Load (0.3ms)[0m  [1mSELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = 1  ORDER BY &quot;users&quot;.&quot;id&quot; ASC LIMIT 1[0m
+Rendered welcome/homepage.html.erb within layouts/application (8.5ms)</pre>
+
+<p>Completed 200 OK in 91ms (Views: 89.9ms | ActiveRecord: 0.3ms)</p>
+
+<p>Started GET “/assets/account.css?body=1” for 197.135.234.224 at 2015-03-29
+21:52:31 +0000</p>
+
+<p>Started GET “/assets/applications.css?body=1” for 197.135.234.224 at
+2015-03-29 21:52:31 +0000</p>
+
+<p>Started GET “/assets/charges.css?body=1” for 197.135.234.224 at 2015-03-29
+21:52:31 +0000</p>
+
+<p>Started GET “/assets/requests.css?body=1” for 197.135.234.224 at 2015-03-29
+21:52:31 +0000</p>
+
+<p>Started GET “/assets/welcome.css?body=1” for 197.135.234.224 at 2015-03-29
+21:52:31 +0000</p>
+
+<p>Started GET “/assets/jquery.js?body=1” for 197.135.234.224 at 2015-03-29
+21:52:31 +0000</p>
+
+<p>Started GET “/assets/jquery_ujs.js?body=1” for 197.135.234.224 at
+2015-03-29 21:52:31 +0000</p>
+
+<p>Started GET “/assets/turbolinks.js?body=1” for 197.135.234.224 at
+2015-03-29 21:52:31 +0000</p>
+
+<p>Started GET “/assets/account.js?body=1” for 197.135.234.224 at 2015-03-29
+21:52:31 +0000</p>
+
+<p>Started GET “/assets/applications.js?body=1” for 197.135.234.224 at
+2015-03-29 21:52:31 +0000</p>
+
+<p>Started GET “/assets/application.css?body=1” for 197.135.234.224 at
+2015-03-29 21:52:31 +0000</p>
+
+<p>Started GET “/assets/charges.js?body=1” for 197.135.234.224 at 2015-03-29
+21:52:31 +0000</p>
+
+<p>Started GET “/assets/requests.js?body=1” for 197.135.234.224 at 2015-03-29
+21:52:31 +0000</p>
+
+<p>Started GET “/assets/welcome.js?body=1” for 197.135.234.224 at 2015-03-29
+21:52:31 +0000</p>
+
+<p>Started GET “/assets/application.js?body=1” for 197.135.234.224 at
+2015-03-29 21:52:31 +0000</p>
+
+<p>Started GET “/requests/new” for 197.135.234.224 at 2015-03-29 21:52:33
++0000 Processing by <a
+href="../RequestsController.html#method-i-new">RequestsController#new</a>
+as HTML</p>
+
+<pre>[1m[35mUser Load (0.2ms)[0m  SELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = 1  ORDER BY &quot;users&quot;.&quot;id&quot; ASC LIMIT 1
+Rendered requests/new.html.erb within layouts/application (7.7ms)</pre>
+
+<p>Completed 200 OK in 86ms (Views: 82.6ms | ActiveRecord: 0.7ms)</p>
+
+<p>Started POST “/requests” for 197.135.234.224 at 2015-03-29 21:52:47 +0000
+Processing by <a
+href="../RequestsController.html#method-i-create">RequestsController#create</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;utf8&quot;=&gt;&quot;✓&quot;, &quot;authenticity_token&quot;=&gt;&quot;29fz8srmfJ6Cqhpfv877O334q/IUUlH3lFEqrVF9cGA=&quot;, &quot;request&quot;=&gt;{&quot;reason&quot;=&gt;&quot;want to be a publisher&quot;, &quot;user_email&quot;=&gt;&quot;khadija@hotmail.com&quot;}, &quot;commit&quot;=&gt;&quot;Save Request&quot;}
+[1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+[1m[35mSQL (0.5ms)[0m  INSERT INTO &quot;requests&quot; (&quot;created_at&quot;, &quot;reason&quot;, &quot;updated_at&quot;, &quot;user_email&quot;) VALUES (?, ?, ?, ?)  [[&quot;created_at&quot;, &quot;2015-03-29 21:52:47.391959&quot;], [&quot;reason&quot;, &quot;want to be a publisher&quot;], [&quot;updated_at&quot;, &quot;2015-03-29 21:52:47.391959&quot;], [&quot;user_email&quot;, &quot;khadija@hotmail.com&quot;]]
+[1m[36m (9.6ms)[0m  [1mcommit transaction[0m</pre>
+
+<p>Redirected to <a
+href="https://demo-khadijaibrahim.c9.io/welcome/homepage">demo-khadijaibrahim.c9.io/welcome/homepage</a>
+Completed 302 Found in 14ms (ActiveRecord: 10.2ms)</p>
+
+<p>Started GET “/welcome/homepage” for 197.135.234.224 at 2015-03-29 21:52:47
++0000 Processing by <a
+href="../WelcomeController.html#method-i-homepage">WelcomeController#homepage</a>
+as HTML</p>
+
+<pre>[1m[35mUser Load (0.3ms)[0m  SELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = 1  ORDER BY &quot;users&quot;.&quot;id&quot; ASC LIMIT 1
+Rendered welcome/homepage.html.erb within layouts/application (1.8ms)</pre>
+
+<p>Completed 200 OK in 73ms (Views: 71.9ms | ActiveRecord: 0.3ms)</p>
+
+<p>Started GET “/assets/account.css?body=1” for 197.135.234.224 at 2015-03-29
+21:52:48 +0000</p>
+
+<p>Started GET “/assets/applications.css?body=1” for 197.135.234.224 at
+2015-03-29 21:52:48 +0000</p>
+
+<p>Started GET “/assets/charges.css?body=1” for 197.135.234.224 at 2015-03-29
+21:52:48 +0000</p>
+
+<p>Started GET “/assets/requests.css?body=1” for 197.135.234.224 at 2015-03-29
+21:52:48 +0000</p>
+
+<p>Started GET “/assets/welcome.css?body=1” for 197.135.234.224 at 2015-03-29
+21:52:48 +0000</p>
+
+<p>Started GET “/assets/application.css?body=1” for 197.135.234.224 at
+2015-03-29 21:52:48 +0000</p>
+
+<p>Started GET “/assets/jquery.js?body=1” for 197.135.234.224 at 2015-03-29
+21:52:48 +0000</p>
+
+<p>Started GET “/assets/jquery_ujs.js?body=1” for 197.135.234.224 at
+2015-03-29 21:52:48 +0000</p>
+
+<p>Started GET “/assets/turbolinks.js?body=1” for 197.135.234.224 at
+2015-03-29 21:52:48 +0000</p>
+
+<p>Started GET “/assets/applications.js?body=1” for 197.135.234.224 at
+2015-03-29 21:52:48 +0000</p>
+
+<p>Started GET “/assets/account.js?body=1” for 197.135.234.224 at 2015-03-29
+21:52:48 +0000</p>
+
+<p>Started GET “/assets/charges.js?body=1” for 197.135.234.224 at 2015-03-29
+21:52:48 +0000</p>
+
+<p>Started GET “/assets/welcome.js?body=1” for 197.135.234.224 at 2015-03-29
+21:52:48 +0000</p>
+
+<p>Started GET “/assets/requests.js?body=1” for 197.135.234.224 at 2015-03-29
+21:52:48 +0000</p>
+
+<p>Started GET “/assets/application.js?body=1” for 197.135.234.224 at
+2015-03-29 21:52:48 +0000</p>
+
+<p>Started GET “/requests/index” for 197.135.234.224 at 2015-03-29 21:53:03
++0000 Processing by <a
+href="../RequestsController.html#method-i-index">RequestsController#index</a>
+as HTML</p>
+
+<pre>[1m[36mRequest Load (0.2ms)[0m  [1mSELECT &quot;requests&quot;.* FROM &quot;requests&quot;[0m
+Rendered requests/index.html.erb within layouts/application (2.9ms)
+[1m[35mUser Load (0.3ms)[0m  SELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = 1  ORDER BY &quot;users&quot;.&quot;id&quot; ASC LIMIT 1</pre>
+
+<p>Completed 200 OK in 85ms (Views: 83.4ms | ActiveRecord: 0.5ms)</p>
+
+<p>Started GET “/assets/account.css?body=1” for 197.135.234.224 at 2015-03-29
+21:53:03 +0000</p>
+
+<p>Started GET “/assets/applications.css?body=1” for 197.135.234.224 at
+2015-03-29 21:53:03 +0000</p>
+
+<p>Started GET “/assets/charges.css?body=1” for 197.135.234.224 at 2015-03-29
+21:53:03 +0000</p>
+
+<p>Started GET “/assets/requests.css?body=1” for 197.135.234.224 at 2015-03-29
+21:53:03 +0000</p>
+
+<p>Started GET “/assets/welcome.css?body=1” for 197.135.234.224 at 2015-03-29
+21:53:04 +0000</p>
+
+<p>Started GET “/assets/application.css?body=1” for 197.135.234.224 at
+2015-03-29 21:53:04 +0000</p>
+
+<p>Started GET “/assets/jquery.js?body=1” for 197.135.234.224 at 2015-03-29
+21:53:04 +0000</p>
+
+<p>Started GET “/assets/jquery_ujs.js?body=1” for 197.135.234.224 at
+2015-03-29 21:53:04 +0000</p>
+
+<p>Started GET “/assets/account.js?body=1” for 197.135.234.224 at 2015-03-29
+21:53:04 +0000</p>
+
+<p>Started GET “/assets/turbolinks.js?body=1” for 197.135.234.224 at
+2015-03-29 21:53:04 +0000</p>
+
+<p>Started GET “/assets/applications.js?body=1” for 197.135.234.224 at
+2015-03-29 21:53:04 +0000</p>
+
+<p>Started GET “/assets/charges.js?body=1” for 197.135.234.224 at 2015-03-29
+21:53:04 +0000</p>
+
+<p>Started GET “/assets/requests.js?body=1” for 197.135.234.224 at 2015-03-29
+21:53:04 +0000</p>
+
+<p>Started GET “/assets/welcome.js?body=1” for 197.135.234.224 at 2015-03-29
+21:53:04 +0000</p>
+
+<p>Started GET “/assets/application.js?body=1” for 197.135.234.224 at
+2015-03-29 21:53:04 +0000</p>
+
+<p>Started DELETE “/requests/1?number=1” for 197.135.234.224 at 2015-03-29
+21:53:06 +0000 Processing by <a
+href="../RequestsController.html#method-i-destroy">RequestsController#destroy</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;authenticity_token&quot;=&gt;&quot;29fz8srmfJ6Cqhpfv877O334q/IUUlH3lFEqrVF9cGA=&quot;, &quot;number&quot;=&gt;&quot;1&quot;, &quot;id&quot;=&gt;&quot;1&quot;}
+[1m[36mRequest Load (0.2ms)[0m  [1mSELECT  &quot;requests&quot;.* FROM &quot;requests&quot;  WHERE &quot;requests&quot;.&quot;id&quot; = ? LIMIT 1[0m  [[&quot;id&quot;, 1]]
+[1m[35mUser Load (0.2ms)[0m  SELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;email&quot; = &#39;khadija@hotmail.com&#39; LIMIT 1
+[1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+[1m[35mSQL (0.2ms)[0m  DELETE FROM &quot;requests&quot; WHERE &quot;requests&quot;.&quot;id&quot; = ?  [[&quot;id&quot;, 1]]
+[1m[36m (8.8ms)[0m  [1mcommit transaction[0m
+[1m[35m (0.1ms)[0m  begin transaction
+[1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+[1m[35m (0.1ms)[0m  begin transaction
+[1m[36mSQL (0.3ms)[0m  [1mUPDATE &quot;users&quot; SET &quot;publisher&quot; = ?, &quot;updated_at&quot; = ? WHERE &quot;users&quot;.&quot;id&quot; = 1[0m  [[&quot;publisher&quot;, &quot;t&quot;], [&quot;updated_at&quot;, &quot;2015-03-29 21:53:06.076719&quot;]]
+[1m[35m (6.7ms)[0m  commit transaction</pre>
+
+<p>Redirected to <a
+href="https://demo-khadijaibrahim.c9.io/requests">demo-khadijaibrahim.c9.io/requests</a>
+Completed 302 Found in 22ms (ActiveRecord: 16.7ms)</p>
+
+<p>Started GET “/requests” for 197.135.234.224 at 2015-03-29 21:53:06 +0000
+Processing by <a
+href="../RequestsController.html#method-i-index">RequestsController#index</a>
+as HTML</p>
+
+<pre>[1m[36mRequest Load (0.4ms)[0m  [1mSELECT &quot;requests&quot;.* FROM &quot;requests&quot;[0m
+Rendered requests/index.html.erb within layouts/application (0.8ms)
+[1m[35mUser Load (0.3ms)[0m  SELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = 1  ORDER BY &quot;users&quot;.&quot;id&quot; ASC LIMIT 1</pre>
+
+<p>Completed 200 OK in 70ms (Views: 68.3ms | ActiveRecord: 0.6ms)</p>
+
+<p>Started GET “/assets/account.css?body=1” for 197.135.234.224 at 2015-03-29
+21:53:06 +0000</p>
+
+<p>Started GET “/assets/charges.css?body=1” for 197.135.234.224 at 2015-03-29
+21:53:06 +0000</p>
+
+<p>Started GET “/assets/applications.css?body=1” for 197.135.234.224 at
+2015-03-29 21:53:06 +0000</p>
+
+<p>Started GET “/assets/requests.css?body=1” for 197.135.234.224 at 2015-03-29
+21:53:06 +0000</p>
+
+<p>Started GET “/assets/welcome.css?body=1” for 197.135.234.224 at 2015-03-29
+21:53:06 +0000</p>
+
+<p>Started GET “/assets/application.css?body=1” for 197.135.234.224 at
+2015-03-29 21:53:06 +0000</p>
+
+<p>Started GET “/assets/jquery.js?body=1” for 197.135.234.224 at 2015-03-29
+21:53:06 +0000</p>
+
+<p>Started GET “/assets/jquery_ujs.js?body=1” for 197.135.234.224 at
+2015-03-29 21:53:06 +0000</p>
+
+<p>Started GET “/assets/turbolinks.js?body=1” for 197.135.234.224 at
+2015-03-29 21:53:07 +0000</p>
+
+<p>Started GET “/assets/account.js?body=1” for 197.135.234.224 at 2015-03-29
+21:53:07 +0000</p>
+
+<p>Started GET “/assets/applications.js?body=1” for 197.135.234.224 at
+2015-03-29 21:53:07 +0000</p>
+
+<p>Started GET “/assets/charges.js?body=1” for 197.135.234.224 at 2015-03-29
+21:53:07 +0000</p>
+
+<p>Started GET “/assets/requests.js?body=1” for 197.135.234.224 at 2015-03-29
+21:53:07 +0000</p>
+
+<p>Started GET “/assets/welcome.js?body=1” for 197.135.234.224 at 2015-03-29
+21:53:07 +0000</p>
+
+<p>Started GET “/assets/application.js?body=1” for 197.135.234.224 at
+2015-03-29 21:53:07 +0000</p>
+
+<p>Started GET “/” for 197.135.234.224 at 2015-03-29 21:53:12 +0000 Processing
+by Devise::SessionsController#new as HTML</p>
+
+<pre>[1m[36mUser Load (0.3ms)[0m  [1mSELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = 1  ORDER BY &quot;users&quot;.&quot;id&quot; ASC LIMIT 1[0m</pre>
+
+<p>Redirected to <a
+href="https://demo-khadijaibrahim.c9.io/welcome/homepage">demo-khadijaibrahim.c9.io/welcome/homepage</a>
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.3ms)</p>
+
+<p>Started GET “/welcome/homepage” for 197.135.234.224 at 2015-03-29 21:53:13
++0000 Processing by <a
+href="../WelcomeController.html#method-i-homepage">WelcomeController#homepage</a>
+as HTML</p>
+
+<pre>[1m[35mUser Load (0.3ms)[0m  SELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = 1  ORDER BY &quot;users&quot;.&quot;id&quot; ASC LIMIT 1
+Rendered welcome/homepage.html.erb within layouts/application (15.2ms)</pre>
+
+<p>Completed 500 Internal Server Error in 26ms</p>
+
+<p>ActionView::Template::Error (undefined local variable or method
+`applications_myapps_url&#39; for
+#&lt;#&lt;Class:0x00000003ea9130&gt;:0x000000019b8588&gt;):</p>
+
+<pre>  2: 
+  3: &lt;% if current_user.try(:publisher?) %&gt; 
+  4: &lt;%= link_to &#39;Add Application&#39;, new_application_path %&gt;
+  5: &lt;%= link_to &#39;View MyApps&#39;, applications_myapps_url %&gt;
+  6: &lt;% end %&gt;
+  7: 
+  8: &lt;% if current_user.email == &quot;maryam.osama@gmail.com&quot; %&gt; 
+app/views/welcome/homepage.html.erb:5:in `_app_views_welcome_homepage_html_erb__4186731645210512563_32824700&#39;
+
+Rendered /usr/local/rvm/gems/ruby-2.1.5@rails4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+Rendered /usr/local/rvm/gems/ruby-2.1.5@rails4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+Rendered /usr/local/rvm/gems/ruby-2.1.5@rails4/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (17.9ms)</pre>
+
+<p>Started GET “/” for 197.135.234.224 at 2015-03-29 21:54:06 +0000 Processing
+by Devise::SessionsController#new as HTML</p>
+
+<pre>[1m[36mUser Load (0.3ms)[0m  [1mSELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = 1  ORDER BY &quot;users&quot;.&quot;id&quot; ASC LIMIT 1[0m</pre>
+
+<p>Redirected to <a
+href="https://demo-khadijaibrahim.c9.io/welcome/homepage">demo-khadijaibrahim.c9.io/welcome/homepage</a>
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 10ms (ActiveRecord: 1.2ms)</p>
+
+<p>Started GET “/welcome/homepage” for 197.135.234.224 at 2015-03-29 21:54:06
++0000 Processing by <a
+href="../WelcomeController.html#method-i-homepage">WelcomeController#homepage</a>
+as HTML</p>
+
+<pre>[1m[35mUser Load (0.2ms)[0m  SELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = 1  ORDER BY &quot;users&quot;.&quot;id&quot; ASC LIMIT 1
+Rendered welcome/homepage.html.erb within layouts/application (2.0ms)</pre>
+
+<p>Completed 200 OK in 85ms (Views: 84.2ms | ActiveRecord: 0.2ms)</p>
+
+<p>Started GET “/assets/account.css?body=1” for 197.135.234.224 at 2015-03-29
+21:54:06 +0000</p>
+
+<p>Started GET “/assets/welcome.css?body=1” for 197.135.234.224 at 2015-03-29
+21:54:06 +0000</p>
+
+<p>Started GET “/assets/charges.css?body=1” for 197.135.234.224 at 2015-03-29
+21:54:06 +0000</p>
+
+<p>Started GET “/assets/applications.css?body=1” for 197.135.234.224 at
+2015-03-29 21:54:06 +0000</p>
+
+<p>Started GET “/assets/requests.css?body=1” for 197.135.234.224 at 2015-03-29
+21:54:06 +0000</p>
+
+<p>Started GET “/assets/application.css?body=1” for 197.135.234.224 at
+2015-03-29 21:54:06 +0000</p>
+
+<p>Started GET “/assets/jquery.js?body=1” for 197.135.234.224 at 2015-03-29
+21:54:06 +0000</p>
+
+<p>Started GET “/assets/jquery_ujs.js?body=1” for 197.135.234.224 at
+2015-03-29 21:54:07 +0000</p>
+
+<p>Started GET “/assets/account.js?body=1” for 197.135.234.224 at 2015-03-29
+21:54:07 +0000</p>
+
+<p>Started GET “/assets/turbolinks.js?body=1” for 197.135.234.224 at
+2015-03-29 21:54:07 +0000</p>
+
+<p>Started GET “/assets/applications.js?body=1” for 197.135.234.224 at
+2015-03-29 21:54:07 +0000</p>
+
+<p>Started GET “/assets/charges.js?body=1” for 197.135.234.224 at 2015-03-29
+21:54:07 +0000</p>
+
+<p>Started GET “/assets/welcome.js?body=1” for 197.135.234.224 at 2015-03-29
+21:54:07 +0000</p>
+
+<p>Started GET “/assets/requests.js?body=1” for 197.135.234.224 at 2015-03-29
+21:54:07 +0000</p>
+
+<p>Started GET “/assets/application.js?body=1” for 197.135.234.224 at
+2015-03-29 21:54:07 +0000</p>
+
+<p>Started GET “/applications/myapps” for 197.135.234.224 at 2015-03-29
+21:54:09 +0000 Processing by <a
+href="../ApplicationsController.html#method-i-myapps">ApplicationsController#myapps</a>
+as HTML</p>
+
+<pre>[1m[36mUser Load (0.3ms)[0m  [1mSELECT  &quot;users&quot;.* FROM &quot;users&quot;  WHERE &quot;users&quot;.&quot;id&quot; = 1  ORDER BY &quot;users&quot;.&quot;id&quot; ASC LIMIT 1[0m
+[1m[35mApplication Load (0.2ms)[0m  SELECT &quot;applications&quot;.* FROM &quot;applications&quot;  WHERE &quot;applications&quot;.&quot;publisher_email&quot; = &#39;khadija@hotmail.com&#39;
+Rendered applications/myapps.html.erb within layouts/application (1.6ms)</pre>
+
+<p>Completed 200 OK in 82ms (Views: 76.7ms | ActiveRecord: 0.8ms)</p>
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
