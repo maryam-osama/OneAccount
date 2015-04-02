@@ -2,8 +2,7 @@
 # This is a class of purchases.
 class PurchasesController < ApplicationController
      ##
-     # It has method saves all
-     # the application names purchased by
+     # Saves all the application names purchased by
      # the user who logged in which
      # will be listed in the view.
      def index
