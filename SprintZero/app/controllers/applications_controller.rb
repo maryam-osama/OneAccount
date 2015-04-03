@@ -24,7 +24,7 @@ class ApplicationsController < ApplicationController
     # This method requests an application with an id
     # from application model
     #
-    # if application with required id is found,
+    # If application with required id is found,
     # delete app
     # 
     # Go back to the homepage
