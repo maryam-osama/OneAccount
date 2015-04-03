@@ -12,8 +12,6 @@ class CategoriesController < ApplicationController
           @category.save
   redirect_to categories_path
      end
-    ## 
-    # Finds a specific category by it's id and saves it in a variable 
      def show
          @category = Category.find(params[:id])
      end
