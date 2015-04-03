@@ -20,14 +20,17 @@ class ApplicationsController < ApplicationController
      @application.save
      redirect_to @application
     end
-    
+    ##
+    # Destroy linked to the delete method
+    #functions to delete the app
+    #go back to homepage
    def destroy
      @application = Application.find(params[:id])
      @application.destroy
      @application.save
      redirect_to welcome_homepage_url
    end 
-   # Method destroy linked to the delete method and functions to go back to homepage which delete the app
+  
    
    private
      def application_params
