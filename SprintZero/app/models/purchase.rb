@@ -1,2 +1,1 @@
-class Purchase < ActiveRecord::Base
-end
+  class Purchase < ActiveRecord::Base; end
