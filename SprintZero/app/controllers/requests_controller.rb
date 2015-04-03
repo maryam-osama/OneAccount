@@ -1,10 +1,10 @@
 class RequestsController < ApplicationController
   def index
-    @requests=Request.all
+    @requests = Request.all
   end
     
   def show
-    @request=Request.find(params[:id])
+    @request = Request.find(params[:id])
   end
     
   def new
@@ -21,10 +21,10 @@ class RequestsController < ApplicationController
     @request = Request.find(params[:id])
     @request.destroy
     @request.save
-    if  params[:number] == "1"
-    current_user.publisher = true
-    @current_user.save
-    end
+      if  params[:number] == "1"
+      current_user.publisher = true
+      @current_user.save
+      end
     redirect_to requests_path
   end
 
