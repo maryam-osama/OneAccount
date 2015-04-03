@@ -3,7 +3,7 @@ class ApplicationsController < ApplicationController
     
   def index
     if params[:search]
-      @applications = Application.search(params[:search]).order("created_at DESC")
+    @applications = Application.search(params[:search]).order("created_at DESC")
     end
   end
  
