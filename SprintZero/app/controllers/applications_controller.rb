@@ -1,6 +1,5 @@
 class ApplicationsController < ApplicationController
-    def new 
-    end
+    def new; end
     
    def index
      if params[:search]
@@ -37,9 +36,9 @@ class ApplicationsController < ApplicationController
   
    
    private
-     def application_params
+   def application_params
        params.require(:application).permit(:appname, :description, :price)
-     end
+   end
      
 end
     
