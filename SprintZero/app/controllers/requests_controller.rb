@@ -22,10 +22,9 @@ class RequestsController < ApplicationController
       @user = User.where(email: @request.user_email).take
       @request.destroy
       @request.save
-  
       if params[:number] == "1"
-        @user.publisher = true
-        @user.save
+      @user.publisher = true
+      @user.save
       end
       redirect_to requests_path
     end
