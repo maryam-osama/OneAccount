@@ -1,29 +1,29 @@
 class ApplicationsController < ApplicationController
-    def new; end
+  def new; end
     
-    def index
-      if params[:search]
-       @applications = Application.search(params[:search]).order("created_at DESC")
-      end
+  def index
+    if params[:search]
+    @applications = Application.search(params[:search]).order("created_at DESC")
     end
+  end
    
-     # a method for viewing my purchases
-     def show
-     @application = Application.find(params[:id])
-     end
+  # a method for viewing my purchases
+  def show
+    @application = Application.find(params[:id])
+  end
     
-     def create 
-        @application = Application.new(application_params)
-        @application.save
-        @application.publisher_email  = current_user.email
-        @application.save
-        redirect_to @application
-     end
+  def create 
+    @application = Application.new(application_params)
+    @application.save
+    @application.publisher_email  = current_user.email
+    @application.save
+    redirect_to @application
+  end
     
-     private
-     def application_params
-     params.require(:application).permit(:appname, :description, :price)
-     end
+  private
+  def application_params
+    params.require(:application).permit(:appname, :description, :price)
+  end
      
 end
     

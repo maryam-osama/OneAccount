@@ -1,23 +1,23 @@
 class RequestsController < ApplicationController
-    def index
-        @requests=Request.all
-    end
+  def index
+    @requests=Request.all
+  end
     
-    def show
-        @request=Request.find(params[:id])
-    end
+  def show
+    @request=Request.find(params[:id])
+  end
     
-    def new
+  def new
     @request = Request.new
-    end
+  end
    
-    def create
+  def create
     @request = Request.new(requests_params)
     @request.save
     redirect_to welcome_homepage_url
-    end
+  end
    
-    def destroy
+  def destroy
     @request = Request.find(params[:id])
     @request.destroy
     @request.save
@@ -26,11 +26,11 @@ class RequestsController < ApplicationController
     @current_user.save
     end
     redirect_to requests_path
-    end
+  end
 
-    private
-    def requests_params
+  private
+  def requests_params
     params.require(:request).permit(:reason, :user_email)
-    end
+  end
  
 end
