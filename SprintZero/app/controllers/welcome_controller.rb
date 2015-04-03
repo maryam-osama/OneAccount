@@ -1,7 +1,6 @@
-class WelcomeController < ApplicationController
- def homepage
-  end
+  class WelcomeController < ApplicationController
+  def homepage; end
   
-   def index
-   end
-end
+  def index; end
+   
+  end
