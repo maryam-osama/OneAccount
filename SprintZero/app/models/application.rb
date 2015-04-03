@@ -1,7 +1,6 @@
 class Application < ActiveRecord::Base
-	
-def self.search(query)
+ def self.search(query)
    where("appname like ?", "%#{query}%") 
-end
+ end
 
 end
