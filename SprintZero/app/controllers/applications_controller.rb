@@ -16,13 +16,12 @@ class ApplicationsController < ApplicationController
 
 
 ##
-#This Method requests an application with a specific id
+# This Method requests an application with a specific id
 #
-#If applications with the required id is found
+# If applications with the required id is found,
+# delete app
 #
-#delete app
-#
-#go back to homepage
+# Go back to homepage
     def destroy
         
   @Applications = Application.find(params[:id])
