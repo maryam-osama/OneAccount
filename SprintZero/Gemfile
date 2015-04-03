@@ -34,5 +34,5 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 gem 'devise'
-
+gem 'rdoc','~> 4.2.0'
 gem 'stripe',:git => 'https://github.com/stripe/stripe-ruby'
