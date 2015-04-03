@@ -21,9 +21,13 @@ class ApplicationsController < ApplicationController
      redirect_to @application
     end
     ##
-    # Destroy linked to the delete method
-    #functions to delete the app
-    #go back to homepage
+    # This method requests an application with an id
+    # from application model
+    #
+    # if application with required id is found,
+    # delete app
+    # 
+    # Go back to the homepage
    def destroy
      @application = Application.find(params[:id])
      @application.destroy
