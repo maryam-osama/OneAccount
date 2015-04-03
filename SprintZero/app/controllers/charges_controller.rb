@@ -1,7 +1,6 @@
 class ChargesController < ApplicationController
     
-    def new
-    end
+    def new;end
 
   def create
   
@@ -9,26 +8,15 @@ class ChargesController < ApplicationController
     
     @amount = params[:number]   
 
-    customer = Stripe::Customer.create(
-    email: 'example@stripe.com',
-    card: params[:stripeToken]
-  )
+    customer = Stripe::Customer.create(email: 'example@stripe.com',card: params[:stripeToken])
 
-    charge = Stripe::Charge.create(
-    customer: customer.id,
-    
-    amount:   @amount ,
-    
-    description: 'Rails Stripe customer',
-    
-    currency: 'usd'
-  )
+    charge = Stripe::Charge.create(customer: customer.id,amount:   @amount ,description: 'Rails Stripe customer',currency: 'usd')
   
-   @purchase =Purchase.new
+   @purchase = Purchase.new
    
    @purchase.user_email = current_user.email
    
-   @purchase.app_id =params[:application]
+   @purchase.app_id = params[:application]
    
    @purchase.save
   
