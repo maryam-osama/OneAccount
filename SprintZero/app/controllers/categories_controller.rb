@@ -6,7 +6,7 @@
   def new; end
   
   def index
-  @categories = Category.all 
+    @categories = Category.all 
   end
   
   ##  
@@ -15,13 +15,13 @@
   #
   # it redirects user to the list of categories
   def create
-  @category = Category.new(params.require(:category).permit(:name))
-  @category.save
-  redirect_to categories_path
+    @category = Category.new(params.require(:category).permit(:name))
+    @category.save
+    redirect_to categories_path
   end
   
   def show
-  @category = Category.find(params[:id])
+    @category = Category.find(params[:id])
   end
   
   end
