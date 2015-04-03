@@ -1,8 +1,7 @@
  ## 
  #This is class of applications
 class ApplicationsController < ApplicationController
-    def new 
-    end
+    def new; end
     
     ## 
     #This method lists all the publisher's app
@@ -13,16 +12,14 @@ class ApplicationsController < ApplicationController
     # and views the appname of this applications
     
     def myapps
-         @applications = Application.where( publisher_email: current_user.email)
+      @applications = Application.where(publisher_email: current_user.email)
     end
     
    def index
 
-       if params[:search]
+       params[:search]&&@applications = Application.search(params[:search]).order("created_at DESC")
        
-       @applications = Application.search(params[:search]).order("created_at DESC")
-       
-       end
+      
    end
   # It returns the articles whose titles contain one or more words that form the query
 
