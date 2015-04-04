@@ -7,32 +7,34 @@
       background-image: url("http://i.imgur.com/6RnDnuz.jpg");
       background-repeat: no-repeat;
       background-size: cover;
-     
     }
-
-    </style>
+  </style>
 </head>
+<<<<<<< HEAD
+=======
 
+>>>>>>> Test
 <p>
   <strong>appname:</strong>
   <%= @application.appname  %>
 </p>
- 
 <p>
   <strong>description:</strong>
   <%= @application.description %>
  
 </p>
-
-
 <p>
   <strong>price: $</strong>
   <%=  @application.price %>
-  
 </p>
 
 <% @number =  @application.price * 100 %>
-              
+
+ <% if current_user.email == Sprint0::Application.config.my_key %>
+  <td><%= link_to 'DeleteApp', application_path(@application),
+           method: :delete %></td>
+ <% end %>
+          
 <% if (Purchase.where(:user_email => current_user.email ,:app_id => @application).blank?) && 
  !(@application.publisher_email == current_user.email) %>
 
@@ -47,8 +49,5 @@
           </script> ></script>
 <% end %>
 <% end %>
-
-
-
 
 
