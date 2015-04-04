@@ -1,3 +1,1 @@
-class Request < ActiveRecord::Base
-
-end
+Request = class.new(ActiveRecord::Base)
