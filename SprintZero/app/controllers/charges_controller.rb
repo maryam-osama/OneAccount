@@ -14,7 +14,7 @@ class ChargesController < ApplicationController
     :description => 'Rails Stripe customer',
     :currency    => 'usd'
    )
-    @purchase = Purchase.new
+    @purchase =Purchase.new
     @purchase.user_email = current_user.email
     @purchase.app_id = params[:application]
     @purchase.save
