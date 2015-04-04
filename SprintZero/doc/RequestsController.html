@@ -133,11 +133,11 @@
 
           
           <div class="method-source-code" id="create-source">
-            <pre><span class="ruby-comment"># File app/controllers/requests_controller.rb, line 16</span>
+            <pre><span class="ruby-comment"># File app/controllers/requests_controller.rb, line 14</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">create</span>
-<span class="ruby-ivar">@request</span> = <span class="ruby-constant">Request</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">requests_params</span>)
-<span class="ruby-ivar">@request</span>.<span class="ruby-identifier">save</span>
-<span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">welcome_homepage_url</span>
+  <span class="ruby-ivar">@request</span> = <span class="ruby-constant">Request</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">requests_params</span>)
+  <span class="ruby-ivar">@request</span>.<span class="ruby-identifier">save</span>
+  <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">welcome_homepage_url</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -168,9 +168,8 @@
 
           
           <div class="method-source-code" id="destroy-source">
-            <pre><span class="ruby-comment"># File app/controllers/requests_controller.rb, line 23</span>
+            <pre><span class="ruby-comment"># File app/controllers/requests_controller.rb, line 20</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">destroy</span>
-    
  <span class="ruby-ivar">@request</span> = <span class="ruby-constant">Request</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
  <span class="ruby-ivar">@user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">:email</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@request</span>.<span class="ruby-identifier">user_email</span>).<span class="ruby-identifier">take</span>
  
@@ -182,8 +181,7 @@
  <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">save</span>
  <span class="ruby-keyword">end</span>
  <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">requests_path</span>
- 
-<span class="ruby-keyword">end</span></pre>
+  <span class="ruby-keyword">end</span></pre>
           </div>
           
         </div>
@@ -213,9 +211,9 @@
 
           
           <div class="method-source-code" id="index-source">
-            <pre><span class="ruby-comment"># File app/controllers/requests_controller.rb, line 4</span>
+            <pre><span class="ruby-comment"># File app/controllers/requests_controller.rb, line 2</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">index</span>
-    <span class="ruby-ivar">@requests</span>=<span class="ruby-constant">Request</span>.<span class="ruby-identifier">all</span>
+  <span class="ruby-ivar">@requests</span> = <span class="ruby-constant">Request</span>.<span class="ruby-identifier">all</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -246,9 +244,9 @@
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File app/controllers/requests_controller.rb, line 12</span>
+            <pre><span class="ruby-comment"># File app/controllers/requests_controller.rb, line 10</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">new</span>
-<span class="ruby-ivar">@request</span> = <span class="ruby-constant">Request</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@request</span> = <span class="ruby-constant">Request</span>.<span class="ruby-identifier">new</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -279,9 +277,9 @@
 
           
           <div class="method-source-code" id="show-source">
-            <pre><span class="ruby-comment"># File app/controllers/requests_controller.rb, line 8</span>
+            <pre><span class="ruby-comment"># File app/controllers/requests_controller.rb, line 6</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">show</span>
-    <span class="ruby-ivar">@request</span>=<span class="ruby-constant">Request</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+  <span class="ruby-ivar">@request</span> = <span class="ruby-constant">Request</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
 <span class="ruby-keyword">end</span></pre>
           </div>
           
