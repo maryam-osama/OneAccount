@@ -1,4 +1,5 @@
 
+<%= link_to 'Categories', categories_index_path %> 
 
 <% if current_user.try(:publisher?) %> 
 <%= link_to 'Add Application', new_application_path %>
@@ -6,7 +7,11 @@
 
 <% if current_user.email == Sprint0::Application.config.my_key %> 
 <%= link_to 'View Requests', requests_index_path %>
+
+<%= link_to 'Add Category', new_category_path %>
+
 <%= link_to 'View Notifications', notifications_path %>
+
 <% else %>
 
 <% if current_user.publisher == nil %> 
