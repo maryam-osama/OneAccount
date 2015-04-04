@@ -3,7 +3,6 @@ class CategoriesController < ApplicationController
   
   ##
   # Gets all availble categories and saves it in a variable to be displayed later 
-  
   def index
     @categories = Category.all 
   end
