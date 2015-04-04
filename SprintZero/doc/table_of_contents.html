@@ -53,6 +53,9 @@
     <a href="app/assets/javascripts/applications_js_coffee.html">applications.js.coffee</a>
   </li>
     <li class="file">
+    <a href="app/assets/javascripts/categories_js_coffee.html">categories.js.coffee</a>
+  </li>
+    <li class="file">
     <a href="app/assets/javascripts/charges_js_coffee.html">charges.js.coffee</a>
   </li>
     <li class="file">
@@ -86,6 +89,9 @@
   </li>
     <li class="file">
     <a href="app/assets/stylesheets/applications_scss.html">applications.scss</a>
+  </li>
+    <li class="file">
+    <a href="app/assets/stylesheets/categories_css_scss.html">categories.css.scss</a>
   </li>
     <li class="file">
     <a href="app/assets/stylesheets/charges_css_scss.html">charges.css.scss</a>
@@ -144,9 +150,6 @@
     <li class="file">
     <a href="spring/ed1e59a0773d6fedecc2c74e8a2db406_pid.html">ed1e59a0773d6fedecc2c74e8a2db406.pid</a>
   </li>
-    <li class="file">
-    <a href="tmp/pids/server_pid.html">server.pid</a>
-  </li>
   
 </ul>
 
@@ -177,6 +180,9 @@
     <a href="AddAppnameToNotifications.html">AddAppnameToNotifications</a>
   </li>
   <li class="class">
+    <a href="AddCategoryNameToApplications.html">AddCategoryNameToApplications</a>
+  </li>
+  <li class="class">
     <a href="AddPublisherToUsers.html">AddPublisherToUsers</a>
   </li>
   <li class="class">
@@ -204,6 +210,21 @@
     <a href="ApplicationsHelperTest.html">ApplicationsHelperTest</a>
   </li>
   <li class="class">
+    <a href="CategoriesController.html">CategoriesController</a>
+  </li>
+  <li class="class">
+    <a href="CategoriesControllerTest.html">CategoriesControllerTest</a>
+  </li>
+  <li class="module">
+    <a href="CategoriesHelper.html">CategoriesHelper</a>
+  </li>
+  <li class="class">
+    <a href="CategoriesHelperTest.html">CategoriesHelperTest</a>
+  </li>
+  <li class="class">
+    <a href="CategoryTest.html">CategoryTest</a>
+  </li>
+  <li class="class">
     <a href="ChargesController.html">ChargesController</a>
   </li>
   <li class="class">
@@ -217,6 +238,9 @@
   </li>
   <li class="class">
     <a href="CreateApplications.html">CreateApplications</a>
+  </li>
+  <li class="class">
+    <a href="CreateCategories.html">CreateCategories</a>
   </li>
   <li class="class">
     <a href="CreateNotifications.html">CreateNotifications</a>
@@ -234,9 +258,6 @@
     <a href="Logger.html">Logger</a>
   </li>
   <li class="class">
-    <a href="Notification.html">Notification</a>
-  </li>
-  <li class="class">
     <a href="NotificationTest.html">NotificationTest</a>
   </li>
   <li class="class">
@@ -244,6 +265,9 @@
   </li>
   <li class="class">
     <a href="NotificationsControllerTest.html">NotificationsControllerTest</a>
+  </li>
+  <li class="module">
+    <a href="NotificationsHelper.html">NotificationsHelper</a>
   </li>
   <li class="class">
     <a href="NotificationsHelperTest.html">NotificationsHelperTest</a>
@@ -256,9 +280,6 @@
   </li>
   <li class="class">
     <a href="PurchaseTest.html">PurchaseTest</a>
-  </li>
-  <li class="class">
-    <a href="Request.html">Request</a>
   </li>
   <li class="class">
     <a href="RequestTest.html">RequestTest</a>
@@ -320,24 +341,9 @@
     <span class="container">ApplicationController</span>
 
   <li class="method">
-    <a href="CreateRequests.html#method-i-change">#change</a>
+    <a href="CreateNotifications.html#method-i-change">#change</a>
     &mdash;
-    <span class="container">CreateRequests</span>
-
-  <li class="method">
-    <a href="AddPublisherToUsers.html#method-i-change">#change</a>
-    &mdash;
-    <span class="container">AddPublisherToUsers</span>
-
-  <li class="method">
-    <a href="DeviseCreateUsers.html#method-i-change">#change</a>
-    &mdash;
-    <span class="container">DeviseCreateUsers</span>
-
-  <li class="method">
-    <a href="CreatePurchases.html#method-i-change">#change</a>
-    &mdash;
-    <span class="container">CreatePurchases</span>
+    <span class="container">CreateNotifications</span>
 
   <li class="method">
     <a href="AddAppnameToNotifications.html#method-i-change">#change</a>
@@ -345,9 +351,9 @@
     <span class="container">AddAppnameToNotifications</span>
 
   <li class="method">
-    <a href="CreateNotifications.html#method-i-change">#change</a>
+    <a href="CreateCategories.html#method-i-change">#change</a>
     &mdash;
-    <span class="container">CreateNotifications</span>
+    <span class="container">CreateCategories</span>
 
   <li class="method">
     <a href="CreateApplications.html#method-i-change">#change</a>
@@ -355,14 +361,44 @@
     <span class="container">CreateApplications</span>
 
   <li class="method">
-    <a href="ChargesController.html#method-i-create">#create</a>
+    <a href="AddCategoryNameToApplications.html#method-i-change">#change</a>
     &mdash;
-    <span class="container">ChargesController</span>
+    <span class="container">AddCategoryNameToApplications</span>
+
+  <li class="method">
+    <a href="CreatePurchases.html#method-i-change">#change</a>
+    &mdash;
+    <span class="container">CreatePurchases</span>
+
+  <li class="method">
+    <a href="CreateRequests.html#method-i-change">#change</a>
+    &mdash;
+    <span class="container">CreateRequests</span>
+
+  <li class="method">
+    <a href="DeviseCreateUsers.html#method-i-change">#change</a>
+    &mdash;
+    <span class="container">DeviseCreateUsers</span>
+
+  <li class="method">
+    <a href="AddPublisherToUsers.html#method-i-change">#change</a>
+    &mdash;
+    <span class="container">AddPublisherToUsers</span>
+
+  <li class="method">
+    <a href="CategoriesController.html#method-i-create">#create</a>
+    &mdash;
+    <span class="container">CategoriesController</span>
 
   <li class="method">
     <a href="ApplicationsController.html#method-i-create">#create</a>
     &mdash;
     <span class="container">ApplicationsController</span>
+
+  <li class="method">
+    <a href="ChargesController.html#method-i-create">#create</a>
+    &mdash;
+    <span class="container">ChargesController</span>
 
   <li class="method">
     <a href="RequestsController.html#method-i-create">#create</a>
@@ -380,14 +416,14 @@
     <span class="container">RequestsController</span>
 
   <li class="method">
+    <a href="ApplicationsController.html#method-i-destroy">#destroy</a>
+    &mdash;
+    <span class="container">ApplicationsController</span>
+
+  <li class="method">
     <a href="WelcomeController.html#method-i-homepage">#homepage</a>
     &mdash;
     <span class="container">WelcomeController</span>
-
-  <li class="method">
-    <a href="NotificationsController.html#method-i-index">#index</a>
-    &mdash;
-    <span class="container">NotificationsController</span>
 
   <li class="method">
     <a href="ApplicationsController.html#method-i-index">#index</a>
@@ -400,14 +436,29 @@
     <span class="container">WelcomeController</span>
 
   <li class="method">
+    <a href="NotificationsController.html#method-i-index">#index</a>
+    &mdash;
+    <span class="container">NotificationsController</span>
+
+  <li class="method">
+    <a href="CategoriesController.html#method-i-index">#index</a>
+    &mdash;
+    <span class="container">CategoriesController</span>
+
+  <li class="method">
     <a href="RequestsController.html#method-i-index">#index</a>
     &mdash;
     <span class="container">RequestsController</span>
 
   <li class="method">
-    <a href="ChargesController.html#method-i-new">#new</a>
+    <a href="ApplicationsController.html#method-i-myapps">#myapps</a>
     &mdash;
-    <span class="container">ChargesController</span>
+    <span class="container">ApplicationsController</span>
+
+  <li class="method">
+    <a href="NotificationsController.html#method-i-new">#new</a>
+    &mdash;
+    <span class="container">NotificationsController</span>
 
   <li class="method">
     <a href="RequestsController.html#method-i-new">#new</a>
@@ -420,14 +471,24 @@
     <span class="container">ApplicationsController</span>
 
   <li class="method">
-    <a href="NotificationsController.html#method-i-new">#new</a>
+    <a href="CategoriesController.html#method-i-new">#new</a>
     &mdash;
-    <span class="container">NotificationsController</span>
+    <span class="container">CategoriesController</span>
+
+  <li class="method">
+    <a href="ChargesController.html#method-i-new">#new</a>
+    &mdash;
+    <span class="container">ChargesController</span>
 
   <li class="method">
     <a href="ApplicationsController.html#method-i-show">#show</a>
     &mdash;
     <span class="container">ApplicationsController</span>
+
+  <li class="method">
+    <a href="CategoriesController.html#method-i-show">#show</a>
+    &mdash;
+    <span class="container">CategoriesController</span>
 
   <li class="method">
     <a href="NotificationsController.html#method-i-show">#show</a>
@@ -452,3 +513,4 @@
   <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.0.
   <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
 </footer>
+
