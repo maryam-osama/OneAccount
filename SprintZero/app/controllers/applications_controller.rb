@@ -17,6 +17,7 @@ class ApplicationsController < ApplicationController
     def show
     @application = Application.find(params[:id])
     end
+    
     def create 
         @application = Application.new(application_params)
         @application.save
@@ -26,6 +27,8 @@ class ApplicationsController < ApplicationController
         redirect_to @application
     end
     
+ 
+   
     private
      def application_params
     params.require(:application).permit(:appname, :description, :price)

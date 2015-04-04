@@ -23,17 +23,20 @@
 <p>
   <strong>description:</strong>
   <%= @application.description %>
+ 
 </p>
+
 
 <p>
   <strong>price: $</strong>
   <%=  @application.price %>
-
-<p>
   
-<% @number =  @application.price * 100 %>
+</p>
 
-<% if Purchase.where(:user_email => current_user.email ,:app_id => @application).blank? %>
+<% @number =  @application.price * 100 %>
+              
+<% if (Purchase.where(:user_email => current_user.email ,:app_id => @application).blank?) && 
+ !(@application.publisher_email == current_user.email) %>
 
 <%= form_tag charges_path(:number => @number ,:application => @application) do %>
 
@@ -44,6 +47,8 @@
           data-amount= <%= @application.price * 100 =%> </script> ></script>
 <% end %>
 <% end %>
+
+
 
 
 
