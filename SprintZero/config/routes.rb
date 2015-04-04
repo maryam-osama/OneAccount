@@ -6,7 +6,11 @@ Rails.application.routes.draw do
   get 'welcome/homepage'
   get 'categories/new'
   get 'categories/index'
+<<<<<<< HEAD
   get 'applications/notify'
+=======
+  get 'applications/myapps'
+>>>>>>> b572790bba12c0cb020fd2581852ff0fe7fe678f
   
 resources :notifications
 resources :requests 
