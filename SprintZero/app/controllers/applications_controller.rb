@@ -19,6 +19,7 @@ class ApplicationsController < ApplicationController
      @application.save
      redirect_to @application
     end
+    
     ##
     # This method requests an application with an id
     # from application model
@@ -34,7 +35,6 @@ class ApplicationsController < ApplicationController
      redirect_to welcome_homepage_url
    end 
   
-   
    private
    def application_params
        params.require(:application).permit(:appname, :description, :price)

@@ -30,8 +30,8 @@ class RequestsController < ApplicationController
   end
 
   private
-    def requests_params
+  def requests_params
       params.require(:request).permit(:reason, :user_email)
-    end
+  end
 
 end
