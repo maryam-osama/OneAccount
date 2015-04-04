@@ -127,14 +127,14 @@
 
         <div class="method-description">
           
-          <p>Assigns paramters to a newly created <a
-href="Notification.html">Notification</a> and saves it in the database</p>
+          <p>Assigns paramters to a newly created Notification and saves it in the
+database</p>
           
           
 
           
           <div class="method-source-code" id="create-source">
-            <pre><span class="ruby-comment"># File app/controllers/notifications_controller.rb, line 25</span>
+            <pre><span class="ruby-comment"># File app/controllers/notifications_controller.rb, line 24</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">create</span>
   <span class="ruby-ivar">@notification</span> = <span class="ruby-constant">Notification</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">notifications_params</span>)
   <span class="ruby-ivar">@notification</span>.<span class="ruby-identifier">save</span>
@@ -168,7 +168,7 @@ href="Notification.html">Notification</a> and saves it in the database</p>
 
           
           <div class="method-source-code" id="index-source">
-            <pre><span class="ruby-comment"># File app/controllers/notifications_controller.rb, line 7</span>
+            <pre><span class="ruby-comment"># File app/controllers/notifications_controller.rb, line 6</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">index</span>
   <span class="ruby-ivar">@notification</span> = <span class="ruby-constant">Notification</span>.<span class="ruby-identifier">all</span>
 <span class="ruby-keyword">end</span></pre>
@@ -195,13 +195,13 @@ href="Notification.html">Notification</a> and saves it in the database</p>
 
         <div class="method-description">
           
-          <p>Creates new instance of <a href="Notification.html">Notification</a> model</p>
+          <p>Creates new instance of Notification model</p>
           
           
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File app/controllers/notifications_controller.rb, line 19</span>
+            <pre><span class="ruby-comment"># File app/controllers/notifications_controller.rb, line 18</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">new</span>
   <span class="ruby-ivar">@notification</span> = <span class="ruby-constant">Notification</span>.<span class="ruby-identifier">new</span>
 <span class="ruby-keyword">end</span></pre>
@@ -228,17 +228,16 @@ href="Notification.html">Notification</a> and saves it in the database</p>
 
         <div class="method-description">
           
-          <p>Returns a specific <a href="Notification.html">Notification</a> from the
-database by supplying the id</p>
+          <p>Returns a specific Notification from the database by supplying the id</p>
           
           
 
           
           <div class="method-source-code" id="show-source">
-            <pre><span class="ruby-comment"># File app/controllers/notifications_controller.rb, line 13</span>
+            <pre><span class="ruby-comment"># File app/controllers/notifications_controller.rb, line 12</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">show</span>
   <span class="ruby-ivar">@notification</span> = <span class="ruby-constant">Notification</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
- <span class="ruby-keyword">end</span></pre>
+<span class="ruby-keyword">end</span></pre>
           </div>
           
         </div>

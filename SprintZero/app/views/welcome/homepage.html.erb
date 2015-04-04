@@ -3,6 +3,7 @@
 
 <% if current_user.try(:publisher?) %> 
 <%= link_to 'Add Application', new_application_path %>
+<%= link_to 'View MyApps', applications_myapps_url %>
 <% end %>
 
 <% if current_user.email == Sprint0::Application.config.my_key %> 
