@@ -1,4 +1,4 @@
-  class ChargesController < ApplicationController
+class ChargesController < ApplicationController
   def new; end
 
   def create
@@ -23,4 +23,4 @@
     redirect_to charges_path(params[:number],params[:application])
   end
   
-  end
+end

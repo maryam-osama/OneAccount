@@ -1,6 +1,6 @@
   ##
   # class that defines methods for perfoming CRUD operations on categories 
-  class CategoriesController < ApplicationController
+class CategoriesController < ApplicationController
   ##
   # defines the new action 
   def new; end
@@ -24,4 +24,4 @@
     @category = Category.find(params[:id])
   end
   
-  end
+end

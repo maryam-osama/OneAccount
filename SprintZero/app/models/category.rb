@@ -1,1 +1,1 @@
-  Category = Class.new(ActiveRecord::Base)
+Category = Class.new(ActiveRecord::Base)

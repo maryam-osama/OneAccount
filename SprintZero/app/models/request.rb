@@ -1,1 +1,1 @@
-  Request = Class.new(ActiveRecord::Base)
+Request = Class.new(ActiveRecord::Base)
