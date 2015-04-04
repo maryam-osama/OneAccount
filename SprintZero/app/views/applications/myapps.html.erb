@@ -8,8 +8,7 @@
     <th colspan = "3"></th>
   </tr>
   
- 
-<% @applications.each {|application| %>}
+<% @applications.each do |application| %>
     <tr>
       <td><%= application.appname %></td>
        <td><%= link_to 'View' , application_path(application) %></td>

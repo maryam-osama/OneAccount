@@ -3,10 +3,7 @@
 class ApplicationsController < ApplicationController
 
     def new; end
-<<<<<<< HEAD
-      
-=======
-   
+
    ## 
     #This method lists all the publisher's app
     #
@@ -18,7 +15,7 @@ class ApplicationsController < ApplicationController
      @applications = Application.where(publisher_email: current_user.email)
    end 
    
->>>>>>> b572790bba12c0cb020fd2581852ff0fe7fe678f
+
    def index
      if params[:search]
      @applications = Application.search(params[:search]).order("created_at DESC")
