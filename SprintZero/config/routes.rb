@@ -5,8 +5,7 @@ Rails.application.routes.draw do
   get 'requests/index'
   get 'welcome/homepage'
   
-  
-  
+resources :notifications
 resources :requests 
 resources :applications
 resources :charges
