@@ -10,6 +10,10 @@
     }
   </style>
 </head>
+<<<<<<< HEAD
+=======
+
+>>>>>>> Test
 <p>
   <strong>appname:</strong>
   <%= @application.appname  %>
@@ -17,6 +21,7 @@
 <p>
   <strong>description:</strong>
   <%= @application.description %>
+ 
 </p>
 <p>
   <strong>price: $</strong>
@@ -24,15 +29,25 @@
 </p>
 
 <% @number =  @application.price * 100 %>
-<% if Purchase.where(:user_email => current_user.email ,:app_id => @application).blank? %>
-<% end %>
- <% if current_user.email == "maryam.osama@gmail.com" %>
+
+ <% if current_user.email == Sprint0::Application.config.my_key %>
   <td><%= link_to 'DeleteApp', application_path(@application),
            method: :delete %></td>
- <%= form_tag charges_path(:number => @number ,:application => @application) do %>
-    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+ <% end %>
+          
+<% if (Purchase.where(:user_email => current_user.email ,:app_id => @application).blank?) && 
+ !(@application.publisher_email == current_user.email) %>
+
+<%= form_tag charges_path(:number => @number ,:application => @application ) do %>
+
+
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
           data-description="Payment"
-          data-amount= <%= @application.price * 100 =%> </script>
- <% end %>
+          data-amount= <%= @application.price * 100 =%>
+        
+          </script> ></script>
 <% end %>
+<% end %>
+
+

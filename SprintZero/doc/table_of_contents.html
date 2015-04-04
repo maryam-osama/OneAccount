@@ -56,6 +56,9 @@
     <a href="app/assets/javascripts/charges_js_coffee.html">charges.js.coffee</a>
   </li>
     <li class="file">
+    <a href="app/assets/javascripts/notifications_js_coffee.html">notifications.js.coffee</a>
+  </li>
+    <li class="file">
     <a href="app/assets/javascripts/requests_coffee.html">requests.coffee</a>
   </li>
     <li class="file">
@@ -86,6 +89,9 @@
   </li>
     <li class="file">
     <a href="app/assets/stylesheets/charges_css_scss.html">charges.css.scss</a>
+  </li>
+    <li class="file">
+    <a href="app/assets/stylesheets/notifications_css_scss.html">notifications.css.scss</a>
   </li>
     <li class="file">
     <a href="app/assets/stylesheets/requests_css_scss.html">requests.css.scss</a>
@@ -168,6 +174,9 @@
     <a href="ActiveSupport/TestCase.html">ActiveSupport::TestCase</a>
   </li>
   <li class="class">
+    <a href="AddAppnameToNotifications.html">AddAppnameToNotifications</a>
+  </li>
+  <li class="class">
     <a href="AddPublisherToUsers.html">AddPublisherToUsers</a>
   </li>
   <li class="class">
@@ -210,6 +219,9 @@
     <a href="CreateApplications.html">CreateApplications</a>
   </li>
   <li class="class">
+    <a href="CreateNotifications.html">CreateNotifications</a>
+  </li>
+  <li class="class">
     <a href="CreatePurchases.html">CreatePurchases</a>
   </li>
   <li class="class">
@@ -220,6 +232,21 @@
   </li>
   <li class="module">
     <a href="Logger.html">Logger</a>
+  </li>
+  <li class="class">
+    <a href="Notification.html">Notification</a>
+  </li>
+  <li class="class">
+    <a href="NotificationTest.html">NotificationTest</a>
+  </li>
+  <li class="class">
+    <a href="NotificationsController.html">NotificationsController</a>
+  </li>
+  <li class="class">
+    <a href="NotificationsControllerTest.html">NotificationsControllerTest</a>
+  </li>
+  <li class="class">
+    <a href="NotificationsHelperTest.html">NotificationsHelperTest</a>
   </li>
   <li class="class">
     <a href="Object.html">Object</a>
@@ -293,6 +320,16 @@
     <span class="container">ApplicationController</span>
 
   <li class="method">
+    <a href="CreateRequests.html#method-i-change">#change</a>
+    &mdash;
+    <span class="container">CreateRequests</span>
+
+  <li class="method">
+    <a href="AddPublisherToUsers.html#method-i-change">#change</a>
+    &mdash;
+    <span class="container">AddPublisherToUsers</span>
+
+  <li class="method">
     <a href="DeviseCreateUsers.html#method-i-change">#change</a>
     &mdash;
     <span class="container">DeviseCreateUsers</span>
@@ -303,24 +340,19 @@
     <span class="container">CreatePurchases</span>
 
   <li class="method">
+    <a href="AddAppnameToNotifications.html#method-i-change">#change</a>
+    &mdash;
+    <span class="container">AddAppnameToNotifications</span>
+
+  <li class="method">
+    <a href="CreateNotifications.html#method-i-change">#change</a>
+    &mdash;
+    <span class="container">CreateNotifications</span>
+
+  <li class="method">
     <a href="CreateApplications.html#method-i-change">#change</a>
     &mdash;
     <span class="container">CreateApplications</span>
-
-  <li class="method">
-    <a href="AddPublisherToUsers.html#method-i-change">#change</a>
-    &mdash;
-    <span class="container">AddPublisherToUsers</span>
-
-  <li class="method">
-    <a href="CreateRequests.html#method-i-change">#change</a>
-    &mdash;
-    <span class="container">CreateRequests</span>
-
-  <li class="method">
-    <a href="RequestsController.html#method-i-create">#create</a>
-    &mdash;
-    <span class="container">RequestsController</span>
 
   <li class="method">
     <a href="ChargesController.html#method-i-create">#create</a>
@@ -333,9 +365,14 @@
     <span class="container">ApplicationsController</span>
 
   <li class="method">
-    <a href="ApplicationsController.html#method-i-destroy">#destroy</a>
+    <a href="RequestsController.html#method-i-create">#create</a>
     &mdash;
-    <span class="container">ApplicationsController</span>
+    <span class="container">RequestsController</span>
+
+  <li class="method">
+    <a href="NotificationsController.html#method-i-create">#create</a>
+    &mdash;
+    <span class="container">NotificationsController</span>
 
   <li class="method">
     <a href="RequestsController.html#method-i-destroy">#destroy</a>
@@ -348,14 +385,19 @@
     <span class="container">WelcomeController</span>
 
   <li class="method">
-    <a href="WelcomeController.html#method-i-index">#index</a>
+    <a href="NotificationsController.html#method-i-index">#index</a>
     &mdash;
-    <span class="container">WelcomeController</span>
+    <span class="container">NotificationsController</span>
 
   <li class="method">
     <a href="ApplicationsController.html#method-i-index">#index</a>
     &mdash;
     <span class="container">ApplicationsController</span>
+
+  <li class="method">
+    <a href="WelcomeController.html#method-i-index">#index</a>
+    &mdash;
+    <span class="container">WelcomeController</span>
 
   <li class="method">
     <a href="RequestsController.html#method-i-index">#index</a>
@@ -378,9 +420,19 @@
     <span class="container">ApplicationsController</span>
 
   <li class="method">
+    <a href="NotificationsController.html#method-i-new">#new</a>
+    &mdash;
+    <span class="container">NotificationsController</span>
+
+  <li class="method">
     <a href="ApplicationsController.html#method-i-show">#show</a>
     &mdash;
     <span class="container">ApplicationsController</span>
+
+  <li class="method">
+    <a href="NotificationsController.html#method-i-show">#show</a>
+    &mdash;
+    <span class="container">NotificationsController</span>
 
   <li class="method">
     <a href="RequestsController.html#method-i-show">#show</a>
@@ -400,4 +452,3 @@
   <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.0.
   <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
 </footer>
-

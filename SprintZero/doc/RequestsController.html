@@ -133,7 +133,7 @@
 
           
           <div class="method-source-code" id="create-source">
-            <pre><span class="ruby-comment"># File app/controllers/requests_controller.rb, line 14</span>
+            <pre><span class="ruby-comment"># File app/controllers/requests_controller.rb, line 15</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">create</span>
   <span class="ruby-ivar">@request</span> = <span class="ruby-constant">Request</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">requests_params</span>)
   <span class="ruby-ivar">@request</span>.<span class="ruby-identifier">save</span>
@@ -168,17 +168,18 @@
 
           
           <div class="method-source-code" id="destroy-source">
-            <pre><span class="ruby-comment"># File app/controllers/requests_controller.rb, line 20</span>
+            <pre><span class="ruby-comment"># File app/controllers/requests_controller.rb, line 22</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">destroy</span>
+    
   <span class="ruby-ivar">@request</span> = <span class="ruby-constant">Request</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
-  <span class="ruby-ivar">@user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">:email</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@request</span>.<span class="ruby-identifier">user_email</span>).<span class="ruby-identifier">take</span>
   <span class="ruby-ivar">@request</span>.<span class="ruby-identifier">destroy</span>
   <span class="ruby-ivar">@request</span>.<span class="ruby-identifier">save</span>
-    <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:number</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&quot;1&quot;</span>
-    <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">publisher</span> = <span class="ruby-keyword">true</span>
-    <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">save</span>
-    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:number</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&#39;1&#39;</span>
+    <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">publisher</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-ivar">@current_user</span>.<span class="ruby-identifier">save</span>
+  <span class="ruby-keyword">end</span>
   <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">requests_path</span>
+ 
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -209,9 +210,9 @@
 
           
           <div class="method-source-code" id="index-source">
-            <pre><span class="ruby-comment"># File app/controllers/requests_controller.rb, line 2</span>
+            <pre><span class="ruby-comment"># File app/controllers/requests_controller.rb, line 3</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">index</span>
-  <span class="ruby-ivar">@requests</span>=<span class="ruby-constant">Request</span>.<span class="ruby-identifier">all</span>
+  <span class="ruby-ivar">@requests</span> = <span class="ruby-constant">Request</span>.<span class="ruby-identifier">all</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -242,7 +243,7 @@
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File app/controllers/requests_controller.rb, line 10</span>
+            <pre><span class="ruby-comment"># File app/controllers/requests_controller.rb, line 11</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">new</span>
   <span class="ruby-ivar">@request</span> = <span class="ruby-constant">Request</span>.<span class="ruby-identifier">new</span>
 <span class="ruby-keyword">end</span></pre>
@@ -275,9 +276,9 @@
 
           
           <div class="method-source-code" id="show-source">
-            <pre><span class="ruby-comment"># File app/controllers/requests_controller.rb, line 6</span>
+            <pre><span class="ruby-comment"># File app/controllers/requests_controller.rb, line 7</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">show</span>
-  <span class="ruby-ivar">@request</span>=<span class="ruby-constant">Request</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+  <span class="ruby-ivar">@request</span> = <span class="ruby-constant">Request</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -300,4 +301,3 @@
   <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.0.
   <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
 </footer>
-
