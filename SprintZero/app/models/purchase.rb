@@ -1,3 +1,1 @@
-class Purchase < ActiveRecord::Base
-
-end
+Purchase = class.new(ActiveRecord::Base)
