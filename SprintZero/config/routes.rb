@@ -7,8 +7,7 @@ Rails.application.routes.draw do
   get 'categories/new'
   get 'categories/index'
   
-  
-  
+resources :notifications
 resources :requests 
 resources :applications
 resources :charges
