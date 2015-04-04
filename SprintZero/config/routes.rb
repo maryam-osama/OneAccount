@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'requests/index'
   get 'welcome/homepage'
   get 'applications/show'
+  get 'views/welcome/finance'
   
   
 resources :requests 
