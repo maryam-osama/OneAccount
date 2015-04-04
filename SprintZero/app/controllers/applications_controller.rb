@@ -1,7 +1,20 @@
+## 
+#This is class of applications
 class ApplicationsController < ApplicationController
 
     def new; end
-    
+   
+   ## 
+    #This method lists all the publisher's app
+    #
+    #By  checking if the applications model have current_user_Email as a publisher email
+    # 
+    #Then it loops on these applications
+    # and views the appname of this applications
+   def myapps
+     @applications = Application.where(publisher_email: current_user.email)
+   end 
+   
    def index
      if params[:search]
      @applications = Application.search(params[:search]).order("created_at DESC")
@@ -48,8 +61,3 @@ class ApplicationsController < ApplicationController
    end
      
 end
-    
-    
-    
- 
-  
