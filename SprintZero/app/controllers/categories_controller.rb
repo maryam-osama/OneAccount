@@ -1,4 +1,4 @@
-  class CategoriesController < ApplicationController
+class CategoriesController < ApplicationController
   def new; end
   
   ##
@@ -18,4 +18,4 @@
     @category = Category.find(params[:id])
   end
 
-  end
+end

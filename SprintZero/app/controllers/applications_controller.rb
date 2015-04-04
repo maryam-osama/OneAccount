@@ -1,9 +1,9 @@
-  class ApplicationsController < ApplicationController
+class ApplicationsController < ApplicationController
   def new; end
     
   def index
     if params[:search]
-      @applications = Application.search(params[:search]).order("created_at DESC")
+    @applications = Application.search(params[:search]).order("created_at DESC")
     end
   end
   
@@ -26,7 +26,7 @@
     params.require(:application).permit(:appname, :description, :price)
   end
   
-  end
+end
     
     
 
