@@ -20,14 +20,14 @@ class ApplicationsController < ApplicationController
      redirect_to @application
     end
     
-    ##
-    # This method requests an application with an id
-    # from application model
-    #
-    # If application with required id is found,
-    # delete app
-    # 
-    # Go back to the homepage
+   ##
+   # This method requests an application with an id
+   # from application model
+   #
+   # If application with required id is found,
+   # delete app
+   # 
+   # Go back to the homepage
    def destroy
      @application = Application.find(params[:id])
      @application.destroy
