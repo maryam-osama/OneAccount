@@ -1,4 +1,5 @@
 class ApplicationsController < ApplicationController
+
     def new; end
     
    def index
@@ -12,13 +13,19 @@ class ApplicationsController < ApplicationController
       @application = Application.find(params[:id])
     end
     
-    def create 
-     @application = Application.new(application_params)
-     @application.save
-     @application.publisher_email  = current_user.email
-     @application.save
-     redirect_to @application
-    end
+  ##    
+  # Creates a new Notification once the new Application is created   
+  def create 
+    @application = Application.new(application_params)
+    @application.publisher_email  = current_user.email
+    @application.save
+    @notification = Notification.new
+    @notification.user_email = current_user.email
+    @notification.appname = @application.appname
+    @notification.app_id = @application.id
+    @notification.save
+    redirect_to @application
+  end
     
    ##
    # This method requests an application with an id
@@ -44,4 +51,5 @@ end
     
     
     
-
+ 
+  
