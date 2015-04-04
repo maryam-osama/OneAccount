@@ -1,4 +1,4 @@
-  class RequestsController < ApplicationController
+class RequestsController < ApplicationController
   def index
     @requests=Request.all
   end
@@ -22,10 +22,10 @@
     @user = User.where(:email => @request.user_email).take
     @request.destroy
     @request.save
-    if params[:number] == "1"
+      if params[:number] == "1"
        @user.publisher = true
        @user.save
-    end
+      end
     redirect_to requests_path
   end
 
@@ -34,4 +34,4 @@
     params.require(:request).permit(:reason, :user_email)
   end
  
-  end
+end

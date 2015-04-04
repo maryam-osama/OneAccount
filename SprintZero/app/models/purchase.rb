@@ -1,1 +1,1 @@
-  Purchase = Class.new(ActiveRecord::Base)
+Purchase = Class.new(ActiveRecord::Base)
