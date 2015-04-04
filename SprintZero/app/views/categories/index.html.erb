@@ -1,0 +1,20 @@
+<h1> Business Applications Categories </h1>
+ 
+<table>
+  <tr>
+    <th> <b> Category Name   </b></th>
+    
+  </tr>
+ 
+  <% @categories.each do |category| %>
+    <tr>
+      <td><%= category.name %></td>
+      
+     <td><%= link_to 'Show' , category_path(category) %></td>
+
+      
+    </tr>
+  <% end %>
+  
+</table>
+<%= link_to 'Back', new_category_path %>
