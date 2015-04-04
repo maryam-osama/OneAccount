@@ -1,7 +1,7 @@
 class ApplicationsController < ApplicationController
 
     def new; end
-    
+      
    def index
      if params[:search]
      @applications = Application.search(params[:search]).order("created_at DESC")
@@ -11,6 +11,13 @@ class ApplicationsController < ApplicationController
 
     def show
       @application = Application.find(params[:id])
+    end
+    
+    def notify
+      @application = Application.find(params[:number])
+      @notification = Notification.find(params[:notification_id])
+      @notification.destroy
+      @notification.save
     end
     
   ##    
