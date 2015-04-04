@@ -4,6 +4,7 @@ class ApplicationsController < ApplicationController
 
     def new; end
 
+
    ## 
     #This method lists all the publisher's app
     #
