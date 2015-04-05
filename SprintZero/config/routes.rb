@@ -4,14 +4,25 @@ Rails.application.routes.draw do
   get 'requests/form'
   get 'requests/index'
   get 'welcome/homepage'
+<<<<<<< HEAD
   get 'applications/show'
   get 'views/welcome/finance'
   
   
+=======
+  get 'categories/new'
+  get 'categories/index'
+  get 'applications/notify'
+  get 'applications/myapps'
+
+  
+resources :notifications
+>>>>>>> Test
 resources :requests 
 resources :applications
 resources :charges
 resources :purchases
+resources :categories
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
