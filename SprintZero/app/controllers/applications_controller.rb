@@ -2,7 +2,9 @@
 #This is class of applications
 class ApplicationsController < ApplicationController
 
-    def new; end
+    def new
+    @categories = Category.all  
+    end
 
 
    ## 
@@ -76,3 +78,6 @@ class ApplicationsController < ApplicationController
    end
      
 end
+    
+    
+

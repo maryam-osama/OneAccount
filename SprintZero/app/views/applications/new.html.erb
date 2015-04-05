@@ -50,6 +50,17 @@ body {
     <%= f.text_field :appname, :placeholder => "Application Name" %>
   </p>
  
+ <% @category_options = [] %>
+<% @categories.each do |category| %>
+   <% @category_option = [category.name, category.name] %>
+  <% @category_options.push(@category_option) %>
+<% end %>
+  <p>
+    <%= f.select(:category_name) do %>
+       <%= options_for_select(@category_options) %>
+     <% end %>
+   </p>
+ 
   <p>
     
     <%= f.text_area :description, :size => "45x15", :placeholder => "Please state your application description here "%>
