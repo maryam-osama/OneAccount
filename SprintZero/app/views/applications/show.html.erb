@@ -25,16 +25,13 @@
   <%=  @application.price %>
 </p>
 
-<<<<<<< HEAD
+
 <p>
   <strong>category name: </strong>
   <%=  @application.category_name %>
   
 </p>
 
-              
-=======
->>>>>>> Test
 <% @number =  @application.price * 100 %>
 
  <% if current_user.email == Sprint0::Application.config.my_key %>
@@ -54,6 +51,7 @@
           data-amount= <%= @application.price * 100 =%>
         
           </script> ></script>
+<% end %>
 <% end %>
 
 
