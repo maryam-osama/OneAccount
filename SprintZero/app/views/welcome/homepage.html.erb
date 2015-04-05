@@ -1,7 +1,10 @@
+<<<<<<< HEAD
+=======
 
 <%= link_to 'Categories', categories_index_path %> 
 <%= link_to 'My Purchases' , :controller => "purchases", :action => "index" %>
 
+>>>>>>> Test
 <% if current_user.try(:publisher?) %> 
 <%= link_to 'Add Application', new_application_path %>
 <%= link_to 'View MyApps', applications_myapps_url %>
@@ -26,7 +29,10 @@
 <% end %>
 
 
+<<<<<<< HEAD
+=======
 <div class= "Search">
+>>>>>>> Test
 
 <%= form_tag(applications_path, method: "get") do %>
  
@@ -41,6 +47,15 @@
 <header style="background-color: #008B8B;">
 <h1 style="font-family:helvetica , sans-serif; text-align : left; color: white; "> One Account</h1>
 
+<script type="text/javascript">
+    function goToNewPage()
+    {
+        var url = document.getElementById('list').value;
+        if(url != 'none') {
+            window.location = url;
+        }
+    }
+</script>
 
 </header>
 
@@ -60,7 +75,15 @@
 <label></label>
 
 </div>
+<select name="list" id="list" accesskey="target">
+    <option value='none' selected>Choose a category</option>
+    <option value="finance.html.erb">Finance</option>
+    <option value="theme2.html">Accounting</option>
+    <option value="theme3.html">Budgeting</option>
+<select>
+<input type=button value="Go" onclick="goToNewPage()" />
 <body>
+  
   
 
 <hr>
@@ -74,6 +97,7 @@
        </div>
    </div>
 </section>
+
 
 </body>
 
