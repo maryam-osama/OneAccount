@@ -45,6 +45,18 @@
 
 <h1>Want to be a publisher? Share your reason below!</h1>
 <%= form_for :request, url: requests_path do |f| %>
+    <% if @request.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        Invalid Request!
+      </h2>
+      <ul>
+        <% @request.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
   
  <div class= "form">
   <p>

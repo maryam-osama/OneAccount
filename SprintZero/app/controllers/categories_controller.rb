@@ -3,7 +3,9 @@
 class CategoriesController < ApplicationController
   ##
   # defines the new action 
-  def new; end
+  def new
+    @category = Category.new
+  end
   
   def index
     @categories = Category.all 
@@ -16,8 +18,11 @@ class CategoriesController < ApplicationController
   # it redirects user to the list of categories
   def create
     @category = Category.new(params.require(:category).permit(:name))
-    @category.save
-    redirect_to categories_path
+      if @category.save
+      redirect_to categories_path
+      else
+      render 'new'
+      end
   end
   
   ##
