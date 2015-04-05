@@ -1,12 +1,19 @@
+ ##
+  # class that defines methods for perfoming CRUD operations on categories 
 class CategoriesController < ApplicationController
+  ##
+  # defines the new action 
   def new; end
   
-  ##
-  # Gets all availble categories and saves it in a variable to be displayed later 
   def index
     @categories = Category.all 
   end
   
+  ##  
+  # method creates a new record with the recieved attribute in the database
+  # and saves the record in the model Category
+  #
+  # it redirects user to the list of categories
   def create
     @category = Category.new(params.require(:category).permit(:name))
     @category.save
@@ -16,5 +23,5 @@ class CategoriesController < ApplicationController
   def show
     @category = Category.find(params[:id])
   end
-
+  
 end
