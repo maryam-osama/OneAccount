@@ -1,18 +1,12 @@
 class RequestsController < ApplicationController
+  ##
+  # This Method lists all the requests
   def index
-<<<<<<< HEAD
-    @requests=Request.all
-  end
-    
-  def show
-    @request=Request.find(params[:id])
-=======
     @requests = Request.all
   end
     
   def show
     @request = Request.find(params[:id])
->>>>>>> Test
   end
     
   def new
@@ -25,30 +19,26 @@ class RequestsController < ApplicationController
     redirect_to welcome_homepage_url
   end
    
+  ##
+  # This Method deletes the requests form the database 
+  # after either accepting or rejecting.
+  #
+  # Gets the user whose email is the same as the user email of the request.
+  #
+  # If the request is accepted,
+  # User becomes a publisher. 
   def destroy
    @request = Request.find(params[:id])
    @user = User.where(:email => @request.user_email).take
-   
    @request.destroy
    @request.save
-<<<<<<< HEAD
-     if  params[:number] == "1"
-     current_user.publisher = true
-     @current_user.save
-     end
-   redirect_to requests_path
-  end
-  
-=======
-  
    if params[:number] == "1"
    @user.publisher = true
    @user.save
    end
    redirect_to requests_path
-    end
+  end
 
->>>>>>> Test
   private
   def requests_params
    params.require(:request).permit(:reason, :user_email)

@@ -1,51 +1,10 @@
 ## 
 #This is class of applications
 class ApplicationsController < ApplicationController
-<<<<<<< HEAD
-  def new; end
-    
-  def index
-    if params[:search]
-    @applications = Application.search(params[:search]).order("created_at DESC")
+
+    def new
+    @categories = Category.all  
     end
-  end
-  # It returns the articles whose titles contain one or more words that form the query
-
-  ##
-  # This Method requests an application with a specific id
-  #
-  # If applications with the required id is found,
-  # delete app
-  #
-  # Go back to homepage
-  def destroy
-    @Applications = Application.find(params[:id])
-    @Applications.destroy
-    @Applications.save
-    redirect_to welcome_homepage_url
-  end
-
-  def show
-    @application = Application.find(params[:id])
-  end
-    
-  def create 
-    @application = Application.new(application_params)
-    @application.save
-    @application.publisher_email  = current_user.email
-    @application.save
-    redirect_to @application
-  end
-    
-  private
-  def application_params
-    params.require(:application).permit(:appname, :description, :price)
-  end
-     
-end
-=======
-
-    def new; end
 
 
    ## 
@@ -77,20 +36,25 @@ end
       @notification.destroy
       @notification.save
     end
->>>>>>> Test
     
   ##    
   # Creates a new Notification once the new Application is created   
   def create 
     @application = Application.new(application_params)
     @application.publisher_email  = current_user.email
-    @application.save
+    
+    if @application.save
     @notification = Notification.new
     @notification.user_email = current_user.email
     @notification.appname = @application.appname
     @notification.app_id = @application.id
     @notification.save
     redirect_to @application
+    else
+    render 'new'
+    end
+    
+   
   end
     
    ##
