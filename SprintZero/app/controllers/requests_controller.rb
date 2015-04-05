@@ -15,8 +15,11 @@ class RequestsController < ApplicationController
    
   def create
     @request = Request.new(requests_params)
-    @request.save
-    redirect_to welcome_homepage_url
+      if @request.save
+      redirect_to welcome_homepage_url
+      else
+      render 'new'
+      end
   end
    
   ##
