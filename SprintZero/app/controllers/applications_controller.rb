@@ -8,13 +8,13 @@ class ApplicationsController < ApplicationController
   end
   # It returns the articles whose titles contain one or more words that form the query
 
- ##
- # This Method requests an application with a specific id
- #
- # If applications with the required id is found,
- # delete app
- #
- # Go back to homepage
+  ##
+  # This Method requests an application with a specific id
+  #
+  # If applications with the required id is found,
+  # delete app
+  #
+  # Go back to homepage
   def destroy
     @Applications = Application.find(params[:id])
     @Applications.destroy
