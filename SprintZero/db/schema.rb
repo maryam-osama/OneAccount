@@ -29,6 +29,14 @@ ActiveRecord::Schema.define(version: 20150331090102) do
     t.datetime "updated_at"
   end
 
+  create_table "notifications", force: true do |t|
+    t.string   "user_email"
+    t.string   "appname"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "app_id"
+  end
+
   create_table "purchases", force: true do |t|
     t.string   "user_email"
     t.integer  "app_id"
