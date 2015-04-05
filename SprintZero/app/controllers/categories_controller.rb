@@ -18,12 +18,6 @@ class CategoriesController < ApplicationController
       @category.destroy
       redirect_to categories_path
     end
-    
-    def create
-      @category = Category.new(params.require(:category).permit(:name))
-      @category.save
-      redirect_to categories_path
-    end
    
     ##
     # This Method creates the show of the category. 
@@ -35,5 +29,11 @@ class CategoriesController < ApplicationController
       @category = Category.find(params[:id])
       @applications = Application.where(:category_name => @category.name)
     end
-
+    
+    def create
+      @category = Category.new(params.require(:category).permit(:name))
+      @category.save
+      redirect_to categories_path
+    end
+    
 end
