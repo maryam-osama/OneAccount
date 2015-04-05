@@ -40,13 +40,19 @@ class ApplicationsController < ApplicationController
   def create 
     @application = Application.new(application_params)
     @application.publisher_email  = current_user.email
-    @application.save
+    
+    if @application.save
     @notification = Notification.new
     @notification.user_email = current_user.email
     @notification.appname = @application.appname
     @notification.app_id = @application.id
     @notification.save
     redirect_to @application
+    else
+    render 'new'
+    end
+    
+   
   end
     
    ##
