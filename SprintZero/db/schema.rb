@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 20150320125146) do
+=======
 ActiveRecord::Schema.define(version: 20150331090102) do
+>>>>>>> Test
 
   create_table "applications", force: true do |t|
     t.string   "appname"
@@ -20,6 +24,8 @@ ActiveRecord::Schema.define(version: 20150331090102) do
     t.string   "publisher_email"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+<<<<<<< HEAD
+=======
     t.string   "category_name"
   end
 
@@ -27,6 +33,7 @@ ActiveRecord::Schema.define(version: 20150331090102) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+>>>>>>> Test
   end
 
   create_table "notifications", force: true do |t|

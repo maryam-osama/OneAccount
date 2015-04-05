@@ -4,6 +4,7 @@
 <% if current_user.try(:publisher?) %> 
 <%= link_to 'Add Application', new_application_path %>
 <%= link_to 'View MyApps', applications_myapps_url %>
+<%= link_to 'my purchases' , :controller => "purchases", :action => "index" %>
 <% end %>
 
 <% if current_user.email == Sprint0::Application.config.my_key %> 
@@ -13,10 +14,13 @@
 
 <%= link_to 'View Notifications', notifications_path %>
 
+<%= link_to 'my purchases' , :controller => "purchases", :action => "index" %>
+
 <% else %>
 
 <% if current_user.publisher == nil %> 
 <%= link_to 'Request', new_request_path %>
+<%= link_to 'my purchases' , :controller => "purchases", :action => "index" %>
 <% end %>
 <% end %>
 
@@ -97,7 +101,6 @@ body{
 	overflow:scroll;
 	background-color:#008B8B;
 }
-
 section {
 	width:100%;
 	left:0;
@@ -109,16 +112,12 @@ section {
 .pic-container {
 	width:1500px;
 }
-
-
-
 header{
     width:100%;
 	
 	overflow:hidden;
 	visibility: visible;
 }
-
 .Search {
       width: 550px;
       margin-left:950px;
@@ -126,9 +125,6 @@ header{
       
       color: white;
    }
-
-
-
 .content{
 	margin-top:60px;
 }
@@ -137,10 +133,7 @@ header{
  overflow: hidden;
  position: relative;
  color: grey;
-
 }
-
-
 .Search {
       width: 550px;
       margin-left:950px;
@@ -148,12 +141,7 @@ header{
       
       color: white;
    }
-
-
-
-
 .marquee-inner {
-
  position: absolute;
  width: 100%;
  height: 100%;
@@ -206,4 +194,3 @@ header{
 
 
 </html>
-
