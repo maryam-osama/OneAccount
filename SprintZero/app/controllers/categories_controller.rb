@@ -1,4 +1,4 @@
-  ##
+ ##
   # class that defines methods for perfoming CRUD operations on categories 
 class CategoriesController < ApplicationController
   ##
