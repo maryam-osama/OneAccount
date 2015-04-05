@@ -75,6 +75,3 @@ class ApplicationsController < ApplicationController
    end
      
 end
-    
-    
-
