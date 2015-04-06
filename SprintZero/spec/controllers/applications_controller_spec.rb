@@ -64,6 +64,7 @@ end
       :category_name => "Finance",
       :price => 11}
     expect(Application.exists?(appname: "Viber")).to eq(true)
+    expect(Notification.exists?(id: 1 )).to eq(true)
  
   end
   
