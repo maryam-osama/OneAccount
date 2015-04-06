@@ -30,9 +30,6 @@ class ApplicationsController < ApplicationController
     
   def notify
     @application = Application.find(params[:number])
-    @notification = Notification.find(params[:notification_id])
-    @notification.destroy
-    @notification.save
   end
     
   ##    
@@ -44,6 +41,7 @@ class ApplicationsController < ApplicationController
       @notification = Notification.new
       @notification.user_email = current_user.email
       @notification.app_id = @application.id
+      @notification.appname = @application.appname
       @notification.save
       redirect_to @application
       else

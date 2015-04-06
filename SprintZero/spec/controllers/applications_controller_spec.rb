@@ -87,13 +87,12 @@ end
   describe "GET notify" do
   it "renders the #notify view" do
     application = Application.create!(:appname => 'Viber' ,:description => 'Good' ,:price => 11)
-    notification = Notification.create!(:appname => 'Viber' ,:user_email => 'maryam@gmail.com')
+   # notification = Notification.create!(:appname => 'Viber' ,:user_email => 'maryam@gmail.com')
    
-    get :notify, number: application.id , notification_id: 1
+    get :notify, number: application.id #, notification_id: 1
     expect(response).to render_template("notify")
    
   end
-  
    
 end
 

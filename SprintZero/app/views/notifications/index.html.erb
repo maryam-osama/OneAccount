@@ -9,7 +9,9 @@
      
       <td><%= notification.user_email %></td>
        <td><%= notification.appname%></td>
-        <td><%= link_to 'View' , applications_notify_path(:notification_id => notification.id ,:number => notification.app_id) %></td>
+        <td><%= link_to 'View' , notification_path(@notification,:notification_id => notification.id ),
+           method: :delete  %></td>
+       
        
      </tr>
  

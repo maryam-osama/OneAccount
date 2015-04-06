@@ -18,7 +18,13 @@ RSpec.describe NotificationsController, type: :controller do
       expect(response).to render_template("index")
     end
     
-end
+   end
 
+   it "deletes the notification" do
+    notification = Notification.create!(:appname => 'Viber' ,:user_email => 'maryam@gmail.com') 
+    expect{
+        delete :destroy, notification_id: notification.id , id: notification.id        
+    }.to change(Notification,:count).by(-1)
+   end
 
 end
