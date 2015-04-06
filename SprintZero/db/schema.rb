@@ -13,7 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20150331090102) do
 
-
   create_table "applications", force: true do |t|
     t.string   "appname"
     t.text     "description"
@@ -28,7 +27,6 @@ ActiveRecord::Schema.define(version: 20150331090102) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-
   end
 
   create_table "notifications", force: true do |t|
