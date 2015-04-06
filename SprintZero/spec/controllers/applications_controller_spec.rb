@@ -20,7 +20,7 @@ RSpec.describe ApplicationsController, type: :controller do
     it "assigns @applications" do
       
       application = Application.create!(:appname => 'Viber' ,:description => 'Good' ,:price => 11)   
-      get :index
+      get :index , search: application.appname
       expect(assigns(:applications )).to eq([application])
     end
     
