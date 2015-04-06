@@ -1,4 +1,4 @@
 class AccountController < ApplicationController
-    def signin; end
+  def signin; end
     
 end
