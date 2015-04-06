@@ -1,6 +1,5 @@
 
 <style>
-
 body {
        background: #A9A9A9 url(http://grandeurresortservices.com/wp-content/uploads/2014/01/sales-marketing.jpg);
           background-repeat: no-repeat;
@@ -20,14 +19,21 @@ body {
         
             margin-top: 460px;
     }
-
-
 </style>
 <p>
   <strong> Category Name:</strong>
   <%= @category.name %>
 </p>
 
+<table>
+  
+ <% @applications.each do |application| %>
+    <tr>
+      <td><%= application.appname %></td>
+      <td><%= link_to 'View' , application_path(application) %></td>
+</tr>
+<% end %>
+</table>
 
 <div>
 

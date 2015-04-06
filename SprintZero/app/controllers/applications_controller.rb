@@ -1,8 +1,13 @@
 ## 
 #This is class of applications
 class ApplicationsController < ApplicationController
+    
+    
 
-    def new; end
+    def new
+    @application = Application.new
+    @categories = Category.all  
+    end
 
 
    ## 
@@ -18,9 +23,7 @@ class ApplicationsController < ApplicationController
    
 
    def index
-     if params[:search]
      @applications = Application.search(params[:search]).order("created_at DESC")
-     end
    end
   # It returns the articles whose titles contain one or more words that form the query
 
@@ -40,13 +43,17 @@ class ApplicationsController < ApplicationController
   def create 
     @application = Application.new(application_params)
     @application.publisher_email  = current_user.email
-    @application.save
-    @notification = Notification.new
-    @notification.user_email = current_user.email
-    @notification.appname = @application.appname
-    @notification.app_id = @application.id
-    @notification.save
-    redirect_to @application
+    
+     if  @application.save
+      @notification = Notification.new
+      @notification.user_email = current_user.email
+      @notification.app_id = @application.id
+      @notification.save
+      redirect_to @application
+       else
+      render 'new'
+      end
+   
   end
     
    ##
@@ -66,7 +73,7 @@ class ApplicationsController < ApplicationController
   
    private
    def application_params
-       params.require(:application).permit(:appname, :description, :price)
+            params.require(:application).permit(:appname, :description, :price, :category_name)
    end
      
 end
