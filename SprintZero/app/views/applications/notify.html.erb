@@ -25,9 +25,17 @@
   <%=  @application.price %>
 </p>
 
+<p>
+  <strong>category name: </strong>
+  <%=  @application.category_name %>
+  
+</p>
+
+
 <% @number =  @application.price * 100 %>
 
- <% if current_user.email == Sprint0::Application.config.my_key %>
+ <% if (current_user.email == Sprint0::Application.config.my_key) ||
+ !(Application.where(:publisher_email => current_user.email ,:id => @application).blank?)%>
   <td><%= link_to 'DeleteApp', application_path(@application),
            method: :delete %></td>
  <% end %>
@@ -46,5 +54,7 @@
           </script> ></script>
 <% end %>
 <% end %>
+
+ <%= link_to 'Back', welcome_homepage_url %>
 
 
