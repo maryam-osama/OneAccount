@@ -23,18 +23,44 @@ body {
       color: white;
       font-family: Lucida Sans Unicode;
     }
-
-
 </style>
 </head>
 
 <h2 style="font-family:Lucida Sans Unicode" text-align= "center">Would you add your new application data here   </h2>
     <br>
-  
+    
+    <% if @application.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@application.errors.count, "error") %> prohibited
+        this application from being saved:
+      </h2>
+      <ul>
+        <% @application.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+    
   <p>
     
     <%= f.text_field :appname, :placeholder => "Application Name" %>
   </p>
+  
+ <% @category_options = [] %>
+<% @categories = Category.all %>
+<% @categories.each do |category| %>
+   <% @category_option = [category.name, category.name] %>
+  <% @category_options.push(@category_option) %>
+<% end %>
+  <p>
+    <%= f.select(:category_name) do %>
+       <%= options_for_select(@category_options) %>
+     <% end %>
+
+
+   </p>
  
   <p>
     
@@ -52,7 +78,3 @@ body {
   
  
 <% end %>
-
-
-    
-
