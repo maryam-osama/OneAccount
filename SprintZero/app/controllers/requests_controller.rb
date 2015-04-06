@@ -18,18 +18,18 @@ class RequestsController < ApplicationController
   end
    
   def destroy
-   @request = Request.find(params[:id])
-   @user = User.where(:email => @request.user_email).take
+    @request = Request.find(params[:id])
+    @user = User.where(:email => @request.user_email).take
    
-   @request.destroy
-   @request.save
+    @request.destroy
+    @request.save
   
-   if params[:number] == "1"
-   @user.publisher = true
-   @user.save
-   end
-   redirect_to requests_path
+    if params[:number] == "1"
+    @user.publisher = true
+    @user.save
     end
+    redirect_to requests_path
+  end
 
   private
   def requests_params
