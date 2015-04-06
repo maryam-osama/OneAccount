@@ -1,35 +1,56 @@
 
 
+<%= link_to 'Categories', categories_index_path %> 
+<%= link_to 'My Purchases' , :controller => "purchases", :action => "index" %>
+
+
 <% if current_user.try(:publisher?) %> 
 <%= link_to 'Add Application', new_application_path %>
+<%= link_to 'View MyApps', applications_myapps_url %>
+
 <% end %>
 
-<% if current_user.email == "maryam.osama@gmail.com" %> 
+<% if current_user.email == Sprint0::Application.config.my_key %> 
 <%= link_to 'View Requests', requests_index_path %>
-<% else %>
 
+<%= link_to 'Add Category', new_category_path %>
+
+<%= link_to 'View Notifications', notifications_path %>
+
+
+<% else %>
 
 <% if current_user.publisher == nil %> 
 <%= link_to 'Request', new_request_path %>
+
 <% end %>
 <% end %>
 
-
-
+<div class= "Search">
 
 
 <%= form_tag(applications_path, method: "get") do %>
-  <%= label_tag(:search, "Search for:") %>
+ 
   <%= text_field_tag :search , params[:search]%>
   <%= submit_tag("Search") %>
 <% end %>
+</div>
 <!DOCTYPE html>
 <html>
 
 
-<header style="background-color: #2c3e50;">
+<header style="background-color: #008B8B;">
 <h1 style="font-family:helvetica , sans-serif; text-align : left; color: white; "> One Account</h1>
 
+<script type="text/javascript">
+    function goToNewPage()
+    {
+        var url = document.getElementById('list').value;
+        if(url != 'none') {
+            window.location = url;
+        }
+    }
+</script>
 
 </header>
 
@@ -49,7 +70,15 @@
 <label></label>
 
 </div>
+<select name="list" id="list" accesskey="target">
+    <option value='none' selected>Choose a category</option>
+    <option value="finance.html.erb">Finance</option>
+    <option value="theme2.html">Accounting</option>
+    <option value="theme3.html">Budgeting</option>
+<select>
+<input type=button value="Go" onclick="goToNewPage()" />
 <body>
+  
   
 
 <hr>
@@ -64,12 +93,13 @@
    </div>
 </section>
 
+
 </body>
 
 <footer style="background-color:black;">
 <hr style="border-color:black;">
 
-<p style="text-align:right; font-family : helvetica , sans-serif; font-size:13pt; color:white;">   &copy; 2014 Copyrights by Bits please </p>
+<p style="text-align:right; font-family : helvetica , sans-serif; font-size:13pt; color:white;">   &copy; 2015 Copyrights by Bits please </p>
 <p style="text-align:left;font-family : helvetica , sans-serif; font-size:13pt ; color:white;"> Contact Us </p>
 <p style="font-family : helvetica , sans-serif; font-size:13pt; color:white;"><a href="www.hotmail.com">maryam.osama06@gmail.com </p></a>
 <p style="text-align:center;  padding-top: 0;"> About Us</p>
@@ -89,9 +119,8 @@ overflow:hidden;
 }
 body{
 	overflow:scroll;
-	background-color:#2c3e50;
+	background-color:#008B8B;
 }
-
 section {
 	width:100%;
 	left:0;
@@ -103,19 +132,19 @@ section {
 .pic-container {
 	width:1500px;
 }
-
-
-
 header{
     width:100%;
 	
 	overflow:hidden;
 	visibility: visible;
-
-
-
-
 }
+.Search {
+      width: 550px;
+      margin-left:950px;
+      margin-top:10px;
+      
+      color: white;
+   }
 .content{
 	margin-top:60px;
 }
@@ -124,10 +153,15 @@ header{
  overflow: hidden;
  position: relative;
  color: grey;
-
 }
+.Search {
+      width: 550px;
+      margin-left:950px;
+      margin-top:10px;
+      
+      color: white;
+   }
 .marquee-inner {
-
  position: absolute;
  width: 100%;
  height: 100%;
@@ -163,6 +197,7 @@ header{
  -webkit-transform: translateX(-100%); /* Browser bug fix */
  transform: translateX(-100%); 
  }
+ 
 }
 </style>
 
@@ -179,4 +214,3 @@ header{
 
 
 </html>
-
