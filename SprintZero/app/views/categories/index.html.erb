@@ -1,0 +1,21 @@
+<h1> Business Applications Categories </h1>
+ 
+  <table>
+  <tr>
+  <th> <b> Category Name   </b></th>
+  </tr>
+ 
+  <% @categories.each do |category| %>
+  <tr>
+  <td><%= category.name %></td>
+  <td><%= link_to 'Show' , category_path(category) %></td>
+   <% if current_user.email == "maryam.osama@gmail.com" %> 
+             <td><%= link_to 'Delete category', category_path(category),
+              method: :delete %> </td>
+   <% end %>
+  </tr>
+  
+  <% end %>
+  
+  </table>
+  <%= link_to 'Back', welcome_homepage_url %>
