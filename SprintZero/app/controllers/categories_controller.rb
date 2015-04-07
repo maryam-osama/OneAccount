@@ -4,7 +4,7 @@ class CategoriesController < ApplicationController
   ##
   # defines the new action 
   def new; end
-  
+  # retreives categories data and displays them in one page 
   def index
     @categories = Category.all 
   end
@@ -19,7 +19,7 @@ class CategoriesController < ApplicationController
     @category.save
     redirect_to categories_path
   end
-  
+  # displays details about the selected category 
   def show
     @category = Category.find(params[:id])
   end
