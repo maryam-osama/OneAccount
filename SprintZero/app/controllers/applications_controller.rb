@@ -1,30 +1,29 @@
 ## 
-#This is class of applications
+# This is class of applications
 class ApplicationsController < ApplicationController
-
-    def new; end
+  def new; end
    
-   ## 
-    #This method lists all the publisher's app
-    #
-    #By  checking if the applications model have current_user_Email as a publisher email
-    # 
-    #Then it loops on these applications
-    # and views the appname of this applications
-   def myapps
-     @applications = Application.where(publisher_email: current_user.email)
-   end 
+  ## 
+  # This method lists all the publisher's app
+  #
+  # By  checking if the applications model have current_user_Email as a publisher email
+  # 
+  # Then it loops on these applications
+  # and views the appname of this applications
+  def myapps
+    @applications = Application.where(publisher_email: current_user.email)
+  end 
    
-   def index
-     if params[:search]
-     @applications = Application.search(params[:search]).order("created_at DESC")
-     end
-   end
+  def index
+    if params[:search]
+    @applications = Application.search(params[:search]).order("created_at DESC")
+    end
+  end
   # It returns the articles whose titles contain one or more words that form the query
 
-    def show
-      @application = Application.find(params[:id])
-    end
+  def show
+    @application = Application.find(params[:id])
+  end
     
   ##    
   # Creates a new Notification once the new Application is created   
