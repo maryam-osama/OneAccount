@@ -1,7 +1,6 @@
 ## 
 #This is class of applications
 class ApplicationsController < ApplicationController
-
   def new; end
 
   ## 
