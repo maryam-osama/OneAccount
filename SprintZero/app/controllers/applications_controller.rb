@@ -1,10 +1,9 @@
 ## 
 #This is class of applications
-class ApplicationsController < ApplicationController
-
-    def new
+class ApplicationsController < ApplicationController  
+  def new
     @categories = Category.all  
-    end
+  end
 
 
    ## 
@@ -14,28 +13,28 @@ class ApplicationsController < ApplicationController
     # 
     #Then it loops on these applications
     # and views the appname of this applications
-   def myapps
-     @applications = Application.where(publisher_email: current_user.email)
-   end 
+  def myapps
+    @applications = Application.where(publisher_email: current_user.email)
+  end 
    
 
-   def index
-     if params[:search]
-     @applications = Application.search(params[:search]).order("created_at DESC")
-     end
-   end
+  def index
+    if params[:search]
+    @applications = Application.search(params[:search]).order("created_at DESC")
+    end
+  end
   # It returns the articles whose titles contain one or more words that form the query
 
-    def show
-      @application = Application.find(params[:id])
-    end
+  def show
+     @application = Application.find(params[:id])
+  end
     
-    def notify
-      @application = Application.find(params[:number])
-      @notification = Notification.find(params[:notification_id])
-      @notification.destroy
-      @notification.save
-    end
+  def notify
+     @application = Application.find(params[:number])
+     @notification = Notification.find(params[:notification_id])
+     @notification.destroy
+     @notification.save
+  end
     
   ##    
   # Creates a new Notification once the new Application is created   
@@ -53,8 +52,6 @@ class ApplicationsController < ApplicationController
     else
     render 'new'
     end
-    
-   
   end
     
    ##
@@ -74,7 +71,7 @@ class ApplicationsController < ApplicationController
   
    private
    def application_params
-       params.require(:application).permit(:appname, :description, :price)
+     params.require(:application).permit(:appname, :description, :price)
    end
      
 end

@@ -4,12 +4,12 @@ Rails.application.routes.draw do
   get 'requests/form'
   get 'requests/index'
   get 'welcome/homepage'
-<<<<<<< HEAD
+
   get 'applications/show'
   get 'views/welcome/finance'
   
   
-=======
+
   get 'categories/new'
   get 'categories/index'
   get 'applications/notify'
@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
   
 resources :notifications
->>>>>>> Test
+
 resources :requests 
 resources :applications
 resources :charges

@@ -1,10 +1,10 @@
-<<<<<<< HEAD
-=======
+
+
 
 <%= link_to 'Categories', categories_index_path %> 
 <%= link_to 'My Purchases' , :controller => "purchases", :action => "index" %>
 
->>>>>>> Test
+
 <% if current_user.try(:publisher?) %> 
 <%= link_to 'Add Application', new_application_path %>
 <%= link_to 'View MyApps', applications_myapps_url %>
@@ -22,17 +22,16 @@
 
 <% else %>
 
-<% if current_user.publisher == nil %> 
-<%= link_to 'Request', new_request_path %>
-
+<header>
+  <div class="header" style="margin-top:17.5px"> 
+    <% if current_user.publisher == nil %> 
+  <div style="text-align:right;"><%= link_to 'Request', new_request_path %> </div>
+</header>
 <% end %>
 <% end %>
 
 
-<<<<<<< HEAD
-=======
 <div class= "Search">
->>>>>>> Test
 
 <%= form_tag(applications_path, method: "get") do %>
  
@@ -44,7 +43,7 @@
 <html>
 
 
-<header style="background-color: #008B8B;">
+
 <h1 style="font-family:helvetica , sans-serif; text-align : left; color: white; "> One Account</h1>
 
 <script type="text/javascript">
@@ -91,10 +90,9 @@
 
 <h4 style="font-family:helvetica "> Best New Apps </h4>
 <section id="section1">
-
     <div class="pic-container1">
      <div class="pic-row">
-       </div>
+     </div>
    </div>
 </section>
 

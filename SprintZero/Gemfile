@@ -37,12 +37,9 @@ gem 'rdoc', '~> 4.2.0'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 gem 'devise'
-<<<<<<< HEAD
+
 gem 'rdoc','~> 4.2.0'
 gem 'stripe',:git => 'https://github.com/stripe/stripe-ruby'
-=======
 
-gem 'stripe',:git => 'https://github.com/stripe/stripe-ruby'
 
-gem 'rdoc', '~> 4.2.0' 
->>>>>>> Test
+

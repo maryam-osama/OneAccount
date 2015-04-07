@@ -28,15 +28,15 @@ class RequestsController < ApplicationController
   # If the request is accepted,
   # User becomes a publisher. 
   def destroy
-   @request = Request.find(params[:id])
-   @user = User.where(:email => @request.user_email).take
-   @request.destroy
-   @request.save
-   if params[:number] == "1"
-   @user.publisher = true
-   @user.save
-   end
-   redirect_to requests_path
+    @request = Request.find(params[:id])
+    @user = User.where(:email => @request.user_email).take
+    @request.destroy
+    @request.save
+    if params[:number] == "1"
+    @user.publisher = true
+    @user.save
+    end
+    redirect_to requests_path
   end
 
   private

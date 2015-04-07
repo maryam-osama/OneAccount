@@ -1,14 +1,119 @@
-<table>
+<!DOCTYPE html>
+<html>
+    <body background="http://2.bp.blogspot.com/-hSk1sDjJh-8/T8cakp2koyI/AAAAAAAAR_g/fbK0ask0tNE/s640/water_flow_abstract-1920x1080.jpg">
+    <header>
+<div class="header" style="margin-top:17.5px">
+<a href="/OneAccount/SprintZero/app/views/welcome/homepage.html.erb">Home</a>
+
+</div>
+
+    </header>
+    
+<table align="center">
  <tr>
-    <th><b> My purchases </b></th>
+    <th style=" font-size:30pt; margin-top:0;"><Strong> My purchases </Strong></th>
  </tr>
-
-
+ 
 <% @app_names.each do |application| %>
 <tr>
 <td><%= application.appname %></td>
-
 <% end %>
- </tr>
-
+<tr>
+    <td> Finance me</td>
+   
+</tr>
+<tr>
+     <td> Accouting</td>
+</tr>
+ 
+  
+                     
 </table>
+
+
+</body>
+<style type="text/css">
+
+.header a:link{
+color:#006699;
+font-size:16px;
+font-family: helvetica, sans-serif;
+text-decoration:none;
+padding:5px;
+
+
+}
+.header a:visited{
+color:#003399;
+font-size:16px;
+font-family: helvetica, sans-serif;
+text-decoration:none;
+padding:5px;
+
+}
+.header a:hover{
+color:#0099CC;
+font-size:16px;
+font-family: helvetica, sans-serif;
+text-decoration:none;
+padding:5px;
+
+}
+h1{
+	text-align:center;
+}
+
+header {
+	text-align: right;
+    height:50px;
+    background:#F0F0F0;
+    border:1px solid #CCC;
+    width:100%;
+    margin:0px auto;
+}
+
+ 
+ table{
+    border: 1px solid white;
+    width:500px;
+    height:70px;
+    border-radius:10px;
+    background-color: transparent;
+    box-shadow: 5px 5px 5px #888888;
+     visibility: visible;
+     margin-top:100px;
+   
+     
+}
+th {
+     float: left;
+  width: 100%;
+  margin: 100px 0 20px;
+  font-family: proxima-nova,sans-serif;
+  font-style: normal;
+  
+  text-shadow: 0 1px 3px #145769;
+  text-align:center;
+  color: #FFD700;
+}
+td {
+    height: 25px;
+    vertical-align: middle;
+    font-size:12.5pt;
+    color:white;
+    Text-align:center;
+  float: left;
+  width: 100%;
+margin: 240px 0 10px;
+  font-family: proxima-nova,sans-serif;
+  font-style: normal;
+
+  text-shadow: 0 1px 3px #145769;
+    
+}
+body{
+    background-repeat:no-repeat;
+    background-size:100%;
+}
+</style>
+</html>
