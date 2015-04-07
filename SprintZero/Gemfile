@@ -41,5 +41,5 @@ gem 'stripe',:git => 'https://github.com/stripe/stripe-ruby'
 
 gem 'rdoc', '~> 4.2.0' 
 
-gem "rspec-rails" , "~> 3.0"
+
 
