@@ -1,5 +1,5 @@
- ##
-  # class that defines methods for perfoming CRUD operations on categories 
+##
+# class that defines methods for perfoming CRUD operations on categories 
 class CategoriesController < ApplicationController
   ##
   # defines the new action 
