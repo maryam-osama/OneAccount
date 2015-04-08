@@ -5,19 +5,17 @@ class ApplicationsController < ApplicationController
     @categories = Category.all  
   end
 
-
-   ## 
-    #This method lists all the publisher's app
-    #
-    #By  checking if the applications model have current_user_Email as a publisher email
-    # 
-    #Then it loops on these applications
-    # and views the appname of this applications
+  ## 
+  #This method lists all the publisher's app
+  #
+  #By  checking if the applications model have current_user_Email as a publisher email
+  # 
+  #Then it loops on these applications
+  # and views the appname of this applications
   def myapps
     @applications = Application.where(publisher_email: current_user.email)
   end 
    
-
   def index
     if params[:search]
     @applications = Application.search(params[:search]).order("created_at DESC")
@@ -42,16 +40,15 @@ class ApplicationsController < ApplicationController
     @application = Application.new(application_params)
     @application.publisher_email  = current_user.email
     
-    if @application.save
-    @notification = Notification.new
-    @notification.user_email = current_user.email
-    @notification.appname = @application.appname
-    @notification.app_id = @application.id
-    @notification.save
-    redirect_to @application
-    else
-    render 'new'
-    end
+      if @application.save
+      @notification.user_email = current_user.email
+      @notification.appname = @application.appname
+      @notification.app_id = @application.id
+      @notification.save
+      redirect_to @application
+      else
+      render 'new'
+      end
   end
     
    ##

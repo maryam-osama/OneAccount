@@ -1,5 +1,4 @@
 class Application < ActiveRecord::Base
-  
    validates :appname, presence: true
                   
    validates :description, presence: true

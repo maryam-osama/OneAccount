@@ -1,13 +1,26 @@
 <!DOCTYPE html>
 <html>
-    <body background="http://2.bp.blogspot.com/-hSk1sDjJh-8/T8cakp2koyI/AAAAAAAAR_g/fbK0ask0tNE/s640/water_flow_abstract-1920x1080.jpg">
-    <header>
-<div class="header" style="margin-top:17.5px">
-<a href="/OneAccount/SprintZero/app/views/welcome/homepage.html.erb">Home</a>
+   <header>
+       
+       
+       <header>
+
+  <div class="header" style="margin-top:17.5px">
+  <a href="welcome_homepage_url">Home</a>
+  <a <%= link_to 'Categories', categories_index_path %> 
+  <a <%= link_to 'My Purchases' , :controller => "purchases", :action => "index" %> 
+
+  <% if current_user.publisher == nil %> 
+    <a style="text-align:right;"> <%= link_to 'Request', new_request_path %> 
+  <% end %>
 
 </div>
+</header>
+       
+       
+</header>
+    <body background="http://www.fbnstatic.com/static/managed/img/Customer-Using-iPhone-4S-FBN.jpg">
 
-    </header>
     
 <table align="center">
  <tr>
@@ -18,20 +31,11 @@
 <tr>
 <td><%= application.appname %></td>
 <% end %>
-<tr>
-    <td> Finance me</td>
-   
-</tr>
-<tr>
-     <td> Accouting</td>
-</tr>
- 
-  
-                     
 </table>
 
 
 </body>
+
 <style type="text/css">
 
 .header a:link{
@@ -59,18 +63,16 @@ text-decoration:none;
 padding:5px;
 
 }
-h1{
-	text-align:center;
-}
-
 header {
-	text-align: right;
+	text-align: center;
     height:50px;
     background:#F0F0F0;
     border:1px solid #CCC;
     width:100%;
     margin:0px auto;
 }
+
+ 
 
  
  table{
@@ -97,14 +99,14 @@ th {
   color: #FFD700;
 }
 td {
-    height: 25px;
+    height: 15px;
     vertical-align: middle;
     font-size:12.5pt;
     color:white;
     Text-align:center;
   float: left;
   width: 100%;
-margin: 240px 0 10px;
+margin: 40px 0 10px;
   font-family: proxima-nova,sans-serif;
   font-style: normal;
 

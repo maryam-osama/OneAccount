@@ -1,24 +1,31 @@
 <!DOCTYPE html>
 <html>
+   
 <head>
-  <title>Sprint0</title>
+  <title>OneAccount</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-      
+
+
+ 
         <% if user_signed_in? %>
-         <%= link_to "Sign Out",destroy_user_session_path, :method => :delete %>
+           <%= link_to "Sign Out",destroy_user_session_path, :method => :delete %> 
         <% end %> 
-        </div>
+   
   
-  
+
   <p class="notice"> <%=notice %></p>
    <p class="alert"> <%=alert %></p>
 <%= yield %>
 
 
+<style>
 
-</body>
+    
+
+    
+</style>
+
 </html>
