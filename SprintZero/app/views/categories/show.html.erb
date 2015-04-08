@@ -1,0 +1,42 @@
+
+<style>
+body {
+       background: #A9A9A9 url(http://grandeurresortservices.com/wp-content/uploads/2014/01/sales-marketing.jpg);
+          background-repeat: no-repeat;
+           background-position: center;
+           
+} 
+ p{ 
+      
+     font-family:Alpha Geometrique ;font-size:20pt ; font-style: normal; 
+     margin-top:60px;
+      margin-left: 20px; 
+      color:black;
+                 
+    }
+    
+    div {
+        
+            margin-top: 460px;
+    }
+</style>
+<p>
+  <strong> Category Name:</strong>
+  <%= @category.name %>
+</p>
+
+<table>
+  
+ <% @applications.each do |application| %>
+    <tr>
+      <td><%= application.appname %></td>
+      <td><%= link_to 'View' , application_path(application) %></td>
+</tr>
+<% end %>
+</table>
+
+<div>
+
+<%= link_to 'Back', categories_index_path %>
+
+</div>

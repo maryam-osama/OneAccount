@@ -1,0 +1,18 @@
+<table>
+  <tr>
+    <th><b>Publisher Email </b></th>
+    <th><b>Application Name </b></th>
+  </tr>
+ 
+   <% @notification.each do |notification| %>
+    <tr>
+     <% if (Application.where(id: notification.app_id).exists?) %>
+      <td><%= notification.user_email %></td>
+       <td><%= notification.appname%></td>
+        <td><%= link_to 'View' , notification_path(@notification,:notification_id => notification.id ),
+           method: :delete  %></td>
+       
+     </tr>
+   <% end %>
+   <% end %>
+</table>

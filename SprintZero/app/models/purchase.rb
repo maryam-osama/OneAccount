@@ -1,2 +1,4 @@
 class Purchase < ActiveRecord::Base
-end
+  belongs_to :application
+  belongs_to :user
+end 
