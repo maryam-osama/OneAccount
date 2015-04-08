@@ -4,6 +4,7 @@ class CategoriesController < ApplicationController
   ##
   # defines the new action 
   def new; end
+    
   # retreives categories data and displays them in one page 
   def index
     @categories = Category.all 
