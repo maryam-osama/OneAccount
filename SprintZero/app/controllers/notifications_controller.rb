@@ -1,7 +1,6 @@
 ##
 # Lists,Shows and Creates Notifications
 class NotificationsController < ApplicationController
-
   ##
   # Returns all the Notifications stored in the database
   def index
