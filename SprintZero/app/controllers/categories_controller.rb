@@ -19,7 +19,7 @@ class CategoriesController < ApplicationController
     @category.save
     redirect_to categories_path
   end
-  # displays details about the selected category 
+
   def show
     @category = Category.find(params[:id])
   end
