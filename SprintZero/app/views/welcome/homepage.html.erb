@@ -3,20 +3,7 @@
 
 <body>
     
-<% if current_user.try(:publisher?) %> 
-<button style="border-radius:20px;"><%= link_to 'Add Application', new_application_path %></button>
-<button><%= link_to 'View MyApps', applications_myapps_url %></button>
-<% end %>
-
-<% if current_user.email == Sprint0::Application.config.my_key %> 
-<%= link_to 'View Requests', requests_index_path %>
-<%= link_to 'Add Category', new_category_path %>
-<%= link_to 'View Notifications', notifications_path %>
-<% else %>
-<% end %>
-
 <div class= "Search">
-
 
 <%= form_tag(applications_path, method: "get") do %>
  
@@ -24,6 +11,7 @@
   <%= submit_tag("Search") %>
 <% end %>
 </div>
+
 
 
 
@@ -79,7 +67,7 @@ slideit()
 </section>
 
 
-</body>
+
 
 <footer style="background-color:grey">
 
@@ -130,7 +118,6 @@ slideit()
       width: 550px;
       margin-left:950px;
       margin-top:10px;
-      
       color: white;
    }
 	
@@ -150,19 +137,18 @@ slideit()
 	h1{
 		text-align:center;
 		font-family:helvetica , sans-serif;
-		color: white; 
-		margin-top:1px;
+	    margin-top:1px;
 	}
-footer{
-position:relative;
-overflow:hidden;
-  display: block;
-  margin-top: 150px;
-  width:98.3%;
+    footer{
+      position:relative;
+     overflow:hidden;
+     display: block;
+     margin-top: 150px;
+    width:98.3%;
   
-  clear: both;
-padding: .5em 1em;
-text-align: left;
+     clear: both;
+     padding: .5em 1em;
+     text-align: left;
   
 }
 body{
@@ -185,7 +171,6 @@ section {
       width: 550px;
       margin-left:950px;
       margin-top:10px;
-      
       color: white;
    }
 .content{
@@ -205,8 +190,5 @@ header {
 
 
 </style>
-
-
-
 
 </html>

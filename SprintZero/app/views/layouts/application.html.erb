@@ -8,31 +8,43 @@
 </head>
 
 <header>
-  
+ 
  <% if user_signed_in? %>
   <div class="header" style="margin-top:17.5px">
-  <a href="<%= url_for controller: 'welcome', action: 'homepage' %>" >Home</a>
-  <a <%= link_to 'Categories', categories_index_path %> 
-  <a <%= link_to 'My Purchases' , :controller => "purchases", :action => "index" %> 
+   
+ <a href="<%= url_for controller: 'welcome', action: 'homepage' %>" >Home</a>
+ <a <%= link_to 'Categories', categories_index_path %> 
+   <%= link_to 'My Purchases' , :controller => "purchases", :action => "index" %> 
 
-  <% if current_user.publisher == nil %> 
-    <a style="text-align:right;"> <%= link_to 'Request', new_request_path %> 
-  <% end %>
-</div>
 
+ <% if current_user.try(:publisher?) %> 
+  <%= link_to 'Add Application', new_application_path %>
+  <%= link_to 'View MyApps', applications_myapps_url %></button>
  <% end %>
-</header>
 
-     <% if user_signed_in? %>
-  <div>  
- 
-       <%= link_to "Sign Out",destroy_user_session_path, :method => :delete %> 
-          <% end %> 
-          <p class="notice"> <%=notice %></p>
-          <p class="alert"> <%=alert %></p>
-   </div>  
+  <% if current_user.email == Sprint0::Application.config.my_key %> 
+  <%= link_to 'View Requests', requests_index_path %>
+  <%= link_to 'Add Category', new_category_path %>
+  <%= link_to 'View Notifications', notifications_path %>
+  <% else %>
+
+ <% if current_user.publisher == nil %> 
+ <%= link_to 'Request', new_request_path %>
+ <% end %>
+ <% end %>
+
   
-  <%= yield %>   
+</div>
+<% end %>
+</header>
+  
+ <div>
+  <% if user_signed_in? %>
+   <%= link_to "Sign Out",destroy_user_session_path, :method => :delete %> 
+   <% end %>  
+   
+ 
+ <%= yield %>   
     
 <style>
 .header a:link{
@@ -56,8 +68,7 @@ font-family: helvetica, sans-serif;
 text-decoration:none;
 padding:5px;
 }
-
-
+ 
 
 </style>
 
