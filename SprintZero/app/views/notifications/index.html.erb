@@ -1,18 +1,61 @@
+<style>
+
+body {
+       background:  url(http://www.workathome481.com/uploads/Loops-Background.jpg);
+          background-repeat: no-repeat;
+          background-position: top;
+}
+
+ h1{
+   
+  font-family:helvetica , sans-serif;
+   color:#00003D;
+   margin-left: 20px;
+   margin-top: 30px;
+   
+ }
+ 
+ table{
+     
+     font-family:helvetica , sans-serif;
+      margin-left:60px;
+      background: white;
+      margin-top: 50px;
+      text-align: left
+      color:#00003D;
+      border-radius:10px;
+ }
+ 
+ tr {
+      
+    color:#00003D;
+ }  
+   div {
+        margin-left:40px;
+   } 
+ 
+ 
+
+</style>
+<h1> Apps Notifications </h1>
 <table>
   <tr>
-    <th><b>Publisher Email </b></th>
+    <th style= "padding-left: 70px; padding-right: 10px"><b>Publisher Email </b></th>
     <th><b>Application Name </b></th>
   </tr>
+ 
  
    <% @notification.each do |notification| %>
     <tr>
      <% if (Application.where(id: notification.app_id).exists?) %>
-      <td><%= notification.user_email %></td>
-       <td><%= notification.appname%></td>
-        <td><%= link_to 'View' , notification_path(@notification,:notification_id => notification.id ),
+      <td style= "padding-left: 40px;"><%= notification.user_email %></td>
+       <td style= "padding-left: 80px;"> <%= notification.appname%></td>
+         <td style= "padding-left: 35px;"><%= link_to 'View' , notification_path(@notification,:notification_id => notification.id ),
            method: :delete  %></td>
        
      </tr>
    <% end %>
    <% end %>
 </table>
+
+

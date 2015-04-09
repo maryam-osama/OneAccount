@@ -1,29 +1,30 @@
+<!DOCTYPE html> 
+<html>
+<header>
 
+  <div class="header" style="margin-top:17.5px">
+  <a href="<%= url_for controller: 'welcome', action: 'homepage' %>" >Home</a>
+  <a <%= link_to 'Categories', categories_index_path %> 
+  <a <%= link_to 'My Purchases' , :controller => "purchases", :action => "index" %> 
 
-<%= link_to 'Categories', categories_index_path %> 
-<%= link_to 'My Purchases' , :controller => "purchases", :action => "index" %>
+  <% if current_user.publisher == nil %> 
+    <a style="text-align:right;"> <%= link_to 'Request', new_request_path %> 
+  <% end %>
 
-
+</div>
+</header>
+<body>
+    
 <% if current_user.try(:publisher?) %> 
-<%= link_to 'Add Application', new_application_path %>
-<%= link_to 'View MyApps', applications_myapps_url %>
-
+<button style="border-radius:20px;"><%= link_to 'Add Application', new_application_path %></button>
+<button><%= link_to 'View MyApps', applications_myapps_url %></button>
 <% end %>
 
 <% if current_user.email == Sprint0::Application.config.my_key %> 
 <%= link_to 'View Requests', requests_index_path %>
-
 <%= link_to 'Add Category', new_category_path %>
-
 <%= link_to 'View Notifications', notifications_path %>
-
-
 <% else %>
-
-<% if current_user.publisher == nil %> 
-<%= link_to 'Request', new_request_path %>
-
-<% end %>
 <% end %>
 
 <div class= "Search">
@@ -35,85 +36,151 @@
   <%= submit_tag("Search") %>
 <% end %>
 </div>
-<!DOCTYPE html>
-<html>
 
 
-<header style="background-color: #008B8B;">
-<h1 style="font-family:helvetica , sans-serif; text-align : left; color: white; "> One Account</h1>
 
-<script type="text/javascript">
-    function goToNewPage()
-    {
-        var url = document.getElementById('list').value;
-        if(url != 'none') {
-            window.location = url;
-        }
-    }
+
+<h1 Style="color:black;"> One Account</h1>
+
+ <script type="text/javascript">
+var slideimages = new Array() // create new array to preload images
+slideimages[0] = new Image() // create new instance of image object
+slideimages[0].src = "http://www.expatweaver.com/wp-content/uploads/2013/06/Global-Corporate-Finance-Accounting-Services-1024x319.jpg" // set image src property to image path, preloading image in the process
+slideimages[1] = new Image()
+slideimages[1].src = "http://i.imgur.com/kbV2PH7.jpg"
+slideimages[2] = new Image()
+slideimages[2].src = "http://i.imgur.com/HuxdRjK.jpg"
+slideimages[3] = new Image()
+slideimages[3].src = "http://i.imgur.com/uRUF3Mw.jpg"
+slideimages[4] = new Image()
+slideimages[4].src = "http://i.imgur.com/wJLZPTW.jpg"
 </script>
 
-</header>
+<img style="margin-top:10px"src="http://www.expatweaver.com/wp-content/uploads/2013/06/Global-Corporate-Finance-Accounting-Services-1024x319.jpg" id="slide" width="100%" height="400" />
 
+<script type="text/javascript">
+//variable that will increment through the images
+var step=0
+function slideit(){
+ //if browser does not support the image object, exit.
+ if (!document.images)
+  return
+ document.getElementById('slide').src = slideimages[step].src
+ if (step<4)
+  step++
+ else
+  step=0
+ //call function "slideit()" every 2.5 seconds
+ setTimeout("slideit()",2500)
+}
+slideit()
+</script>
 
-<div>
-
-</div>
-
-<div class="marquee-outer">
-<div class="marquee-inner">  <img  src="http://i.imgur.com/S15U37c.png" width="350px" height="488" alt="Game"> 
-
-<img src="http://www.microsoft.com/About/CorporateCitizenship/en-us/DownloadHandler.ashx?Id=07-03-02" width="350px" height="488">
-
-<img src="http://upload.wikimedia.org/wikipedia/sh/archive/a/ab/20111007103044!Apple-logo.png" width="250px" height="488">
-
-</div>
-<label></label>
-
-</div>
-
-<body>
-  
-  
+</body>
 
 <hr>
 
 
 <h4 style="font-family:helvetica "> Best New Apps </h4>
 <section id="section1">
-
     <div class="pic-container1">
      <div class="pic-row">
-       </div>
+
+     </div>
    </div>
 </section>
 
 
 </body>
 
-<footer style="background-color:black;">
-<hr style="border-color:black;">
+<footer style="background-color:grey">
 
-<p style="text-align:right; font-family : helvetica , sans-serif; font-size:13pt; color:white;">   &copy; 2015 Copyrights by Bits please </p>
+<p style="text-align:right;font-family : helvetica , sans-serif; font-size:13pt; color:white;"> &copy; 2015 Copyrights by Bits please </p>
 <p style="text-align:left;font-family : helvetica , sans-serif; font-size:13pt ; color:white;"> Contact Us </p>
-<p style="font-family : helvetica , sans-serif; font-size:13pt; color:white;"><a href="www.hotmail.com">maryam.osama06@gmail.com </p></a>
-<p style="text-align:center;  padding-top: 0;"> About Us</p>
+<p style="font-family : helvetica , sans-serif; font-size:13pt; color:white;"><a style="text-decoration:none;"href="www.gmail.com">maryam.osama06@gmail.com </p></a>
+
 
 </footer>
 
-
-
 <style style="text/css">
+.section1{
+	overflow:scroll;
+	
+}
+#tfnewsearch{
+		float:right;
+		padding:20px;
+	}
+	.tftextinput{
+		margin: 0;
+		padding: 5px 15px;
+		font-family: Arial, Helvetica, sans-serif;
+		font-size:14px;
+		border:1px solid #0076a3; border-right:0px;
+		border-top-left-radius: 5px 5px;
+		border-bottom-left-radius: 5px 5px;
+	}
+	.tfbutton {
+		margin: 0;
+		padding: 5px 15px;
+		font-family: Arial, Helvetica, sans-serif;
+		font-size:14px;
+		outline: none;
+		cursor: pointer;
+		text-align: center;
+		text-decoration: none;
+		color: #ffffff;
+		border: solid 1px #0076a3; border-right:0px;
+		background: #0095cd;
+		background: -webkit-gradient(linear, left top, left bottom, from(#00adee), to(#0078a5));
+		background: -moz-linear-gradient(top,  #00adee,  #0078a5);
+		border-top-right-radius: 5px 5px;
+		border-bottom-right-radius: 5px 5px;
+	}
+	
+	.Search {
+      width: 550px;
+      margin-left:950px;
+      margin-top:10px;
+      
+      color: white;
+   }
+	
+	.tfbutton:hover {
+		text-decoration: none;
+		background: #007ead;
+		background: -webkit-gradient(linear, left top, left bottom, from(#0095cc), to(#00678e));
+		background: -moz-linear-gradient(top,  #0095cc,  #00678e);
+	}
+	/* Fixes submit button height problem in Firefox */
+	.tfbutton::-moz-focus-inner {
+	  border: 0;
+	}
+	.tfclear{
+		clear:both;
+	}
+	h1{
+		text-align:center;
+		font-family:helvetica , sans-serif;
+		color: white; 
+		margin-top:5px;
+	}
 footer{
 position:relative;
 overflow:hidden;
   display: block;
   margin-top: 150px;
-  padding-bottom: 20px;
+  width:98.3%;
+  
+  clear: both;
+padding: .5em 1em;
+text-align: left;
   
 }
 body{
 	overflow:scroll;
-	background-color:#008B8B;
+	background-color:#F8F8F8 ;
+	
 }
 section {
 	width:100%;
@@ -126,12 +193,6 @@ section {
 .pic-container {
 	width:1500px;
 }
-header{
-    width:100%;
-	
-	overflow:hidden;
-	visibility: visible;
-}
 .Search {
       width: 550px;
       margin-left:950px;
@@ -142,67 +203,37 @@ header{
 .content{
 	margin-top:60px;
 }
-.marquee-outer {
- height: 300px;	
- overflow: hidden;
- position: relative;
- color: grey;
+.header a:link{
+color:#006699;
+font-size:16px;
+font-family: helvetica, sans-serif;
+text-decoration:none;
+padding:5px;
 }
-.Search {
-      width: 550px;
-      margin-left:950px;
-      margin-top:10px;
-      
-      color: white;
-   }
-.marquee-inner {
- position: absolute;
- width: 100%;
- height: 100%;
- margin: 0;
- line-height: 150px;
- text-align: center;
- /* Starting position */
- -moz-transform:translateX(100%);
- -webkit-transform:translateX(100%);	
- transform:translateX(100%);
- /* Apply animation to this element */	
- -moz-animation: scroll-left 12.5s linear infinite;
- -webkit-animation: scroll-left 12.5s linear infinite;
- animation: scroll-left 12.5s linear infinite;
+.header a:visited{
+color:#003399;
+font-size:16px;
+font-family: helvetica, sans-serif;
+text-decoration:none;
+padding:5px;
 }
-/* Move it (define the animation) */
-@-moz-keyframes scroll-left {
- 0%   { -moz-transform: translateX(100%); }
- 100% { -moz-transform: translateX(-100%); }
+.header a:hover{
+color:#0099CC;
+font-size:16px;
+font-family: helvetica, sans-serif;
+text-decoration:none;
+padding:5px;
 }
-@-webkit-keyframes scroll-left {
- 0%   { -webkit-transform: translateX(100%); }
- 100% { -webkit-transform: translateX(-100%); }
-}
-@keyframes scroll-left {
- 0%   { 
- -moz-transform: translateX(100%); /* Browser bug fix */
- -webkit-transform: translateX(100%); /* Browser bug fix */
- transform: translateX(100%); 		
- }
- 100% { 
- -moz-transform: translateX(-100%); /* Browser bug fix */
- -webkit-transform: translateX(-100%); /* Browser bug fix */
- transform: translateX(-100%); 
- }
- 
+header {
+	text-align: center;
+    height:50px;
+    background:#F0F0F0;
+    border:1px solid #CCC;
+    width:100%;
+    margin:0px auto;
+  box-shadow: 0px 2px 2px 2px #ccc;
 }
 </style>
-
-
-</body>
-
-
-
-
-
-
 
 
 
