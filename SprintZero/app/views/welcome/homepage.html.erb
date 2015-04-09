@@ -1,18 +1,6 @@
 <!DOCTYPE html> 
 <html>
-<header>
 
-  <div class="header" style="margin-top:17.5px">
-  <a href="<%= url_for controller: 'welcome', action: 'homepage' %>" >Home</a>
-  <a <%= link_to 'Categories', categories_index_path %> 
-  <a <%= link_to 'My Purchases' , :controller => "purchases", :action => "index" %> 
-
-  <% if current_user.publisher == nil %> 
-    <a style="text-align:right;"> <%= link_to 'Request', new_request_path %> 
-  <% end %>
-
-</div>
-</header>
 <body>
     
 <% if current_user.try(:publisher?) %> 
@@ -95,7 +83,7 @@ slideit()
 
 <footer style="background-color:grey">
 
-<p style="text-align:right;font-family : helvetica , sans-serif; font-size:13pt; color:white;"> &copy; 2015 Copyrights by Bits please </p>
+<p style="text-align:right;font-family : helvetica , sans-serif; font-size:13pt; color:white;"> &copy; 2015 Copyrights by BitsPlease! </p>
 <p style="text-align:left;font-family : helvetica , sans-serif; font-size:13pt ; color:white;"> Contact Us </p>
 <p style="font-family : helvetica , sans-serif; font-size:13pt; color:white;"><a style="text-decoration:none;"href="www.gmail.com">maryam.osama06@gmail.com </p></a>
 
@@ -107,7 +95,7 @@ slideit()
 	overflow:scroll;
 	
 }
-#tfnewsearch{
+ #tfnewsearch{
 		float:right;
 		padding:20px;
 	}
@@ -163,7 +151,7 @@ slideit()
 		text-align:center;
 		font-family:helvetica , sans-serif;
 		color: white; 
-		margin-top:5px;
+		margin-top:1px;
 	}
 footer{
 position:relative;
@@ -203,27 +191,7 @@ section {
 .content{
 	margin-top:60px;
 }
-.header a:link{
-color:#006699;
-font-size:16px;
-font-family: helvetica, sans-serif;
-text-decoration:none;
-padding:5px;
-}
-.header a:visited{
-color:#003399;
-font-size:16px;
-font-family: helvetica, sans-serif;
-text-decoration:none;
-padding:5px;
-}
-.header a:hover{
-color:#0099CC;
-font-size:16px;
-font-family: helvetica, sans-serif;
-text-decoration:none;
-padding:5px;
-}
+
 header {
 	text-align: center;
     height:50px;
@@ -233,6 +201,9 @@ header {
     margin:0px auto;
   box-shadow: 0px 2px 2px 2px #ccc;
 }
+
+
+
 </style>
 
 

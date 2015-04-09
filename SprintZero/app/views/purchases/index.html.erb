@@ -1,24 +1,6 @@
 <!DOCTYPE html>
 <html>
-   <header>
-       
-       
-       <header>
-
-  <div class="header" style="margin-top:17.5px" > 
-  <a href="<%= url_for controller: 'welcome', action: 'homepage' %>" >Home</a>
-  <a <%= link_to 'Categories', categories_index_path %> 
-  <a <%= link_to 'My Purchases' , :controller => "purchases", :action => "index" %> 
-
-  <% if current_user.publisher == nil %> 
-    <a style="text-align:right;"> <%= link_to 'Request', new_request_path %> 
-  <% end %>
-
-</div>
-</header>
-       
-       
-</header>
+  
     <body background="http://www.fbnstatic.com/static/managed/img/Customer-Using-iPhone-4S-FBN.jpg">
 
     
@@ -37,36 +19,7 @@
 </body>
 
 <style type="text/css">
-.header a:link{
-color:#006699;
-font-size:16px;
-font-family: helvetica, sans-serif;
-text-decoration:none;
-padding:5px;
-}
-.header a:visited{
-color:#003399;
-font-size:16px;
-font-family: helvetica, sans-serif;
-text-decoration:none;
-padding:5px;
-}
-.header a:hover{
-color:#0099CC;
-font-size:16px;
-font-family: helvetica, sans-serif;
-text-decoration:none;
-padding:5px;
-}
-header {
-	text-align: center;
-    height:50px;
-    background:#F0F0F0;
-    border:1px solid #CCC;
-    width:100%;
-    margin:0px auto;
-}
- 
+
  
  table{
     border: 1px solid white;
@@ -108,6 +61,15 @@ margin: 40px 0 10px;
 body{
     background-repeat:no-repeat;
     background-size:100%;
+}
+header {
+	text-align: center;
+    height:50px;
+    background:#F0F0F0;
+    border:1px solid #CCC;
+    width:100%;
+    margin:0px auto;
+  box-shadow: 0px 2px 2px 2px #ccc;
 }
 </style>
 </html>
