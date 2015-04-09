@@ -1,14 +1,113 @@
-<table>
+<!DOCTYPE html>
+<html>
+   <header>
+       
+       
+       <header>
+
+  <div class="header" style="margin-top:17.5px" > 
+  <a href="<%= url_for controller: 'welcome', action: 'homepage' %>" >Home</a>
+  <a <%= link_to 'Categories', categories_index_path %> 
+  <a <%= link_to 'My Purchases' , :controller => "purchases", :action => "index" %> 
+
+  <% if current_user.publisher == nil %> 
+    <a style="text-align:right;"> <%= link_to 'Request', new_request_path %> 
+  <% end %>
+
+</div>
+</header>
+       
+       
+</header>
+    <body background="http://www.fbnstatic.com/static/managed/img/Customer-Using-iPhone-4S-FBN.jpg">
+
+    
+<table align="center">
  <tr>
-    <th><b> My purchases </b></th>
+    <th style=" font-size:30pt; margin-top:0;"><Strong> My purchases </Strong></th>
  </tr>
-
-
+ 
 <% @app_names.each do |application| %>
 <tr>
 <td><%= application.appname %></td>
-
 <% end %>
- </tr>
-
 </table>
+
+
+</body>
+
+<style type="text/css">
+.header a:link{
+color:#006699;
+font-size:16px;
+font-family: helvetica, sans-serif;
+text-decoration:none;
+padding:5px;
+}
+.header a:visited{
+color:#003399;
+font-size:16px;
+font-family: helvetica, sans-serif;
+text-decoration:none;
+padding:5px;
+}
+.header a:hover{
+color:#0099CC;
+font-size:16px;
+font-family: helvetica, sans-serif;
+text-decoration:none;
+padding:5px;
+}
+header {
+	text-align: center;
+    height:50px;
+    background:#F0F0F0;
+    border:1px solid #CCC;
+    width:100%;
+    margin:0px auto;
+}
+ 
+ 
+ table{
+    border: 1px solid white;
+    width:500px;
+    height:70px;
+    border-radius:10px;
+    background-color: transparent;
+    box-shadow: 5px 5px 5px #888888;
+     visibility: visible;
+     margin-top:100px;
+   
+     
+}
+th {
+     float: left;
+  width: 100%;
+  margin: 100px 0 20px;
+  font-family: proxima-nova,sans-serif;
+  font-style: normal;
+  
+  text-shadow: 0 1px 3px #145769;
+  text-align:center;
+  color: #FFD700;
+}
+td {
+    height: 15px;
+    vertical-align: middle;
+    font-size:12.5pt;
+    color:white;
+    Text-align:center;
+  float: left;
+  width: 100%;
+margin: 40px 0 10px;
+  font-family: proxima-nova,sans-serif;
+  font-style: normal;
+  text-shadow: 0 1px 3px #145769;
+    
+}
+body{
+    background-repeat:no-repeat;
+    background-size:100%;
+}
+</style>
+</html>
