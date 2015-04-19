@@ -2,10 +2,9 @@
    
  body {
        background: #F5F5DC url(http://i.imgur.com/VUVE0wj.jpg);
-      
-    background-size: 120% 120%;
-    background-repeat: no-repeat;
-    background-position: center;
+       background-repeat: no-repeat;
+       background-position: center;
+   
         
  }
  
@@ -106,7 +105,7 @@ header {
   
   <td> <button3><button> <%= link_to 'View Details' , category_path(category) %> <button></button3></td>
   
-   <% if current_user.email == "maryam.osama@gmail.com" %> 
+   <% if current_user.email == Sprint0::Application.config.my_key  %> 
              <td>  <button3><button> <%= link_to 'Delete category', category_path(category),
               method: :delete %> <button></button3> </td>
    <% end %>

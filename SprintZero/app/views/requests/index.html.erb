@@ -3,45 +3,59 @@
   <style>
     body {
  
-    text-align: center;
-      background: url("http://i.imgur.com/mvqHMqk.jpg");
-      background-size: cover;
+      text-align: left;
+      background:url("http://ak2.picdn.net/shutterstock/videos/4637666/preview/stock-footage-elegant-waving-canvas-grey-and-white-background-loop.jpg");
+      background-size: 2000pt;
       background-position: center;
-      color: black;
-      font-family: Times New Roman;
+      color: #2B3856;
+      font-family:Arial, Helvetica, sans-serif;
       
     }
     h1 {
-   
-    font-size: 40px;
-    color: black;
-    text-align: center;
+    color: #0000A0;
+    text-align: left;
+    margin-top:15px;
+    margin-top: 70px;
+    font-size: 35px;
+    font-family:Arial, Helvetica, sans-serif;
    
     }
 
-    div {
-      font-family: Times New Roman;
-      padding: 20px;
-      padding-right: 20px;
-    }
     
-    img {
-      float: left;
-    }
-   
  table {
      
        font-size: 20px;
        font-family: Arial;
-       padding: 30px;
-       text-align: center ;
-       line-height: 2em;
+       padding: 5px;
+       text-align: left;
+       line-height: 1em;
       
 }
-   td {
-   padding: 15px;
+b{
+  text-align:center;
 }
-
+   td {
+   
+   text-align: center;
+   background: #F5F5DC;
+   width:30%;
+   height:10px;
+   
+}
+th{
+  text-align: left;
+  margin-left: 200px;
+  color:#151B54;
+  font-family:Arial, Helvetica, sans-serif;
+  font-size:20px;
+}
+tr{
+  text-align: left;
+  font-family:Arial, Helvetica, sans-serif;
+  font-size:18px;
+  font-style: bold;
+  color:#151B54;
+}
 
 header {
 	text-align: center;
@@ -52,12 +66,42 @@ header {
     margin:0px auto;
   box-shadow: 0px 2px 2px 2px #ccc;
 }
+.check{
+  color:#41A317;
+  font-size: 25px;
+}
+.check:hover{
+  color:#4CC417;
+  
+}
+.x{
+  color:#E41B17;
+  font-size: 25px;
+}
+.x:hover{
+  color:#F62817;
+  
+}
+.icon{
+  
+  display:inline-block;
+  
+}
+.View{
+  color:#357EC7;
+  text-decoration:none;
+  
+  }
+.View:hover{
+  color: #95B9C7;
+}
+}
   </style>
 </head>
 
 <body>
-<img src="http://i.imgur.com/XvTnO5D.png" width="250" height="100"  >
-<div> <h1><b> Requests </b></h1> </div>
+
+<div> <h1> Requests<div class="icon"><i class="fa fa-list"></i></div></h1> </div>
  </body>
  
 <table>
@@ -70,11 +114,11 @@ header {
     <tr>
      
       <td><%= request.user_email %></td>
-       <td><%= link_to 'Show' , request_path(request) %></td>
+       <td><%= link_to 'View' , request_path(request), :class => "View" %></td>
 
-     <td><%= link_to 'Accept', request_path(request, :number => "1"),
+     <td><%= link_to '<div class = "check"><i class="fa fa-check-circle"></i></div>'.html_safe, request_path(request, :number => "1"),
              method: :delete %> </td>
-      <td><%= link_to 'Reject', request_path(request, :number => "0"),
+      <td><%= link_to '<div class = "x"><i class="fa fa-times-circle"></i></div>'.html_safe, request_path(request, :number => "0"),
              method: :delete %></td>
 
     </tr>
