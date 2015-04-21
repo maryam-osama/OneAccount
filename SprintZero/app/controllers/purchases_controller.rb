@@ -7,7 +7,7 @@ class PurchasesController < ApplicationController
   # will be listed in the view.
   def index
     @purchases = Purchase.where(user_email: current_user.email)
-    @app_names = @purchases.map { |p| Application.find(p.app_id) }
+    @app_names = @purchases.map { |p| Application.where(id: p.app_id).first}
   end
   
   def updated

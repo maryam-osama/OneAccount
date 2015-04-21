@@ -67,15 +67,15 @@
 <% if !(@purchase.blank?) %>
 
 <% if !(@application.appstore_url.blank?) %>
-<td> <%= link_to 'Download from AppStore',  @application.appstore_url  %> </td>
+<td> <%= link_to 'Download from AppStore',  @application.appstore_url , :target => '_blank' %> </td>
 <% end %>
 
 <% if !(@application.playstore_url.blank?) %>
-<td> <%= link_to 'Download from PlayStore',  @application.playstore_url  %> </td>
+<td> <%= link_to 'Download from PlayStore',  @application.playstore_url , :target => '_blank' %> </td>
 <% end %>
 
 <% if !(@application.windows_url.blank?) %>
-<td> <%= link_to 'Download from Windows Store',  @application.windows_url  %> </td>
+<td> <%= link_to 'Download from Windows Store',  @application.windows_url , :target => '_blank' %> </td>
 <% end %>
 
 <% end %>
