@@ -9,5 +9,12 @@ class PurchasesController < ApplicationController
     @purchases = Purchase.where(user_email: current_user.email)
     @app_names = @purchases.map { |p| Application.find(p.app_id) }
   end
+  
+  def updated
+    @purchase = Purchase.find(params[:number])
+    @purchase.updated = true 
+    @purchase.save  
+    redirect_to params[:url] 
+  end
      
 end

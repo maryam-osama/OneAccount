@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150331090102) do
+ActiveRecord::Schema.define(version: 20150420083421) do
 
   create_table "applications", force: true do |t|
     t.string   "appname"
@@ -21,6 +21,10 @@ ActiveRecord::Schema.define(version: 20150331090102) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.string   "category_name"
+    t.string   "url"
+    t.string   "appstore_url"
+    t.string   "playstore_url"
+    t.string   "windows_url"
   end
 
   create_table "categories", force: true do |t|
@@ -42,6 +46,7 @@ ActiveRecord::Schema.define(version: 20150331090102) do
     t.integer  "app_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "updated"
   end
 
   create_table "requests", force: true do |t|

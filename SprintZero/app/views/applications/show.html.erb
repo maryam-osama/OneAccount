@@ -20,40 +20,33 @@
   </style>
 </head>
 
-
-
 <p>
-
   <strong>appname:</strong>
   <%= @application.appname  %>
 </p>
 <p>
   <strong>description:</strong>
   <%= @application.description %>
- 
 </p>
 <p>
   <strong>price: $</strong>
   <%=  @application.price %>
 </p>
-
-
 <p>
   <strong>category name: </strong>
   <%=  @application.category_name %>
   
 </p>
-
 <% @number =  @application.price * 100 %>
 
- <% if (current_user.email == Sprint0::Application.config.my_key) ||
+<% if (current_user.email == Sprint0::Application.config.my_key) ||
  !(Application.where(:publisher_email => current_user.email ,:id => @application).blank?)%>
   <td><%= link_to 'DeleteApp', application_path(@application),
            method: :delete %></td>
  <% end %>
  
-  
-<% if (Purchase.where(:user_email => current_user.email ,:app_id => @application).blank?) && 
+<%  @purchase = Purchase.where(:user_email => current_user.email ,:app_id => @application) %>
+<% if (@purchase.blank?) && 
  !(@application.publisher_email == current_user.email) %>
 
 <%= form_tag charges_path(:number => @number ,:application => @application ) do %>
@@ -66,7 +59,30 @@
         
           </script> ></script>
 <% end %>
+<% else %>
+<% if !(@purchase.blank?) %>
+
+<% if !(@application.appstore_url.blank?) %>
+<td> <%= link_to 'Download from AppStore',  @application.appstore_url  , :target => '_blank' %> </td>
 <% end %>
+
+<% if !(@application.playstore_url.blank?) %>
+<td> <%= link_to 'Download from PlayStore',  @application.playstore_url , :target => '_blank'  %> </td>
+<% end %>
+
+<% if !(@application.windows_url.blank?) %>
+<td> <%= link_to 'Download from Windows Store',  @application.windows_url , :target => '_blank' %> </td>
+<% end %>
+
+<% end %>
+<% end %>
+
+
+
+
+
+
+
 
 
 

@@ -19,9 +19,10 @@
        
         font-family: Helvetica, 'sans-serid' ;
     }
+    
     th{
         color: #2ECCFA;
-    }
+     }
     .apple{
         color: #E6E6E6;
         display:inline-block
@@ -41,7 +42,7 @@
     border:1px solid #CCC;
     width:100%;
     margin:0px auto;
-  box-shadow: 0px 2px 2px 2px #ccc;
+    box-shadow: 0px 2px 2px 2px #ccc;
 }
 </style>
  <h1> Your Applications <div class = "apple"><i class="fa fa-apple"></i></div> <div class = "android"> <i class="fa fa-android"></i></div> <div class = "windows"> <i class="fa fa-windows"></i></div> </h1> 
@@ -56,8 +57,9 @@
   
 <% @applications.each do |application| %>
     <tr>
-      <td><%= application.appname %></td>
-       <td><%= link_to 'View' , application_path(application),{:style=>'color:blue;''text-decoration:none;' 'border-radius:10px;' 'font: helvetica;', :class => "css_class"} %></td>
+    <td><%= link_to  application.appname , application_path(application),{:style=>'color:white;''text-decoration:none;' 'border-radius:10px;' 'font: helvetica;', :class => "css_class"} %></td>
+         <td><%= link_to 'Update' , applications_updates_path(:app => application.id),{:style=>'color:blue;''text-decoration:none;' 'border-radius:10px;' 'font: helvetica;', :class => "css_class"} %></td>
+         
      </tr>
   <%end%>
 </table>
