@@ -1,29 +1,27 @@
 <!DOCTYPE html>
 <html>
-  
-    <body background="http://www.fbnstatic.com/static/managed/img/Customer-Using-iPhone-4S-FBN.jpg">
 
-    
+<body background="http://www.fbnstatic.com/static/managed/img/Customer-Using-iPhone-4S-FBN.jpg">
 <table align="center">
  <tr>
     <th style=" font-size:30pt; margin-top:0;"><Strong> My purchases </Strong></th>
  </tr>
  
 <% @app_names.each do |application| %>
-<tr>
+
 <td><%= application.appname %></td>
+
 <% end %>
+
+
 </table>
-
-
-</body>
 
 <style type="text/css">
 
  
  table{
     border: 1px solid white;
-    width:500px;
+    width:700px;
     height:70px;
     border-radius:10px;
     background-color: transparent;
@@ -50,12 +48,11 @@ td {
     font-size:12.5pt;
     color:white;
     Text-align:center;
-  float: left;
-  width: 100%;
-margin: 40px 0 10px;
-  font-family: proxima-nova,sans-serif;
-  font-style: normal;
-  text-shadow: 0 1px 3px #145769;
+    float: left;
+    margin: 40px 0 10px;
+    font-family: proxima-nova,sans-serif;
+    font-style: normal;
+    text-shadow: 0 1px 3px #145769;
     
 }
 body{
