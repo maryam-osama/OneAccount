@@ -6,11 +6,14 @@
  <tr>
     <th style=" font-size:30pt; margin-top:0;"><Strong> My purchases </Strong></th>
  </tr>
- 
+
+
 <% @app_names.each do |application| %>
 
+<% if !(application.nil?) %>
 <td><%= application.appname %></td>
 
+<% end %>
 <% end %>
 
 
