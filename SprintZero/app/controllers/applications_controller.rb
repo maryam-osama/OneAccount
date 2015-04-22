@@ -17,6 +17,8 @@ class ApplicationsController < ApplicationController
     @applications = Application.where(publisher_email: current_user.email)
   end 
   
+  ##   
+  # Gets all purchases of a specific application and assigns purchase.updated attribute to false 
   def updates
     @purchases = Purchase.where(app_id: params[:app])
     @purchases.each do |purchase|
