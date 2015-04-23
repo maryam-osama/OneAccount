@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150331090102) do
+ActiveRecord::Schema.define(version: 20150422194317) do
 
   create_table "applications", force: true do |t|
     t.string   "appname"
@@ -28,6 +28,16 @@ ActiveRecord::Schema.define(version: 20150331090102) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "comments", force: true do |t|
+    t.string   "commenter"
+    t.text     "body"
+    t.integer  "application_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "comments", ["application_id"], name: "index_comments_on_application_id"
 
   create_table "notifications", force: true do |t|
     t.string   "user_email"

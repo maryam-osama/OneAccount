@@ -9,41 +9,61 @@
       background-size: cover;
     }
     header {
-	text-align: center;
+	  text-align: center;
     height:50px;
     background:#F0F0F0;
     border:1px solid #CCC;
     width:100%;
     margin:0px auto;
-  box-shadow: 0px 2px 2px 2px #ccc;
+    box-shadow: 0px 2px 2px 2px #ccc;
 }
   </style>
 </head>
-
-
-
 <p>
-
-  <strong>appname:</strong>
+<strong>appname:</strong>
   <%= @application.appname  %>
 </p>
+
 <p>
   <strong>description:</strong>
   <%= @application.description %>
- 
-</p>
+ </p>
+
 <p>
   <strong>price: $</strong>
   <%=  @application.price %>
 </p>
 
-
 <p>
   <strong>category name: </strong>
   <%=  @application.category_name %>
-  
 </p>
 
+<h2>Comments</h2>
+<% @application.comments.each do |comment| %>
+  <p>
+    <strong>Commenter:</strong>
+    <%= comment.commenter %>
+  </p>
+ 
+  <p>
+    <strong>Comment:</strong>
+    <%= comment.body %>
+  </p>
+<% end %>
+ 
+<h2>Add a comment:</h2>
+<%= form_for([@application, @application.comments.build]) do |f| %> 
+  <p>
+    <%= f.label :comment %><br>
+    <%= f.text_area :body%>
+  </p>
+  
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+ 
 <% @number =  @application.price * 100 %>
 
  <% if (current_user.email == Sprint0::Application.config.my_key) ||
@@ -67,6 +87,5 @@
           </script> ></script>
 <% end %>
 <% end %>
-
 
 
