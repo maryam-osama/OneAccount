@@ -4,9 +4,9 @@ class CommentsController < ApplicationController
   def create
     @application = Application.find(params[:application_id])
     @comment = @application.comments.create(comment_params)
-    redirect_to application_path(@application)
     @comment.commenter = current_user.email
     @comment.save
+    redirect_to application_path(@application)
   end
  
   private
