@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   get 'categories/index'
   get 'applications/notify'
   get 'applications/myapps'
+  get 'applications/updates'
+  get 'purchases/updated'
 
   
 resources :notifications
