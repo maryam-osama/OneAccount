@@ -7,7 +7,7 @@ class ApplicationsController < ApplicationController
   end
 
   def edit
-  @application = Application.find(params[:id])
+    @application = Application.find(params[:id])
   end
 
   ## 
@@ -31,7 +31,6 @@ class ApplicationsController < ApplicationController
   end
     redirect_to welcome_homepage_url
   end
-  
   
   def index
     if params[:search]
@@ -65,15 +64,14 @@ class ApplicationsController < ApplicationController
       end
   end
   
-      def update
-  @application = Application.find(params[:id])
-  if @application.update(application_params)
-    redirect_to @application
-  else
-    render 'edit'
-  end
+  def update
+    @application = Application.find(params[:id])
+      if @application.update(application_params)
+      redirect_to @application
+      else
+      render 'edit'
       end
-
+  end
     
   ##
   # This method requests an application with an id

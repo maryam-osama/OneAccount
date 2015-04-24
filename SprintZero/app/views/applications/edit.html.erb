@@ -1,7 +1,6 @@
 <h1>Editing app</h1>
  
 <%= form_for :application, url: application_path(@application), method: :patch do |f| %>
- 
   <% if @application.errors.any? %>
     <div id="error_explanation">
       <h2>
@@ -17,27 +16,27 @@
   <% end %>
  
   <p>
-      <%= f.label :description %><br>
+    <%= f.label :description %><br>
     <%= f.text_field :description %>
   </p>
   
   <p>
-      <%= f.label :price %><br>
+    <%= f.label :price %><br>
     <%= f.text_field :price %>
   </p>
   
   <p>
-      <%= f.label :appstore_url %><br>
+    <%= f.label :appstore_url %><br>
     <%= f.text_field :appstore_url %>
   </p>
   
    <p>
-      <%= f.label :playstore_url %><br>
+    <%= f.label :playstore_url %><br>
     <%= f.text_field :playstore_url %>
   </p>
  
   <p>
-      <%= f.label :windows_url %><br>
+    <%= f.label :windows_url %><br>
     <%= f.text_field :windows_url %>
   </p>
   
