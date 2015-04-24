@@ -9,6 +9,21 @@ class CommentsController < ApplicationController
     @comment.save
   end
  
+ ##
+  # This method requests a comment with an id
+  # from application model
+  #
+  # If comment with required id is found,
+  # delet comment
+  # 
+  # Go back to the homepage
+  def destroy
+    @application = Application.find(params[:application_id])
+    @comment = @article.comments.find(params[:id])
+    @comment.destroy
+    redirect_to welcome_homepage_url
+  end
+  
   private
     def comment_params
       params.require(:comment).permit(:commenter, :body)
