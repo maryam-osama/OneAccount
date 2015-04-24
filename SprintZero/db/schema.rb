@@ -21,7 +21,6 @@ ActiveRecord::Schema.define(version: 20150420083421) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.string   "category_name"
-    t.string   "url"
     t.string   "appstore_url"
     t.string   "playstore_url"
     t.string   "windows_url"
@@ -46,7 +45,6 @@ ActiveRecord::Schema.define(version: 20150420083421) do
     t.integer  "app_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "updated"
   end
 
   create_table "requests", force: true do |t|

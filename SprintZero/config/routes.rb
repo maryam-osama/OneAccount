@@ -13,7 +13,9 @@ Rails.application.routes.draw do
   get 'applications/notify'
   get 'applications/myapps'
   get 'applications/updates'
+  get 'applications/edit'
   get 'purchases/updated'
+  
 
   
 resources :notifications
