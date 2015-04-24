@@ -6,6 +6,10 @@ class ApplicationsController < ApplicationController
     @categories = Category.all  
   end
 
+  def edit
+  @application = Application.find(params[:id])
+  end
+
   ## 
   #This method lists all the publisher's app
   #
@@ -60,6 +64,16 @@ class ApplicationsController < ApplicationController
       render 'new'
       end
   end
+  
+      def update
+  @application = Application.find(params[:id])
+  if @application.update(application_params)
+    redirect_to @application
+  else
+    render 'edit'
+  end
+      end
+
     
   ##
   # This method requests an application with an id
