@@ -64,6 +64,24 @@
   </p>
 <% end %>
  
+<h3>delete a comment:</h3>
+  <p>
+  <strong>Commenter:</strong>
+  <%= comment.commenter %>
+  </p>
+ 
+  <p>
+  <strong>Comment:</strong>
+  <%= comment.body %>
+  </p>
+ 
+  <p>
+  <%= link_to 'Destroy Comment', [comment.application, comment],
+    method: :delete,
+    data: { confirm: 'Are you sure?' } %>
+  </p>
+<% end %>
+
 <% @number =  @application.price * 100 %>
 
  <% if (current_user.email == Sprint0::Application.config.my_key) ||
