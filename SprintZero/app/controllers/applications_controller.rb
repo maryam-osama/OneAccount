@@ -5,7 +5,11 @@ class ApplicationsController < ApplicationController
     @application = Application.new
     @categories = Category.all  
   end
-
+  
+  ##
+  #This method allows the publisher to edit
+  #
+  #the application he published
   def edit
     @application = Application.find(params[:id])
   end
@@ -64,6 +68,9 @@ class ApplicationsController < ApplicationController
       end
   end
   
+  ##
+  #This method updates the description of 
+  #the application that was published by a publisher
   def update
     @application = Application.find(params[:id])
       if @application.update(application_params)
