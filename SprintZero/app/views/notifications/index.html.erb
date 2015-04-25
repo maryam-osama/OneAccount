@@ -1,51 +1,46 @@
 <style>
 
-body {
-       background:  url(http://www.workathome481.com/uploads/Loops-Background.jpg);
-          background-repeat: no-repeat;
-          background-position: top;
-}
+  body {
+    background:  url(http://www.workathome481.com/uploads/Loops-Background.jpg);
+    background-repeat: no-repeat;
+    background-position: top;
+  }
 
- h1{
-   
-  font-family:helvetica , sans-serif;
+  h1{
+   font-family:helvetica , sans-serif;
    color:#00003D;
    margin-left: 20px;
    margin-top: 30px;
-   
- }
+  }
  
- table{
-     
-     font-family:helvetica , sans-serif;
-      margin-left:60px;
-      background: white;
-      margin-top: 50px;
-      text-align: left
-      color:#00003D;
-      border-radius:10px;
- }
- 
- tr {
-      
+  table{
+    font-family:helvetica , sans-serif;
+    margin-left:60px;
+    background: white;
+    margin-top: 50px;
+    text-align: left
     color:#00003D;
- }  
-   div {
-        margin-left:40px;
+    border-radius:10px;
+ }
+ 
+  tr {
+    color:#00003D;
+  }  
+   
+  div {
+    margin-left:40px;
    }
-   header {
-	text-align: center;
+   
+  header {
+	   text-align: center;
     height:50px;
     background:#F0F0F0;
     border:1px solid #CCC;
     width:100%;
     margin:0px auto;
-  box-shadow: 0px 2px 2px 2px #ccc;
-}
+    box-shadow: 0px 2px 2px 2px #ccc;
+  }
    
- 
- 
-
 </style>
 <h1> Apps Notifications </h1>
 <table>
@@ -55,7 +50,7 @@ body {
   </tr>
  
  
-   <% @notification.each do |notification| %>
+<% @notification.each do |notification| %>
     <tr>
      <% if (Application.where(id: notification.app_id).exists?) %>
       <td style= "padding-left: 40px;"><%= notification.user_email %></td>

@@ -36,7 +36,7 @@ class ApplicationsController < ApplicationController
   # Creates a new Notification once the new Application is created   
   def create 
     @application = Application.new(application_params)
-    @application.publisher_email  = current_user.email
+    @application.publisher_email = current_user.email
       if  @application.save
       @notification = Notification.new
       @notification.user_email = current_user.email

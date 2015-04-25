@@ -8,7 +8,7 @@
       background-repeat: no-repeat;
       background-size: cover;
     }
-    header {
+     header {
 	  text-align: center;
     height:50px;
     background:#F0F0F0;
@@ -46,7 +46,6 @@
     <%= comment.body %>
   </p>
  
-  
 <% end %>
  
 <h2>Add a comment:</h2>
@@ -69,11 +68,9 @@
            method: :delete %></td>
  <% end %>
  
-  
 <% if (Purchase.where(:user_email => current_user.email ,:app_id => @application).blank?) && 
  !(@application.publisher_email == current_user.email) %>
-
-<%= form_tag charges_path(:number => @number ,:application => @application ) do %>
+ <%= form_tag charges_path(:number => @number ,:application => @application ) do %>
 
 
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"

@@ -1,3 +1,7 @@
+##
+#This class responsible for the application migration
+##
+#An application has many comments 
 class Application < ActiveRecord::Base
   has_many :comments
   validates :appname, presence: true
