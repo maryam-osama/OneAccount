@@ -4,8 +4,7 @@ include Devise::TestHelpers
 
 RSpec.describe ApplicationsController, type: :controller do
  
- 
-  let(:user) do
+   let(:user) do
       user = User.new
       user.email = "maryam@gmail.com"
       user.encrypted_password = "1234"
@@ -13,9 +12,6 @@ RSpec.describe ApplicationsController, type: :controller do
       user
     end
   
-  
-   
-   
    describe "GET index" do
     it "assigns @applications" do
       
@@ -24,7 +20,6 @@ RSpec.describe ApplicationsController, type: :controller do
       expect(assigns(:applications )).to eq([application])
     end
     
-    
     it "renders the index template" do
       get :index
       expect(response).to render_template("index")
@@ -32,10 +27,8 @@ RSpec.describe ApplicationsController, type: :controller do
     
 end
 
- 
  describe "GET show" do
  
-  
   it "renders the #show view" do
     application = Application.create!(:appname => 'Viber' ,:description => 'Good' ,:price => 11)   
     get :show, id: application.id
@@ -53,7 +46,6 @@ end
   end
   
  end
- 
  
  it "should create application" do
      user
