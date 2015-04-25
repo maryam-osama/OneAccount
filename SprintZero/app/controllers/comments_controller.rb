@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
   end
  
  ##
-  #Author: Basma Elgeziry
+  # Author: Basma Elgeziry
   #
   # This method requests a comment with an id
   # from application model
