@@ -69,17 +69,17 @@ class ApplicationsController < ApplicationController
   end
   
   ##
-  #Author: Mai Kany
+  # Author: Mai Kany
   #
-  #This method searches for the application with its id from   
+  # This method searches for the application with its id from   
   # 
-  #the model then returns it back then updates  the description, price,
+  # the model then returns it back then updates  the description, price,
   #
-  #appstore url, playstore url and the windows url of
+  # appstore url, playstore url and the windows url of
   #
-  #the application that was published by 
+  # the application that was published by 
   #
-  #a publisher then returns it back to the model
+  # a publisher then returns it back to the model
   def update
     @application = Application.find(params[:id])
       if @application.update(application_params)
