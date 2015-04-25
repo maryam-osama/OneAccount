@@ -9,40 +9,79 @@
       background-size: cover;
     }
     header {
-	text-align: center;
+	  text-align: center;
     height:50px;
     background:#F0F0F0;
     border:1px solid #CCC;
     width:100%;
     margin:0px auto;
-  box-shadow: 0px 2px 2px 2px #ccc;
+    box-shadow: 0px 2px 2px 2px #ccc;
 }
   </style>
 </head>
-
-
-
 <p>
-
-  <strong>appname:</strong>
+<strong>appname:</strong>
   <%= @application.appname  %>
 </p>
+
 <p>
   <strong>description:</strong>
   <%= @application.description %>
- 
-</p>
+ </p>
+
 <p>
   <strong>price: $</strong>
   <%=  @application.price %>
 </p>
 
-
 <p>
   <strong>category name: </strong>
   <%=  @application.category_name %>
-  
 </p>
+
+<h2>Comments</h2>
+<% @application.comments.each do |comment| %>
+  <p>
+    <strong>Commenter:</strong>
+    <%= comment.commenter %>
+  </p>
+ 
+  <p>
+    <strong>Comment:</strong>
+    <%= comment.body %>
+  </p>
+<% end %>
+ 
+<h2>Add a comment:</h2>
+<%= form_for([@application, @application.comments.build]) do |f| %> 
+  <p>
+    <%= f.label :comment %><br>
+    <%= f.text_area :body%>
+  </p>
+  
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+ 
+<h3>delete a comment:</h3>
+  <p>
+  <strong>Commenter:</strong>
+  <%= comment.commenter %>
+  </p>
+ 
+  <p>
+  <strong>Comment:</strong>
+  <%= comment.body %>
+  </p>
+<% if current_user.email == comment.commenter %>
+    <p>
+  <%= link_to 'Destroy Comment', [comment.application, comment],
+    method: :delete,
+    data: { confirm: 'Are you sure?' } %>
+    </p>
+<% end %>
+<% end %>
 
 <% @number =  @application.price * 100 %>
 
@@ -52,7 +91,6 @@
            method: :delete %></td>
  <% end %>
  
-  
 <% if (Purchase.where(:user_email => current_user.email ,:app_id => @application).blank?) && 
  !(@application.publisher_email == current_user.email) %>
 
@@ -67,6 +105,5 @@
           </script> ></script>
 <% end %>
 <% end %>
-
 
 
