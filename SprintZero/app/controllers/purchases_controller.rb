@@ -14,7 +14,7 @@ class PurchasesController < ApplicationController
   #
   # Updated method gets certain applications that are purchased by the user
   #
-  # and sets their updated variable to true then saves them
+  # and sets purchase.updated => true then saves them
   #
   # which indicates that those apps have been updated.
   def updated
