@@ -1,6 +1,16 @@
 class CommentsController < ApplicationController
   ##
+  #Author: Khadija Ibrahim
+  #
   #This method creates and saves a comment
+  #
+  #after recieving the body from the application/show view
+  #
+  #it creates a comment and adds it to the 
+  #
+  #many comments this application has
+  #
+  #sets commenter to emailof current user 
   def create
     @application = Application.find(params[:application_id])
     @comment = @application.comments.create(comment_params)
