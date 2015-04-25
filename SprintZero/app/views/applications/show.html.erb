@@ -42,17 +42,14 @@
 <h2>Comments</h2>
 <% @application.comments.each do |comment| %>
   <p>
-
-    <strong><%= comment.commenter %> :</strong>
+    <strong>Commenter:</strong>
+    <%= comment.commenter %>
+  </p>
+ 
+  <p>
+    <strong>Comment:</strong>
     <%= comment.body %>
   </p>
-  
-    <p>
-  <%= link_to 'Destroy Comment', [comment.application, comment],
-    method: :delete,
-    data: { confirm: 'Are you sure?' } %>
-  </p>
-
 <% end %>
  
 <h2>Add a comment:</h2>
@@ -67,6 +64,24 @@
   </p>
 <% end %>
  
+<h3>delete a comment:</h3>
+  <p>
+  <strong>Commenter:</strong>
+  <%= comment.commenter %>
+  </p>
+ 
+  <p>
+  <strong>Comment:</strong>
+  <%= comment.body %>
+  </p>
+<% if current_user.email == comment.commenter %>
+    <p>
+  <%= link_to 'Destroy Comment', [comment.application, comment],
+    method: :delete,
+    data: { confirm: 'Are you sure?' } %>
+    </p>
+<% end %>
+<% end %>
 
 <% @number =  @application.price * 100 %>
 
