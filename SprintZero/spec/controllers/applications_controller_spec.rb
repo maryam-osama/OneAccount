@@ -97,4 +97,14 @@ end
    
 end
 
+it "Should notify users with an app update " do
+    
+    application = Application.create!(:appname => 'Viber' ,:description => 'Good' ,:price => 11 ,:publisher_email => "maryam@gmail.com")
+    purchase = Purchase.create!(:app_id => application.id ,:user_email => "maryam@gmail.com" ,:updated => nil)
+    get :updates , app: application.id
+    
+    expect(Purchase.exists?(app_id: application.id , user_email: "maryam@gmail.com" ,updated: false )).to eq(true)
+    
+  end
+
 end

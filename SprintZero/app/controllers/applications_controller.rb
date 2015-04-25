@@ -17,14 +17,18 @@ class ApplicationsController < ApplicationController
     @applications = Application.where(publisher_email: current_user.email)
   end 
   
-  ##   
-  # Gets all purchases of a specific application and assigns purchase.updated attribute to false 
+  ##
+  # Author : Maryam Osama
+  #
+  # Gets all purchases of a specific application 
+  # 
+  # and assigns purchase.updated => false 
   def updates
     @purchases = Purchase.where(app_id: params[:app])
-    @purchases.each do |purchase|
-    purchase.updated = false
-    purchase.save
-  end
+      @purchases.each do |purchase|
+      purchase.updated = false
+      purchase.save
+      end
     redirect_to welcome_homepage_url
   end
   
