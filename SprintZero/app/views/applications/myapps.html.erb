@@ -52,12 +52,14 @@
 <table>
   <tr>
     <th>Uploads</th>
+   
     <th colspan = "3"></th>
   </tr>
   
   <% @applications.each do |application| %>
     <tr>
       <td><%= application.appname %></td>
+   
       <td><%= link_to 'View' , application_path(application),{:style=>'color:blue;''text-decoration:none;' 'border-radius:10px;' 'font: helvetica;', :class => "css_class"} %></td>
     </tr>
   <%end%>
