@@ -8,66 +8,66 @@
       background-repeat: no-repeat;
       background-size: cover;
     }
+    
     header {
-	text-align: center;
-    height:50px;
-    background:#F0F0F0;
-    border:1px solid #CCC;
-    width:100%;
-    margin:0px auto;
-  box-shadow: 0px 2px 2px 2px #ccc;
-}
+	  text-align: center;
+      height:50px;
+      background:#F0F0F0;
+      border:1px solid #CCC;
+      width:100%;
+      margin:0px auto;
+      box-shadow: 0px 2px 2px 2px #ccc;
+    }
   </style>
 </head>
 
-<p>
-  <strong>appname:</strong>
-  <%= @application.appname  %>
-</p>
+  <p>
+    <strong>appname:</strong>
+    <%= @application.appname  %>
+  </p>
 
-<p>
-  <strong>description:</strong>
-  <%= @application.description %>
-</p>
+  <p>
+    <strong>description:</strong>
+    <%= @application.description %>
+  </p>
 
-<p>
-  <strong>price: $</strong>
-  <%=  @application.price %>
-</p>
+  <p>
+    <strong>price: $</strong>
+    <%=  @application.price %>
+  </p>
 
-<p>
-  <strong>category name: </strong>
-  <%=  @application.category_name %>
-</p>
+  <p>
+    <strong>category name: </strong>
+    <%=  @application.category_name %>
+  </p>
 
- <% @number =  @application.price * 100 %>
- <% if (current_user.email == Sprint0::Application.config.my_key) ||
- !(Application.where(:publisher_email => current_user.email ,:id => @application).blank?)%>
-  
-  <td><%= link_to 'DeleteApp', application_path(@application),
+  <% @number =  @application.price * 100 %>
+  <% if (current_user.email == Sprint0::Application.config.my_key) ||
+  !(Application.where(:publisher_email => current_user.email ,:id => @application).blank?)%>
+      <td><%= link_to 'DeleteApp', application_path(@application),
            method: :delete %></td>
- <% end %>
+  <% end %>
  
- <% if (Purchase.where(:user_email => current_user.email ,:app_id => @application).blank?) && 
- !(@application.publisher_email == current_user.email) %>
-     <%= form_tag charges_path(:number => @number ,:application => @application ) do %>
-
-     <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+  <% if (Purchase.where(:user_email => current_user.email ,:app_id => @application).blank?) && 
+  !(@application.publisher_email == current_user.email) %>
+      <%= form_tag charges_path(:number => @number ,:application => @application ) do %>
+        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
           data-description="Payment"
           data-amount= <%= @application.price * 100 =%>
-     </script> ></script>
-     <% end %>
- <% end %>
+        </script> ></script>
+      <% end %>
+  <% end %>
  
- <div class="row">
- <div class="small-2 large-4 columns">
- <% else %>  
- <% if !(Purchase.where(:user_email => current_user.email ,:app_id => @application).blank?) %>
-     Rate: <%= rating_for @application, "Rate", disable_after_rate: true, imdb_avg: false %>    
- <% end %>
- </div>
- </div>
+  <div class="row">
+  <div class="small-2 large-4 columns">
+  <% else %>  
+  <% if !(Purchase.where(:user_email => current_user.email ,:app_id => @application).blank?) %>
+      <%= rating_for @application, "Rate", disable_after_rate: true, imdb_avg: true %>  
+  <% end %>
+  </div>
+  </div>
 
 
 
+  
