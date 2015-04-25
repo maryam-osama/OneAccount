@@ -69,7 +69,10 @@ class ApplicationsController < ApplicationController
   end
   
   ##
-  #This method updates the description of 
+  #This method updates the description, price,  
+  # 
+  #appstore url, playstore url and the windows url of
+  #
   #the application that was published by a publisher
   def update
     @application = Application.find(params[:id])
