@@ -9,7 +9,14 @@ class PurchasesController < ApplicationController
     @purchases = Purchase.where(user_email: current_user.email)
     @app_names = @purchases.map { |p| Application.where(id: p.app_id).first}
   end
-  
+  ##
+  # Author : Samaa Sallam 
+  #
+  # Updated method gets certain applications that are purchased by the user
+  #
+  # and sets their updated variable to true then saves them
+  #
+  # which indicates that those apps have been updated.
   def updated
     @purchase = Purchase.find(params[:number])
     @purchase.updated = true 
