@@ -4,9 +4,10 @@ class CommentsController < ApplicationController
   def create
     @application = Application.find(params[:application_id])
     @comment = @application.comments.create(comment_params)
-    redirect_to application_path(@application)
     @comment.commenter = current_user.email
     @comment.save
+    redirect_to application_path(@application)
+
   end
  
  ##
@@ -19,11 +20,12 @@ class CommentsController < ApplicationController
   # Go back to the homepage
   def destroy
     @application = Application.find(params[:application_id])
-    @comment = @article.comments.find(params[:id])
+    @comment = @application.comments.find(params[:id])
     @comment.destroy
-    redirect_to welcome_homepage_url
+    redirect_to application_path(@application)
   end
   
+
   private
     def comment_params
       params.require(:comment).permit(:commenter, :body)
