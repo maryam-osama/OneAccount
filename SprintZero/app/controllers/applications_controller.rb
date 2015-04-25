@@ -69,11 +69,17 @@ class ApplicationsController < ApplicationController
   end
   
   ##
-  #This method updates the description, price,  
+  #Author: Mai Kany
+  #
+  #This method searches for the application with its id from   
   # 
+  #the model then returns it back then updates  the description, price,
+  #
   #appstore url, playstore url and the windows url of
   #
-  #the application that was published by a publisher
+  #the application that was published by 
+  #
+  #a publisher then returns it back to the model
   def update
     @application = Application.find(params[:id])
       if @application.update(application_params)
