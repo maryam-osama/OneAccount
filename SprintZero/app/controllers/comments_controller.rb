@@ -11,13 +11,15 @@ class CommentsController < ApplicationController
   end
  
  ##
+  #Author: Basma Elgeziry
+  #
   # This method requests a comment with an id
   # from application model
   #
   # If comment with required id is found,
   # delet comment
   # 
-  # Go back to the homepage
+  # Go back to the application
   def destroy
     @application = Application.find(params[:application_id])
     @comment = @application.comments.find(params[:id])
