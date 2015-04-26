@@ -25,6 +25,7 @@
     font-family: "Trebuchet MS", Helvetica, sans-serif;
     color: #000080;
   }
+  
   a:hover{
     color:#1569C7;
   }
@@ -48,6 +49,7 @@
     font-family: "Trebuchet MS", Helvetica, sans-serif;
     text-align: left;
  }
+ 
   body{
     width: 300px;
     padding: 30px;
@@ -109,6 +111,7 @@
     position:relative;
     top:1px;
   }
+  
   .textbox{
     width: 400px;
     height: 50px;
@@ -145,8 +148,7 @@
  
     </style>
  
- 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+ <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
  <div class = "body"> <div class="field">
     <h2> LOGIN </h2>
     <%= f.email_field :email, autofocus: true, :placeholder => 'Email', :class => "textbox"  %>
