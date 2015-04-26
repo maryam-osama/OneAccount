@@ -17,8 +17,7 @@ class CommentsController < ApplicationController
     @comment.commenter = current_user.email
     @comment.save
     redirect_to application_path(@application)
-    
-  end
+    end
  
   private
     def comment_params
