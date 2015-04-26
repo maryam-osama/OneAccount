@@ -1,5 +1,17 @@
 require 'rails_helper'
+require 'spec_helper'
+
 
 RSpec.describe Comment, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
-end
+    
+    
+   it "is valid with a body and commenter" do
+      comment = Comment.new(
+      commenter: "Khadija@gmail.com",
+      body: "Good" )
+      expect(comment).to be_valid
+   end
+   
+  
+end   
+
