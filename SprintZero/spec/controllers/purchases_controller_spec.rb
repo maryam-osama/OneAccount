@@ -30,6 +30,16 @@ RSpec.describe PurchasesController, type: :controller do
   end
     
     
+    it "gets the updated applications" do  
+    user
+    sign_in(user)
+  
+    application = Application.create!(:appname => 'Viber' ,:description => 'Good' ,:price => 11 ,:publisher_email => "maryam@gmail.com")
+    purchase = Purchase.create!(:app_id => application.id ,:user_email => "maryam@gmail.com")
     
+    get :updated 
+    expect(assigns(:app_names )).to eq([application])
 
+  end
+  
 end
