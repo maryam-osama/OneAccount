@@ -27,7 +27,7 @@
 <p>
   <strong>description:</strong>
   <%= @application.description %>
- </p>
+</p>
 
 <p>
   <strong>price: $</strong>
@@ -42,18 +42,14 @@
 <h2>Comments</h2>
 <% @application.comments.each do |comment| %>
   <p>
-    <strong><%= comment.commenter %> :</strong>
+    <strong>Commenter:</strong>
+    <%= comment.commenter %>
+  </p>
+ 
+  <p>
+    <strong>Comment:</strong>
     <%= comment.body %>
   </p>
-  
-  <% if current_user.email == comment.commenter %>
-    <p>
-  <%= link_to 'Destroy Comment', [comment.application, comment],
-    method: :delete,
-    data: { confirm: 'Are you sure?' } %>
-    </p>
-<% end %>
-  
 <% end %>
  
 <h2>Add a comment:</h2>
@@ -66,7 +62,26 @@
   <p>
     <%= f.submit %>
   </p>
-
+<% end %>
+ 
+<h3>delete a comment:</h3>
+  <p>
+  <strong>Commenter:</strong>
+  <%= comment.commenter %>
+  </p>
+ 
+  <p>
+  <strong>Comment:</strong>
+  <%= comment.body %>
+  </p>
+  
+<% if current_user.email == comment.commenter %>
+    <p>
+  <%= link_to 'Destroy Comment', [comment.application, comment],
+    method: :delete,
+    data: { confirm: 'Are you sure?' } %>
+    </p>
+<% end %>
 <% end %>
 
 <% @number =  @application.price * 100 %>
@@ -79,10 +94,7 @@
  
 <% if (Purchase.where(:user_email => current_user.email ,:app_id => @application).blank?) && 
  !(@application.publisher_email == current_user.email) %>
-
 <%= form_tag charges_path(:number => @number ,:application => @application ) do %>
-
-
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
           data-description="Payment"
@@ -90,6 +102,7 @@
         
           </script> ></script>
 <% end %>
+
 <% end %>
 
 
