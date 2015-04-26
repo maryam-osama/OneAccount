@@ -1,10 +1,9 @@
 <style> 
-   
-    body {
-     background: #F5F5DC url(http://i.imgur.com/VUVE0wj.jpg);
-     background-repeat: no-repeat;
-     background-position: center;
-     }
+   body {
+   background: #F5F5DC url(http://i.imgur.com/VUVE0wj.jpg);
+   background-repeat: no-repeat;
+   background-position: center;
+    }
  
     button2{  
       background:silver;
@@ -97,11 +96,13 @@
   
    <% if current_user.email == Sprint0::Application.config.my_key  %> 
       <td>  <button3><button> <%= link_to 'Delete category', category_path(category), method: :delete %> <button></button3> </td>
-   <% end %>
+
+<% end %>
   </tr>
-  
   <% end %>
   
 </table>
   
-<button> <%= link_to 'Back', welcome_homepage_url %> </button>
+  <button> 
+    <%= link_to 'Back', welcome_homepage_url %> </button>
+

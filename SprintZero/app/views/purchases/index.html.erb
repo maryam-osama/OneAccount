@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html>
 
+
 <body background="http://www.fbnstatic.com/static/managed/img/Customer-Using-iPhone-4S-FBN.jpg">
 <table align="center">
- <tr>
-    <th style=" font-size:30pt; margin-top:0;"><Strong> My purchases </Strong></th>
- </tr>
+<tr>
+    <th style=" font-size:30pt; margin-top:0;">
+      <Strong> My purchases </Strong>
+    </th>
+</tr>
 
 <% @app_names.each do |application| %>
+
 
  <% if !(application.nil?) %>
   <td><%= application.appname %></td>
@@ -16,6 +20,14 @@
 <% end %>
 
 </table>
+
+<style type="text/css">
+
+<tr>
+<td><%= application.appname %></td>
+<% end %>
+</table>
+</body>
 
 <style type="text/css">
 
@@ -28,8 +40,9 @@
     box-shadow: 5px 5px 5px #888888;
     visibility: visible;
     margin-top:100px;
-  }
-  
+   }
+
+   
   th {
     float: left;
     width: 100%;
@@ -39,8 +52,8 @@
     text-shadow: 0 1px 3px #145769;
     text-align:center;
     color: #FFD700;
-  }
-  
+   }
+
   td {
     height: 15px;
     vertical-align: middle;
@@ -48,19 +61,20 @@
     color:white;
     Text-align:center;
     float: left;
+    width: 100%;
     margin: 40px 0 10px;
     font-family: proxima-nova,sans-serif;
     font-style: normal;
     text-shadow: 0 1px 3px #145769;
   }
-  
+
   body{
     background-repeat:no-repeat;
     background-size:100%;
   }
   
   header {
-	text-align: center;
+	  text-align: center;
     height:50px;
     background:#F0F0F0;
     border:1px solid #CCC;
@@ -69,5 +83,6 @@
     box-shadow: 0px 2px 2px 2px #ccc;
   }
   
+
 </style>
 </html>
