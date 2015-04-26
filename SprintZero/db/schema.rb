@@ -13,6 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20150424222304) do
 
+
   create_table "applications", force: true do |t|
     t.string   "appname"
     t.text     "description"
@@ -51,11 +52,6 @@ ActiveRecord::Schema.define(version: 20150424222304) do
   end
 
   add_index "comments", ["application_id"], name: "index_comments_on_application_id"
-
-  create_table "item_wishlists", force: true do |t|
-    t.integer "wishlist_id"
-    t.integer "item_id"
-  end
 
   create_table "notifications", force: true do |t|
     t.string   "user_email"
@@ -134,9 +130,6 @@ ActiveRecord::Schema.define(version: 20150424222304) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
-  create_table "wishlists", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ 
 
 end

@@ -1,5 +1,6 @@
 <%= form_for :application, url: applications_path do |f| %>
 <head>
+
   <style>
     header{
       text-align: center;
@@ -39,8 +40,7 @@
 
 <h2 style="font-family:Lucida Sans Unicode" text-align= "center">Would you add your new application data here   </h2>
     <br>
-    
-    <% if @application.errors.any? %>
+     <% if @application.errors.any? %>
     <div id="error_explanation">
       <h2>
         <%= pluralize(@application.errors.count, "error") %> prohibited
@@ -58,6 +58,7 @@
     <%= f.text_field :appname, :placeholder => "Application Name" %>
   </p>
   
+
 <% @category_options = [] %>
 <% @categories = Category.all %>
 
@@ -95,5 +96,6 @@
   <p>
     <%= f.submit %>
   </p>
-  
+
 <% end %>
+
