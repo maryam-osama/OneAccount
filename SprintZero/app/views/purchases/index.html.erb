@@ -4,17 +4,13 @@
   <body background="http://www.fbnstatic.com/static/managed/img/Customer-Using-iPhone-4S-FBN.jpg">
 
   <table align="center">
-  
-    <tr>
+   <tr>
     <th style=" font-size:30pt; margin-top:0;"><Strong> My purchases </Strong></th>
-    </tr>
-
+   </tr>
   </table>
 
   <p> 
-  <br>
-  <% @app_names.each do |application| %> <br>
-
+  <br> <% @app_names.each do |application| %> <br>
   <td><%= application.appname %></td> <br>
 
   <%  @purchase = Purchase.where(:user_email => current_user.email ,:app_id => application.id , :updated => false) %>
@@ -35,7 +31,6 @@
   
   <% end %>
   <% end %>
-
   </p>
  
   <style type="text/css">
@@ -91,7 +86,7 @@
   }
   
   header {
-	  text-align: center;
+    text-align:center;
     height:50px;
     background:#F0F0F0;
     border:1px solid #CCC;
