@@ -1,22 +1,22 @@
-## 
+##
 #This is class of applications
-class ApplicationsController < ApplicationController  
+class ApplicationsController < ApplicationController
   def new
     @application = Application.new
-    @categories = Category.all  
+    @categories = Category.all 
   end
 
-  ## 
+  ##
   #This method lists all the publisher's app
   #
   #By  checking if the applications model have current_user_Email as a publisher email
-  # 
+  #
   #Then it loops on these applications
   # and views the appname of this applications
   def myapps
     @applications = Application.where(publisher_email: current_user.email)
-  end 
-  
+  end
+
   ##
   # Author : Maryam Osama
   #
@@ -31,14 +31,13 @@ class ApplicationsController < ApplicationController
       end
     redirect_to welcome_homepage_url
   end
-  
-  
+
   def index
     if params[:search]
     @applications = Application.search(params[:search]).order("created_at DESC")
     end
   end
-  
+
   # It returns the articles whose titles contain one or more words that form the query
   def show
     @application = Application.find(params[:id])

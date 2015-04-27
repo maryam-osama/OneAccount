@@ -31,7 +31,7 @@
   <strong>description:</strong>
   <%= @application.description %>
  </p>
- 
+
  <p>
   <strong>price: $</strong>
   <%= @application.price %>
@@ -50,6 +50,14 @@
     <strong><%= comment.commenter %> :</strong>
     <%= comment.body %>
   </p>
+  
+  <% if current_user.email == comment.commenter %>
+    <p>
+  <%= link_to 'Destroy Comment', [comment.application, comment],
+    method: :delete,
+    data: { confirm: 'Are you sure?' } %>
+    </p>
+<% end %>
  
 <% end %>
 
@@ -65,12 +73,16 @@
   </p>
 <% end %>
 
- 
+
 <% @number =  @application.price * 100 %>
 
-<% if (current_user.email == Sprint0::Application.config.my_key) || !(Application.where(:publisher_email => current_user.email ,:id => @application).blank?)%>
-  <td><%= link_to 'DeleteApp', application_path(@application), method: :delete %></td>
-<% end %>
+
+ <% if (current_user.email == Sprint0::Application.config.my_key) ||
+ !(Application.where(:publisher_email => current_user.email ,:id => @application).blank?)%>
+  <td><%= link_to 'DeleteApp', application_path(@application),
+           method: :delete %></td>
+ <% end %>
+
 
 <%  @purchase = Purchase.where(:user_email => current_user.email ,:app_id => @application) %>
 
