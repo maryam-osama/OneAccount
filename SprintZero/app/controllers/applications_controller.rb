@@ -17,6 +17,21 @@ class ApplicationsController < ApplicationController
     @applications = Application.where(publisher_email: current_user.email)
   end
 
+  ##
+  # Author : Maryam Osama
+  #
+  # Gets all purchases of a specific application 
+  # 
+  # and assigns purchase.updated => false 
+  def updates
+    @purchases = Purchase.where(app_id: params[:app])
+      @purchases.each do |purchase|
+      purchase.updated = false
+      purchase.save
+      end
+    redirect_to welcome_homepage_url
+  end
+
   def index
     if params[:search]
     @applications = Application.search(params[:search]).order("created_at DESC")
@@ -36,7 +51,7 @@ class ApplicationsController < ApplicationController
   # Creates a new Notification once the new Application is created   
   def create 
     @application = Application.new(application_params)
-    @application.publisher_email  = current_user.email
+    @application.publisher_email = current_user.email
       if  @application.save
       @notification = Notification.new
       @notification.user_email = current_user.email
@@ -66,7 +81,7 @@ class ApplicationsController < ApplicationController
   
   private
   def application_params
-    params.require(:application).permit(:appname, :description, :price, :category_name)
+    params.require(:application).permit(:appname, :description, :price, :category_name ,:appstore_url ,:playstore_url , :windows_url)
   end
      
 end
