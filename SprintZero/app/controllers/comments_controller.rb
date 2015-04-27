@@ -26,7 +26,6 @@ class CommentsController < ApplicationController
     @comment.destroy
     redirect_to application_path(@application)
   end
-  
 
   private
     def comment_params
