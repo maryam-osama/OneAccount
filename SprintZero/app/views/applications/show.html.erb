@@ -8,6 +8,17 @@
       background-repeat: no-repeat;
       background-size: cover;
     }
+    .blue-btn {
+      background: #2b9ab6;
+      color: #FFF;
+      padding: 8px;
+      text-align: center;
+      width: 120px;
+      border-radius: 5px;
+      display: block;
+      text-decoration: none;
+      margin-bottom: 5px;
+    }
     header {
 	text-align: center;
     height:50px;
@@ -20,7 +31,7 @@
   </style>
 </head>
 
-
+<div id="hidden_app_id" style="display: none;"><%= @application.id %></div>
 
 <p>
 
@@ -43,6 +54,12 @@
   <%=  @application.category_name %>
   
 </p>
+<!--checks if the user has already added this app to the wishlist. Refrence Applications controller/show-->
+<% if @inWishList %>
+<!--do something-->
+<% else %>
+<a href="#" id="add_to_wishlist" class="blue-btn">Add to wishlist</a>
+<% end %>
 
 <% @number =  @application.price * 100 %>
 
@@ -52,7 +69,6 @@
            method: :delete %></td>
  <% end %>
  
-  
 <% if (Purchase.where(:user_email => current_user.email ,:app_id => @application).blank?) && 
  !(@application.publisher_email == current_user.email) %>
 
