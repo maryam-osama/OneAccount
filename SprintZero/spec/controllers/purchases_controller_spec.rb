@@ -30,16 +30,15 @@ RSpec.describe PurchasesController, type: :controller do
   end
     
     
-    it "gets the updated applications" do  
-    user
-    sign_in(user)
-  
+    it "should redirect user to the updated app page " do  
+   
     application = Application.create!(:appname => 'Viber' ,:description => 'Good' ,:price => 11 ,:publisher_email => "maryam@gmail.com")
-    purchase = Purchase.create!(:app_id => application.id ,:user_email => "maryam@gmail.com")
+    purchase = Purchase.create!(:app_id => application.id ,:user_email => "maryam@gmail.com" ,:updated => nil)
+    get :updated , number: purchase.id ,url: 'https://github.com'
     
-    get :updated 
-    expect(assigns(:app_names )).to eq([application])
-
+    expect(Purchase.exists?(app_id: application.id , user_email: "maryam@gmail.com" ,updated: true )).to eq(true)
+    
   end
   
 end
+

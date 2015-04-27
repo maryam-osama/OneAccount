@@ -48,5 +48,3 @@ gem 'devise'
 
 gem 'stripe',:git => 'https://github.com/stripe/stripe-ruby'
 
- 
-gem 'rspec-rails' , '~> 3.0'
