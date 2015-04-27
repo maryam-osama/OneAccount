@@ -2,126 +2,124 @@
 <head>
   <style>
     body {
- 
       text-align: left;
       background:url("http://ak2.picdn.net/shutterstock/videos/4637666/preview/stock-footage-elegant-waving-canvas-grey-and-white-background-loop.jpg");
       background-size: 2000pt;
       background-position: center;
       color: #2B3856;
       font-family:Arial, Helvetica, sans-serif;
-      
     }
-    h1 {
-    color: #0000A0;
-    text-align: left;
-    margin-top:15px;
-    margin-top: 70px;
-    font-size: 35px;
-    font-family:Arial, Helvetica, sans-serif;
-   
-    }
-
     
- table {
+    h1 {
+      color: #0000A0;
+      text-align: left;
+      margin-top:15px;
+      margin-top: 70px;
+      font-size: 35px;
+      font-family:Arial, Helvetica, sans-serif;
+    }
+    
+      table {
+      font-size: 20px;
+      font-family: Arial;
+      padding: 5px;
+      text-align: left;
+      line-height: 1em;
+
+     }
      
-       font-size: 20px;
-       font-family: Arial;
-       padding: 5px;
-       text-align: left;
-       line-height: 1em;
-      
-}
-b{
-  text-align:center;
-}
-   td {
+    b{
+      text-align:center;
+    }
+    
+    td {
+      text-align: center;
+      background: #F5F5DC;
+      width:30%;
+      height:10px;
+    }
+    
+    th{
+      text-align: left;
+      margin-left: 200px;
+      color:#151B54;
+      font-family:Arial, Helvetica, sans-serif;
+      font-size:20px; 
+    }
+    
+    tr{
+      text-align: left;
+      font-family:Arial, Helvetica, sans-serif;
+      font-size:18px;
+      font-style: bold;
+      color:#151B54;
+    }
+
+    header {
+	    text-align: center;
+      height:50px;
+      background:#F0F0F0;
+      border:1px solid #CCC;
+      width:100%;
+      margin:0px auto;
+      box-shadow: 0px 2px 2px 2px #ccc;
+    }
    
-   text-align: center;
-   background: #F5F5DC;
-   width:30%;
-   height:10px;
+    .check{
+     color:#41A317;
+     font-size: 25px;
+    }
    
-}
-th{
-  text-align: left;
-  margin-left: 200px;
-  color:#151B54;
-  font-family:Arial, Helvetica, sans-serif;
-  font-size:20px;
-}
-tr{
-  text-align: left;
-  font-family:Arial, Helvetica, sans-serif;
-  font-size:18px;
-  font-style: bold;
-  color:#151B54;
+    .check:hover{
+     color:#4CC417;
+    }
+   
+    .x{
+     color:#E41B17;
+     font-size: 25px;
+    }
+   
+    .x:hover{
+     color:#F62817;
+    }
+   
+    .icon{
+     display:inline-block;
+    }
+  
+    .View{
+     color:#357EC7;
+     text-decoration:none;
+    }
+  
+    .View:hover{
+     color: #95B9C7;
+    }
 }
 
-header {
-	text-align: center;
-    height:50px;
-    background:#F0F0F0;
-    border:1px solid #CCC;
-    width:100%;
-    margin:0px auto;
-  box-shadow: 0px 2px 2px 2px #ccc;
-}
-.check{
-  color:#41A317;
-  font-size: 25px;
-}
-.check:hover{
-  color:#4CC417;
-  
-}
-.x{
-  color:#E41B17;
-  font-size: 25px;
-}
-.x:hover{
-  color:#F62817;
-  
-}
-.icon{
-  
-  display:inline-block;
-  
-}
-.View{
-  color:#357EC7;
-  text-decoration:none;
-  
-  }
-.View:hover{
-  color: #95B9C7;
-}
-}
-  </style>
+</style>
 </head>
 
 <body>
-
-<div> <h1> Requests<div class="icon"><i class="fa fa-list"></i></div></h1> </div>
- </body>
+ <div> <h1> Requests<div class="icon"><i class="fa fa-list"></i></div></h1> </div>
+</body>
  
 <table>
   <tr>
-  
-    <th><b>User Email </b></th>
+   <th><b>User Email </b></th>
   </tr>
  
-  <% @requests.each do |request| %>
-    <tr>
-     
-      <td><%= request.user_email %></td>
-       <td><%= link_to 'View' , request_path(request), :class => "View" %></td>
-
+<% @requests.each do |request| %>
+  <tr>
+     <td><%= request.user_email %></td>
+     <td><%= link_to 'View' , request_path(request), :class => "View" %></td>
      <td><%= link_to '<div class = "check"><i class="fa fa-check-circle"></i></div>'.html_safe, request_path(request, :number => "1"),
              method: :delete %> </td>
-      <td><%= link_to '<div class = "x"><i class="fa fa-times-circle"></i></div>'.html_safe, request_path(request, :number => "0"),
+    <td><%= link_to '<div class = "x"><i class="fa fa-times-circle"></i></div>'.html_safe, request_path(request, :number => "0"),
              method: :delete %></td>
 
-    </tr>
+  </tr>
  
-   <% end %>
+<% end %>
+
 </table>
