@@ -86,6 +86,22 @@ end
     expect(response).to render_template("notify")
    
   end
+  
+  it "Should update the app description" do
+    
+    application = Application.create!(:appname => 'music' ,:description => 'Good' ,:price => 12 ,:publisher_email => "mai@gmail.com")
+    patch :update, {id: application.id , application: { description:  'Bad' }} 
+    expect(Application.exists?(description: "Bad")).to eq(true)
+    
+  end
+  
+  
+   it "Should edit the app of the publisher" do
+        application = Application.create!(:appname => 'music' ,:description => 'Good' ,:price => 12 ,:publisher_email => "mai@gmail.com")
+    get :edit , id: application.id
+    expect(response).to render_template("edit")
+    
+  end
    
 end
 
@@ -100,3 +116,4 @@ it "Should notify users with an app update " do
   end
 
 end
+

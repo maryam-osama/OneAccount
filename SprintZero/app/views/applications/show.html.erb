@@ -11,13 +11,15 @@
     }
 
     header {
-	 text-align: center;
-     height:50px;
-     background:#F0F0F0;
-     border:1px solid #CCC;
-     width:100%;
-     margin:0px auto;
-     box-shadow: 0px 2px 2px 2px #ccc;
+
+	text-align: center;
+    height:50px;
+    background:#F0F0F0;
+    border:1px solid #CCC;
+    width:100%;
+    margin:0px auto;
+    box-shadow: 0px 2px 2px 2px #ccc;
+
     }
   </style>
 </head>
@@ -42,6 +44,7 @@
   <%= @application.category_name %>
  </p>
 
+<% @number =  @application.price * 100 %>
  
 <h2>Comments</h2>
 <% @application.comments.each do |comment| %>
@@ -79,10 +82,18 @@
 
  <% if (current_user.email == Sprint0::Application.config.my_key) ||
  !(Application.where(:publisher_email => current_user.email ,:id => @application).blank?)%>
-  <td><%= link_to 'DeleteApp', application_path(@application),
-           method: :delete %></td>
+  <td><%= link_to 'DeleteApp', application_path(@application), method: :delete %></td>
  <% end %>
+ 
+ <% if !(Application.where(:publisher_email => current_user.email ,:id => @application).blank?)%>
+    <td><%= link_to 'Edit', edit_application_path(@application) %></td>
+ <% end %>
+ 
+<%  @purchase = Purchase.where(:user_email => current_user.email ,:app_id => @application) %>
 
+<% if (@purchase.blank?) && 
+ !(@application.publisher_email == current_user.email) %>
+<%= form_tag charges_path(:number => @number ,:application => @application ) do %>
 
 <%  @purchase = Purchase.where(:user_email => current_user.email ,:app_id => @application) %>
 
@@ -94,7 +105,6 @@
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
           data-description="Payment"
           data-amount= <%= @application.price * 100 =%>
-        
           </script> ></script>
 <% end %>
 
@@ -108,6 +118,7 @@
 
 <% if !(@application.playstore_url.blank?) %>
  <td> <%= link_to 'Download from PlayStore',  @application.playstore_url , :target => '_blank'  %> </td>
+>>>>>>> Review
 <% end %>
 
 <% if !(@application.windows_url.blank?) %>
@@ -116,5 +127,12 @@
 
 <% end %>
 <% end %>
+
+
+
+
+
+
+
 
 

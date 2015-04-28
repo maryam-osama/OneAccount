@@ -11,8 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 20150420083421) do
+=======
 
 ActiveRecord::Schema.define(version: 20150424222304) do
+>>>>>>> Review
 
   create_table "applications", force: true do |t|
     t.string   "appname"
@@ -25,6 +29,8 @@ ActiveRecord::Schema.define(version: 20150424222304) do
     t.string   "appstore_url"
     t.string   "playstore_url"
     t.string   "windows_url"
+<<<<<<< HEAD
+=======
   end
 
   create_table "average_caches", force: true do |t|
@@ -34,6 +40,7 @@ ActiveRecord::Schema.define(version: 20150424222304) do
     t.float    "avg",           null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+>>>>>>> Review
   end
 
   create_table "categories", force: true do |t|

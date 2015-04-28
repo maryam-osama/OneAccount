@@ -5,6 +5,16 @@ class ApplicationsController < ApplicationController
     @application = Application.new
     @categories = Category.all 
   end
+  
+  ##
+  # Author: Mai Kany
+  #
+  # This method allows the publisher to edit
+  #
+  # the application he published
+  def edit
+    @application = Application.find(params[:id])
+  end
 
   ##
   #This method lists all the publisher's app
@@ -15,7 +25,19 @@ class ApplicationsController < ApplicationController
   # and views the appname of this applications
   def myapps
     @applications = Application.where(publisher_email: current_user.email)
+  end 
+  
+  ##   
+  # Gets all purchases of a specific application and assigns purchase.updated attribute to false 
+  def updates
+    @purchases = Purchase.where(app_id: params[:app])
+    @purchases.each do |purchase|
+    purchase.updated = false
+    purchase.save
   end
+    redirect_to welcome_homepage_url
+  end
+  
 
   ##
   # Author : Maryam Osama
@@ -61,6 +83,27 @@ class ApplicationsController < ApplicationController
       redirect_to @application
       else
       render 'new'
+      end
+  end
+  
+  ##
+  # Author: Mai Kany
+  #
+  # This method searches for the application with its id from   
+  # 
+  # the model then returns it back then updates  the description, price,
+  #
+  # appstore url, playstore url and the windows url of
+  #
+  # the application that was published by 
+  #
+  # a publisher then returns it back to the model
+  def update
+    @application = Application.find(params[:id])
+      if @application.update(application_params)
+      redirect_to @application
+      else
+      render 'edit'
       end
   end
     
