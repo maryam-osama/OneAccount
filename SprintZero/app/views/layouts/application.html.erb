@@ -16,8 +16,7 @@
  <a <%= link_to 'Categories', categories_index_path %> 
    <%= link_to 'My Purchases' , :controller => "purchases", :action => "index" %> 
 
-
- <% if current_user.try(:publisher?) %> 
+<% if current_user.try(:publisher?) %> 
   <%= link_to 'Add Application', new_application_path %>
   <%= link_to 'View MyApps', applications_myapps_url %></button>
  <% end %>
@@ -38,34 +37,33 @@
 <% end %>
 </header>
   
-
- 
- <%= yield %>   
+<%= yield %>   
     
 <style>
-.header a:link{
-color:#006699;
-font-size:16px;
-font-family: helvetica, sans-serif;
-text-decoration:none;
-padding:5px;
+  .header a:link{
+    color:#006699;
+    font-size:16px;
+    font-family: helvetica, sans-serif;
+    text-decoration:none;
+    padding:5px;
 }
-.header a:visited{
-color:#003399;
-font-size:16px;
-font-family: helvetica, sans-serif;
-text-decoration:none;
-padding:5px;
+
+  .header a:visited{
+    color:#003399;
+    font-size:16px;
+    font-family: helvetica, sans-serif;
+    text-decoration:none;
+    padding:5px;
 }
-.header a:hover{
-color:#0099CC;
-font-size:16px;
-font-family: helvetica, sans-serif;
-text-decoration:none;
-padding:5px;
+  
+  .header a:hover{
+    color:#0099CC;
+    font-size:16px;
+    font-family: helvetica, sans-serif;
+    text-decoration:none;
+    padding:5px;
 }
  
-
 </style>
 
 </html>

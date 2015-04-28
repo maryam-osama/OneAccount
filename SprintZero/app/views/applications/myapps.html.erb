@@ -1,65 +1,70 @@
 <style>
+
     h1{
-        
-        background: black;
-        text-align: center;
-        color: #2ECCFA;
-        font-size: 160%;
-        margin-right: 40pt;
-        font-family: Helvetica, 'sans-serid' ;
-       
-    }
+      background: black;
+      text-align: center;
+      color: #2ECCFA;
+      font-size: 160%;
+      margin-right: 40pt;
+      font-family: Helvetica, 'sans-serid' ;
+      }
+  
     body{
-        background: black url("http://i.imgur.com/cnJRHic.jpg");
-        
-        background-repeat: no-repeat;
-        background-size: cover;
-        color: white;
-        font-size: 130%;
-       
-        font-family: Helvetica, 'sans-serid' ;
+      background: black url("http://i.imgur.com/cnJRHic.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      color: white;
+      font-size: 130%;
+      font-family: Helvetica, 'sans-serid' ;
     }
     
     th{
-        color: #2ECCFA;
+      color: #2ECCFA;
      }
+
     .apple{
-        color: #E6E6E6;
-        display:inline-block
+      color: #E6E6E6;
+      display:inline-block
     }
+    
     .android{
-        color: #04B404;
-        display:inline-block
+      color: #04B404;
+      display:inline-block
     }
+    
     .windows{
-        color: #2E9AFE;
-        display:inline-block
+      color: #2E9AFE;
+      display:inline-block
     }
+    
     header {
-	text-align: center;
-    height:50px;
-    background:#F0F0F0;
-    border:1px solid #CCC;
-    width:100%;
-    margin:0px auto;
-    box-shadow: 0px 2px 2px 2px #ccc;
-}
+	  text-align: center;
+      height:50px;
+      background:#F0F0F0;
+      border:1px solid #CCC;
+      width:100%;
+      margin:0px auto;
+      box-shadow: 0px 2px 2px 2px #ccc;
+    }
 </style>
- <h1> Your Applications <div class = "apple"><i class="fa fa-apple"></i></div> <div class = "android"> <i class="fa fa-android"></i></div> <div class = "windows"> <i class="fa fa-windows"></i></div> </h1> 
+
+ <h1> Your Applications <div class = "apple"><i class = "fa fa-apple"></i></div> <div class = "android"> <i class = "fa fa-android"></i></div> <div class = "windows"> <i class = "fa fa-windows"></i></div> </h1> 
 </body>
+
 <table>
+
   <tr>
     <th>Uploads</th>
-   
-     
     <th colspan = "3"></th>
   </tr>
   
 <% @applications.each do |application| %>
     <tr>
+
     <td><%= link_to  application.appname , application_path(application),{:style=>'color:white;''text-decoration:none;' 'border-radius:10px;' 'font: helvetica;', :class => "css_class"} %></td>
-         <td><%= link_to 'Update' , applications_updates_path(:app => application.id),{:style=>'color:blue;''text-decoration:none;' 'border-radius:10px;' 'font: helvetica;', :class => "css_class"} %></td>
-         
-     </tr>
-  <%end%>
+    <td><%= link_to 'Update' , applications_updates_path(:app => application.id),{:style=>'color:blue;''text-decoration:none;' 'border-radius:10px;' 'font: helvetica;', :class => "css_class"} %></td>
+   </tr>
+   
+<%end%>
+
 </table>
