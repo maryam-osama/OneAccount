@@ -7,9 +7,9 @@ class ApplicationsController < ApplicationController
   end
   
   ##
-  #This method allows the publisher to edit
+  # This method allows the publisher to edit
   #
-  #the application he published
+  # the application he published
   def edit
     @application = Application.find(params[:id])
   end
