@@ -1,51 +1,71 @@
 <!DOCTYPE html>
-<html>
+  <html>
 
-<body background="http://www.fbnstatic.com/static/managed/img/Customer-Using-iPhone-4S-FBN.jpg">
-<table align="center">
- <tr>
+  <body background="http://www.fbnstatic.com/static/managed/img/Customer-Using-iPhone-4S-FBN.jpg">
+
+  <table align="center">
+   <tr>
     <th style=" font-size:30pt; margin-top:0;"><Strong> My purchases </Strong></th>
- </tr>
+   </tr>
+  </table>
 
+  <p> 
+  <br> <% @app_names.each do |application| %> <br>
+  <td><%= application.appname %></td> <br>
 
-<% @app_names.each do |application| %>
+  <%  @purchase = Purchase.where(:user_email => current_user.email ,:app_id => application.id , :updated => false) %>
+  <% if @purchase.exists? %>
+  <%  @purchase_id = (@purchase.take!).id %>
 
-<% if !(application.nil?) %>
-<td><%= application.appname %></td>
-
-<% end %>
-<% end %>
-
-
-</table>
-
-<style type="text/css">
-
+  <% if !(application.appstore_url.blank?) %>
+  <td> <%= link_to 'Update on AppStore', purchases_updated_url(:number => @purchase_id ,:url => application.appstore_url ) %> </td> 
+  <% end %>
+  
+  <% if !(application.playstore_url.blank?) %>
+  <td> <%= link_to 'Update on Play Store', purchases_updated_url(:number => @purchase_id ,:url => application.playstore_url ) %> </td>
+  <% end %>
+  
+  <% if !(application.windows_url.blank?) %>
+  <td> <%= link_to 'Update on Windows Store', purchases_updated_url(:number => @purchase_id ,:url => application.windows_url) %> </td>
+  <% end %>
+  
+  <% end %>
+  <% end %>
+  </p>
  
- table{
-    border: 1px solid white;
+  <style type="text/css">
+  
+  table {
+    border:1px solid white;
     width:700px;
-    height:70px;
+    height:10px;
     border-radius:10px;
     background-color: transparent;
     box-shadow: 5px 5px 5px #888888;
-     visibility: visible;
-     margin-top:100px;
-   
-     
-}
-th {
-     float: left;
-  width: 100%;
-  margin: 100px 0 20px;
-  font-family: proxima-nova,sans-serif;
-  font-style: normal;
+    visibility: visible;
+    margin-top:80px;
+    
+  }
+  p {
+    margin-left:140px;
+    margin-top:30px;
+    color:#00003D;
+    font-size:20px;
+    font-family: helvetica, sans-serif;
+    font-style: normal;
+  }
+  th {
+    float: left;
+    width: 100%;
+    margin: 100px 0 20px;
+    font-family: proxima-nova,sans-serif;
+    font-style: normal;
+    text-shadow: 0 1px 3px #145769;
+    text-align:center;
+    color: #FFD700;
+  }
   
-  text-shadow: 0 1px 3px #145769;
-  text-align:center;
-  color: #FFD700;
-}
-td {
+  td {
     height: 15px;
     vertical-align: middle;
     font-size:12.5pt;
@@ -56,20 +76,22 @@ td {
     font-family: proxima-nova,sans-serif;
     font-style: normal;
     text-shadow: 0 1px 3px #145769;
-    
-}
-body{
+    margin-left:40px;
+  }
+  body {
     background-repeat:no-repeat;
     background-size:100%;
-}
-header {
-	text-align: center;
+  }
+  
+  header {
+    text-align:center;
     height:50px;
     background:#F0F0F0;
     border:1px solid #CCC;
     width:100%;
     margin:0px auto;
-  box-shadow: 0px 2px 2px 2px #ccc;
-}
-</style>
-</html>
+    box-shadow: 0px 2px 2px 2px #ccc;
+  }
+  
+  </style>
+  </html>
