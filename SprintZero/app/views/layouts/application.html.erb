@@ -1,70 +1,183 @@
 <!DOCTYPE html>
 <html>
+ <title>OneAccount</title>
 <head>
-  <title>OneAccount</title>
+  <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  
+   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <!-- Bootstrap core CSS -->
+    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap theme -->
+    <link href="../../dist/css/bootstrap-theme.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="theme.css" rel="stylesheet">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
 </head>
 
 <header>
  
- <% if user_signed_in? %>
-  <div class="header" style="margin-top:17.5px">
-   
- <a href="<%= url_for controller: 'welcome', action: 'homepage' %>" >Home</a>
- <a <%= link_to 'Categories', categories_index_path %> 
-   <%= link_to 'My Purchases' , :controller => "purchases", :action => "index" %> 
-
-
- <% if current_user.try(:publisher?) %> 
-  <%= link_to 'Add Application', new_application_path %>
-  <%= link_to 'View MyApps', applications_myapps_url %></button>
+ 
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <% if user_signed_in? %>
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="https://oneaccount.com">OneAccount</a>
+        </div>
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="<%= url_for controller: 'welcome', action: 'homepage' %>" >Home</a> </li>
+            <li><a <%= link_to 'Categories', categories_index_path %> </li>
+            <li> <a <%= link_to 'My Purchases' , :controller => "purchases", :action => "index" %> </li>
+               <li> <a <%= link_to "Sign Out",destroy_user_session_path, :method => :delete %> </li>
+             <% if current_user.try(:publisher?) %> 
+             <li> <a <%= link_to 'Add Application', new_application_path %> </li>
+             <li> <a <%= link_to 'View MyApps', applications_myapps_url %></button> </li>
+             <% end %>
+             
+             <% if current_user.email == Sprint0::Application.config.my_key %>
+              <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a <%= link_to 'View Requests', requests_index_path %> </li>
+                <li><a <%= link_to 'Add Category', new_category_path %> </li>
+                <li><a <%= link_to 'View Notifications', notifications_path %> </li>
+                <% else %>
+                 <% if current_user.publisher == nil %> 
+                <li><a  <%= link_to 'Request', new_request_path %></a></li>
+                     
+ <% end %>
  <% end %>
 
-  <% if current_user.email == Sprint0::Application.config.my_key %> 
-  <%= link_to 'View Requests', requests_index_path %>
-  <%= link_to 'Add Category', new_category_path %>
-  <%= link_to 'View Notifications', notifications_path %>
-  <% else %>
-
- <% if current_user.publisher == nil %> 
- <%= link_to 'Request', new_request_path %>
- <% end %>
- <% end %>
-
-  <a <%= link_to "Sign Out",destroy_user_session_path, :method => :delete %> 
-</div>
+ 
 <% end %>
-</header>
-  
+              </ul>
+            </li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+      
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="../../dist/js/bootstrap.min.js"></script>
+<script src="../../assets/js/docs.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
 
+
+<svg xmlns="http://www.w3.org/2000/svg" width="1140" height="500" viewBox="0 0 1140 500" preserveAspectRatio="none" style="visibility: hidden; position: absolute; top: -100%; left: -100%;"><defs></defs><text x="0" y="53" style="font-weight:bold;font-size:53pt;font-family:Arial, Helvetica, Open Sans, sans-serif;dominant-baseline:middle">Thirdslide</text></svg>
+<div id="global-zeroclipboard-html-bridge" class="global-zeroclipboard-container" title="" style="position: absolute; left: 0px; top: -9999px; width: 15px; height: 15px; z-index: 999999999;" data-original-title="Copy to clipboard">      <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" id="global-zeroclipboard-flash-bridge" width="100%" height="100%">         <param name="movie" value="/assets/flash/ZeroClipboard.swf?noCache=1430060381063">         <param name="allowScriptAccess" value="sameDomain">         <param name="scale" value="exactfit">         <param name="loop" value="false">         <param name="menu" value="false">         <param name="quality" value="best">         <param name="bgcolor" value="#ffffff">         <param name="wmode" value="transparent">         <param name="flashvars" value="trustedOrigins=getbootstrap.com%2C%2F%2Fgetbootstrap.com%2Chttp%3A%2F%2Fgetbootstrap.com">         <embed src="/assets/flash/ZeroClipboard.swf?noCache=1430060381063" loop="false" menu="false" quality="best" bgcolor="#ffffff" width="100%" height="100%" name="global-zeroclipboard-flash-bridge" allowscriptaccess="sameDomain" allowfullscreen="false" type="application/x-shockwave-flash" wmode="transparent" pluginspage="http://www.macromedia.com/go/getflashplayer" flashvars="trustedOrigins=getbootstrap.com%2C%2F%2Fgetbootstrap.com%2Chttp%3A%2F%2Fgetbootstrap.com" scale="exactfit">                </object></div>
+ 
+    
+</header>
  
  <%= yield %>   
     
 <style>
-.header a:link{
-color:#006699;
-font-size:16px;
-font-family: helvetica, sans-serif;
-text-decoration:none;
-padding:5px;
-}
-.header a:visited{
-color:#003399;
-font-size:16px;
-font-family: helvetica, sans-serif;
-text-decoration:none;
-padding:5px;
-}
-.header a:hover{
-color:#0099CC;
-font-size:16px;
-font-family: helvetica, sans-serif;
-text-decoration:none;
-padding:5px;
-}
+
  
+.navbar-fixed-bottom, .navbar-fixed-top, .navbar-static-top {
+  border-radius: 0;
+}
+.navbar-inverse {
+  background-image: -webkit-linear-gradient(top,#3c3c3c 0,#222 100%);
+  background-image: -o-linear-gradient(top,#3c3c3c 0,#222 100%);
+  background-image: -webkit-gradient(linear,left top,left bottom,from(#3c3c3c),to(#222));
+  background-image: linear-gradient(to bottom,#3c3c3c 0,#222 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff3c3c3c', endColorstr='#ff222222', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+  background-repeat: repeat-x;
+}
+.navbar-inverse {
+  background-color: #222;
+  border-color: #080808;
+}
+.navbar-fixed-top {
+  top: 0;
+  border-width: 0 0 1px;
+}
+@media (min-width: 768px)
+.navbar-fixed-bottom, .navbar-fixed-top {
+  border-radius: 0;
+}
+.navbar-fixed-bottom, .navbar-fixed-top {
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+}
+@media (min-width: 768px)
+.navbar {
+  border-radius: 4px;
+}
+.navbar {
+  position: relative;
+  min-height: 50px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+user agent stylesheetarticle, aside, footer, header, hgroup, main, nav, section {
+  display: block;
+}
+Inherited from 
+body {
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #333;
+  background-color: #fff;
+}
+Inherited from 
+html {
+  font-size: 10px;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+html {
+  font-family: sans-serif;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+Pseudo ::before element
+.btn-group-vertical>.btn-group:after, .btn-group-vertical>.btn-group:before, .btn-toolbar:after, .btn-toolbar:before, .clearfix:after, .clearfix:before, .container-fluid:after, .container-fluid:before, .container:after, .container:before, .dl-horizontal dd:after, .dl-horizontal dd:before, .form-horizontal .form-group:after, .form-horizontal .form-group:before, .modal-footer:after, .modal-footer:before, .nav:after, .nav:before, .navbar-collapse:after, .navbar-collapse:before, .navbar-header:after, .navbar-header:before, .navbar:after, .navbar:before, .pager:after, .pager:before, .panel-body:after, .panel-body:before, .row:after, .row:before {
+  display: table;
+  content: " ";
+}
+:after, :before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+Pseudo ::after element
+.btn-group-vertical>.btn-group:after, .btn-toolbar:after, .clearfix:after, .container-fluid:after, .container:after, .dl-horizontal dd:after, .form-horizontal .form-group:after, .modal-footer:after, .nav:after, .navbar-collapse:after, .navbar-header:after, .navbar:after, .pager:after, .panel-body:after, .row:after {
+  clear: both;
+}
+.btn-group-vertical>.btn-group:after, .btn-group-vertical>.btn-group:before, .btn-toolbar:after, .btn-toolbar:before, .clearfix:after, .clearfix:before, .container-fluid:after, .container-fluid:before, .container:after, .container:before, .dl-horizontal dd:after, .dl-horizontal dd:before, .form-horizontal .form-group:after, .form-horizontal .form-group:before, .modal-footer:after, .modal-footer:before, .nav:after, .nav:before, .navbar-collapse:after, .navbar-collapse:before, .navbar-header:after, .navbar-header:before, .navbar:after, .navbar:before, .pager:after, .pager:before, .panel-body:after, .panel-body:before, .row:after, .row:before {
+  display: table;
+  content: " ";
+}
+:after, :before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+
 
 </style>
 
