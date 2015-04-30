@@ -4,8 +4,7 @@ include Devise::TestHelpers
 
 RSpec.describe ApplicationsController, type: :controller do
  
- 
-  let(:user) do
+   let(:user) do
       user = User.new
       user.email = "maryam@gmail.com"
       user.encrypted_password = "1234"
@@ -13,9 +12,6 @@ RSpec.describe ApplicationsController, type: :controller do
       user
     end
   
-  
-   
-   
    describe "GET index" do
     it "assigns @applications" do
       
@@ -24,7 +20,6 @@ RSpec.describe ApplicationsController, type: :controller do
       expect(assigns(:applications )).to eq([application])
     end
     
-    
     it "renders the index template" do
       get :index
       expect(response).to render_template("index")
@@ -32,10 +27,8 @@ RSpec.describe ApplicationsController, type: :controller do
     
 end
 
- 
  describe "GET show" do
  
-  
   it "renders the #show view" do
     application = Application.create!(:appname => 'Viber' ,:description => 'Good' ,:price => 11)   
     get :show, id: application.id
@@ -53,7 +46,6 @@ end
   end
   
  end
- 
  
  it "should create application" do
      user
@@ -94,7 +86,34 @@ end
     expect(response).to render_template("notify")
    
   end
+  
+  it "Should update the app description" do
+    
+    application = Application.create!(:appname => 'music' ,:description => 'Good' ,:price => 12 ,:publisher_email => "mai@gmail.com")
+    patch :update, {id: application.id , application: { description:  'Bad' }} 
+    expect(Application.exists?(description: "Bad")).to eq(true)
+    
+  end
+  
+  
+   it "Should edit the app of the publisher" do
+        application = Application.create!(:appname => 'music' ,:description => 'Good' ,:price => 12 ,:publisher_email => "mai@gmail.com")
+    get :edit , id: application.id
+    expect(response).to render_template("edit")
+    
+  end
    
 end
 
+it "Should notify users with an app update " do
+    
+    application = Application.create!(:appname => 'Viber' ,:description => 'Good' ,:price => 11 ,:publisher_email => "maryam@gmail.com")
+    purchase = Purchase.create!(:app_id => application.id ,:user_email => "maryam@gmail.com" ,:updated => nil)
+    get :updates , app: application.id
+    
+    expect(Purchase.exists?(app_id: application.id , user_email: "maryam@gmail.com" ,updated: false )).to eq(true)
+    
+  end
+
 end
+
