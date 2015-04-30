@@ -21,6 +21,9 @@ ActiveRecord::Schema.define(version: 20150421131408) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.string   "category_name"
+     t.string   "appstore_url"
+    t.string   "playstore_url"
+    t.string   "windows_url"
   end
 
   create_table "average_caches", force: true do |t|
@@ -37,6 +40,16 @@ ActiveRecord::Schema.define(version: 20150421131408) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+  
+   create_table "comments", force: true do |t|
+    t.string   "commenter"
+    t.text     "body"
+    t.integer  "application_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "comments", ["application_id"], name: "index_comments_on_application_id"
 
   create_table "notifications", force: true do |t|
     t.string   "user_email"
@@ -59,6 +72,7 @@ ActiveRecord::Schema.define(version: 20150421131408) do
     t.integer  "app_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "updated"
   end
 
   create_table "rates", force: true do |t|
