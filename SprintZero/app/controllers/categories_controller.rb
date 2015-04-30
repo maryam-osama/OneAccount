@@ -25,14 +25,23 @@ class CategoriesController < ApplicationController
       end
   end
   
-  ##
+  ## 
   # This Method requests a category with specific ID 
+  #
   # from the category model.
   #
   # If category with required ID is found, 
-  # delete the category.
+  #
+  # delete the category
+  #
+  # and assigns all applications of this category to category others
   def destroy
     @category = Category.find(params[:id])
+    @applications = Application.where(:category_name => @category.name)
+      @applications.each do |application|
+      application.category_name = "Others"
+      application.save
+    end
     @category.destroy 
     redirect_to categories_path
   end

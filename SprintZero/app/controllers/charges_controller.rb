@@ -17,11 +17,9 @@ class ChargesController < ApplicationController
     @purchase.user_email = current_user.email
     @purchase.app_id = params[:application]
     @purchase.save
+    redirect_to :back
     rescue Stripe::CardError => e
     flash[:error] = e.message
-    redirect_to charges_path(params[:number], params[:application])
   end
   
 end
-
-
