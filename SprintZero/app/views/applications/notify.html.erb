@@ -9,14 +9,17 @@
      background-repeat: no-repeat;
      background-size: cover;
     }
+
     header {
-	 text-align: center;
-     height:50px;
-     background:#F0F0F0;
-     border:1px solid #CCC;
-     width:100%;
-     margin:0px auto;
-     box-shadow: 0px 2px 2px 2px #ccc;
+
+	text-align: center;
+    height:50px;
+    background:#F0F0F0;
+    border:1px solid #CCC;
+    width:100%;
+    margin:0px auto;
+    box-shadow: 0px 2px 2px 2px #ccc;
+
     }
   </style>
 </head>
@@ -30,7 +33,7 @@
   <strong>description:</strong>
   <%= @application.description %>
  </p>
- 
+
  <p>
   <strong>price: $</strong>
   <%= @application.price %>
@@ -41,6 +44,7 @@
   <%= @application.category_name %>
  </p>
 
+<% @number =  @application.price * 100 %>
  
 <h2>Comments</h2>
 <% @application.comments.each do |comment| %>
@@ -49,6 +53,14 @@
     <strong><%= comment.commenter %> :</strong>
     <%= comment.body %>
   </p>
+  
+  <% if current_user.email == comment.commenter %>
+    <p>
+  <%= link_to 'Destroy Comment', [comment.application, comment],
+    method: :delete,
+    data: { confirm: 'Are you sure?' } %>
+    </p>
+<% end %>
  
 <% end %>
 
@@ -64,24 +76,29 @@
   </p>
 <% end %>
 
- 
+
 <% @number =  @application.price * 100 %>
 
-<% if (current_user.email == Sprint0::Application.config.my_key) || !(Application.where(:publisher_email => current_user.email ,:id => @application).blank?)%>
-  <td><%= link_to 'DeleteApp', application_path(@application), method: :delete %></td>
-<% end %>
 
+ <% if (current_user.email == Sprint0::Application.config.my_key) ||
+ !(Application.where(:publisher_email => current_user.email ,:id => @application).blank?)%>
+  <td><%= link_to 'DeleteApp', application_path(@application), method: :delete %></td>
+ <% end %>
+ 
+ <% if !(Application.where(:publisher_email => current_user.email ,:id => @application).blank?)%>
+    <td><%= link_to 'Edit', edit_application_path(@application) %></td>
+ <% end %>
+ 
 <%  @purchase = Purchase.where(:user_email => current_user.email ,:app_id => @application) %>
 
-<% if (@purchase.blank?) && !(@application.publisher_email == current_user.email) %>
-
+<% if (@purchase.blank?) && 
+ !(@application.publisher_email == current_user.email) %>
 <%= form_tag charges_path(:number => @number ,:application => @application ) do %>
 
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
           data-description="Payment"
           data-amount= <%= @application.price * 100 =%>
-        
           </script> ></script>
 <% end %>
 
@@ -95,6 +112,7 @@
 
 <% if !(@application.playstore_url.blank?) %>
  <td> <%= link_to 'Download from PlayStore',  @application.playstore_url , :target => '_blank'  %> </td>
+ 
 <% end %>
 
 <% if !(@application.windows_url.blank?) %>
@@ -103,3 +121,12 @@
 
 <% end %>
 <% end %>
+
+
+
+
+
+
+
+
+

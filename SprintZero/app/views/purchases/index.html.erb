@@ -10,8 +10,11 @@
   </table>
 
   <p> 
-  <br> <% @app_names.each do |application| %> <br>
-  <td><%= application.appname %></td> <br>
+ 
+  <% @app_names.each do |application| %>
+
+  <% if !(application.nil?) %>
+  <td><%= application.appname %></td>
 
   <%  @purchase = Purchase.where(:user_email => current_user.email ,:app_id => application.id , :updated => false) %>
   <% if @purchase.exists? %>
@@ -29,6 +32,7 @@
   <td> <%= link_to 'Update on Windows Store', purchases_updated_url(:number => @purchase_id ,:url => application.windows_url) %> </td>
   <% end %>
   
+  <% end %>
   <% end %>
   <% end %>
   </p>
