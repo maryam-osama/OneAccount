@@ -9,9 +9,7 @@
      background-repeat: no-repeat;
      background-size: cover;
     }
-
     header {
-
 	text-align: center;
     height:50px;
     background:#F0F0F0;
@@ -19,7 +17,6 @@
     width:100%;
     margin:0px auto;
     box-shadow: 0px 2px 2px 2px #ccc;
-
     }
   </style>
 </head>
@@ -102,6 +99,19 @@
           </script> ></script>
 <% end %>
 
+<div class="row">
+ 
+<div class="small-2 large-4 columns">
+   
+<% else %>  
+
+<% if !(Purchase.where(:user_email => current_user.email ,:app_id => @application).blank?) %>
+<%= rating_for @application, "Rate", disable_after_rate: true, imdb_avg: true %>  
+<% end %>
+</div>
+ 
+</div>
+
 <% else %>
 
 <% if !(@purchase.blank?) %>
@@ -130,3 +140,5 @@
 
 
 
+
+  

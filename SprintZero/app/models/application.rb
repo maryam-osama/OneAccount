@@ -8,8 +8,8 @@ class Application < ActiveRecord::Base
   validates :description, presence: true
   validates :price, numericality: true, presence:true
   has_many :comments, dependent: :destroy
-  
-
+  ratyrate_rateable 'Rate'
+ 
   def self.search(query)
     where("appname like ?", "%#{query}%") 
   end
