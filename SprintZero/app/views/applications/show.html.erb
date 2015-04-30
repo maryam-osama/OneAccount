@@ -2,71 +2,139 @@
 <head>
   <title>Applications</title>
   <style>
+    
     body {
-      text-align: left;
-      background-image: url("http://i.imgur.com/6RnDnuz.jpg");
-      background-repeat: no-repeat;
-      background-size: cover;
+     text-align: left;
+     background-repeat: no-repeat;
+     background-size: cover;
     }
     header {
-	text-align: center;
+   	text-align: center;
     height:50px;
     background:#F0F0F0;
     border:1px solid #CCC;
     width:100%;
     margin:0px auto;
-  box-shadow: 0px 2px 2px 2px #ccc;
-}
+    box-shadow: 0px 2px 2px 2px #ccc;
+    }
   </style>
 </head>
 
-
-
-<p>
-
+ <p>
   <strong>appname:</strong>
   <%= @application.appname  %>
-</p>
-<p>
+ </p>
+ 
+ <p>
   <strong>description:</strong>
   <%= @application.description %>
- 
-</p>
-<p>
+ </p>
+
+ <p>
   <strong>price: $</strong>
-  <%=  @application.price %>
-</p>
-
-
-<p>
+  <%= @application.price %>
+ </p>
+ 
+ <p>
   <strong>category name: </strong>
-  <%=  @application.category_name %>
+  <%= @application.category_name %>
+ </p>
+
+<% @number =  @application.price * 100 %>
+ 
+<h2>Comments</h2>
+<% @application.comments.each do |comment| %>
   
-</p>
+  <p>
+    <strong><%= comment.commenter %> :</strong>
+    <%= comment.body %>
+  </p>
+  
+  <% if current_user.email == comment.commenter %>
+    <p>
+  <%= link_to 'Destroy Comment', [comment.application, comment],
+    method: :delete,
+    data: { confirm: 'Are you sure?' } %>
+    </p>
+<% end %>
+ 
+<% end %>
+
+<h2>Add a comment:</h2>
+<%= form_for([@application, @application.comments.build]) do |f| %> 
+  <p>
+    <%= f.label :comment %><br>
+    <%= f.text_area :body%>
+  </p>
+  
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
 
 <% @number =  @application.price * 100 %>
 
+
  <% if (current_user.email == Sprint0::Application.config.my_key) ||
  !(Application.where(:publisher_email => current_user.email ,:id => @application).blank?)%>
-  <td><%= link_to 'DeleteApp', application_path(@application),
-           method: :delete %></td>
+  <td><%= link_to 'DeleteApp', application_path(@application), method: :delete %></td>
  <% end %>
  
-  
-<% if (Purchase.where(:user_email => current_user.email ,:app_id => @application).blank?) && 
+ <% if !(Application.where(:publisher_email => current_user.email ,:id => @application).blank?)%>
+    <td><%= link_to 'Edit', edit_application_path(@application) %></td>
+ <% end %>
+ 
+<%  @purchase = Purchase.where(:user_email => current_user.email ,:app_id => @application) %>
+
+<% if (@purchase.blank?) && 
  !(@application.publisher_email == current_user.email) %>
-
+ 
 <%= form_tag charges_path(:number => @number ,:application => @application ) do %>
-
 
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
           data-description="Payment"
           data-amount= <%= @application.price * 100 =%>
-        
           </script> ></script>
 <% end %>
+
+<div class="row">
+ 
+<div class="small-2 large-4 columns">
+   
+<% else %>  
+
+<% if !(Purchase.where(:user_email => current_user.email ,:app_id => @application).blank?) %>
+<%= rating_for @application, "Rate", disable_after_rate: true, imdb_avg: true %>  
+<% end %>
+
+
+<% if !(@purchase.blank?) %>
+
+<% if !(@application.appstore_url.blank?) %>
+ <td> <%= link_to 'Download from AppStore',  @application.appstore_url  , :target => '_blank' %> </td>
+<% end %>
+
+<% if !(@application.playstore_url.blank?) %>
+ <td> <%= link_to 'Download from PlayStore',  @application.playstore_url , :target => '_blank'  %> </td>
+ 
+<% end %>
+
+<% if !(@application.windows_url.blank?) %>
+ <td> <%= link_to 'Download from Windows Store',  @application.windows_url , :target => '_blank' %> </td>
+<% end %>
+
+<% end %>
 <% end %>
 
 
 
+
+
+
+
+
+
+
+  

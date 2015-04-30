@@ -1,119 +1,104 @@
 <style> 
-   
- body {
-       background: #F5F5DC url(http://i.imgur.com/VUVE0wj.jpg);
-       background-repeat: no-repeat;
-       background-position: center;
-   
-        
- }
+   body {
+   background: #F5F5DC url(http://i.imgur.com/VUVE0wj.jpg);
+   background-repeat: no-repeat;
+   background-position: center;
+    }
  
- button2{  
-         background:silver;
-        margin-left:255px;
-        font-family: helvetica, sans-serif;
-        font-size:50px;
-        color:#00003D;
-        border-radius:7px;
-        margin-bottom:60px;
- }
+    button2{  
+      background:silver;
+      margin-left:255px;
+      font-family: helvetica, sans-serif;
+      font-size:50px;
+      color:#00003D;
+      border-radius:7px;
+      margin-bottom:60px;
+     }
  
- p{
-  
-   font-family: helvetica, sans-serif;
-   margin-left:70px;
-   font-size:15px;
-   margin-top:10px;
-   color:#00003D;
- }
- table {
-
+     p{
+      font-family: helvetica, sans-serif;
+      margin-left:70px;
+      font-size:15px;
+      margin-top:10px;
+      color:#00003D;
+     }
+      
+     table {
       font-family:helvetica , sans-serif;
       margin-left:60px;
       background: white;
       width:100.59%;
       text-align: left
- }
-
- td {
+     }
+     td {
       margin-left:700px;
-     font-family:helvetica , sans-serif;
-     font-size:20px;
-     border-radius:15px;
-        
-     
- }
+      font-family:helvetica , sans-serif;
+      font-size:20px;
+      border-radius:15px;
+     }
   
-  #back {
-     margin-top:130px; 
-     margin-left:20px;
-                border-radius:15px;
-                font-size:13pt;
-                   color:black; 
- } 
+     #back {
+      margin-top:130px; 
+      margin-left:20px;
+      border-radius:15px;
+      font-size:13pt;
+      color:black; 
+     }  
  
-  #Show {
-         margin-right:100px;
-         font-size:17px;
-     
-   }
+     #Show {
+       margin-right:100px;
+       font-size:17px;
+     }
    
-   #delete{
+     #delete{
+       margin-right:100px;
+       font-size:17px;
+       border-radius:12px;
+     }
      
-      margin-right:100px;
-         font-size:17px;
-          border-radius:12px;
-   }
-       button{
-        margin-top:30px;
-        
-       }   
-       
-       
-       
-       button3  {
-          border-radius:12px;
-          font-size:17px; 
-          margin-left:70px;
-       }
-
-button4 {
- border-radius:12px;
-          font-size:17px; 
-}
-header {
-	text-align: center;
-    height:50px;
-    background:#F0F0F0;
-    border:1px solid #CCC;
-    width:100%;
-    margin:0px auto;
-  box-shadow: 0px 2px 2px 2px #ccc;
-}
-
+     button{
+       margin-top:30px;
+     }   
+     
+     button3  {
+       border-radius:12px;
+       font-size:17px; 
+       margin-left:70px;
+     }
+     button4 {
+       border-radius:12px;
+       font-size:17px; 
+     }
+     
+     header {
+	      text-align: center;
+       height:50px;
+       background:#F0F0F0;
+       border:1px solid #CCC;
+       width:100%;
+       margin:0px auto;
+       box-shadow: 0px 2px 2px 2px #ccc;
+      }
+</style>
  
- </style>
+<button2> Business Applications Categories </button2>
  
- <button2> Business Applications Categories </button2>
+<table style="margin: 30px auto";>
+     <% @categories.each do |category| %>
  
-  <<table style="margin: 30px auto";>
-  <% @categories.each do |category| %>
- 
- <tr style="border: 5px solid white; ">
+   <tr style="border: 5px solid white; ">
   
-  <td height="10"><p style=" margin-left:2;"><b><%= category.name %></b></p></td> 
-  
-  <td> <button3><button> <%= link_to 'View Details' , category_path(category) %> <button></button3></td>
+      <td height="10"><p style=" margin-left:2;"><b><%= category.name %></b></p></td> 
+      <td> <button3><button> <%= link_to 'View Details' , category_path(category) %> <button></button3></td>
   
    <% if current_user.email == Sprint0::Application.config.my_key  %> 
-             <td>  <button3><button> <%= link_to 'Delete category', category_path(category),
-              method: :delete %> <button></button3> </td>
-   <% end %>
+      <td>  <button3><button> <%= link_to 'Delete category', category_path(category), method: :delete %> <button></button3> </td>
+
+<% end %>
   </tr>
-  
   <% end %>
   
-  </table>
+</table>
   
   <button> 
-  <%= link_to 'Back', welcome_homepage_url %> </button>
+    <%= link_to 'Back', welcome_homepage_url %> </button>

@@ -1,4 +1,5 @@
 <!DOCTYPE html> 
+<<<<<<< HEAD
 <html lang="en">
     <head>
     <meta charset="utf-8">
@@ -34,6 +35,56 @@
   <% end %>
 </div>
  
+=======
+<html>
+<body>
+    
+<div class= "Search">
+
+<%= form_tag(applications_path, method: "get") do %>
+  <%= text_field_tag :search , params[:search]%>
+  <%= submit_tag("Search") %>
+<% end %>
+
+</div>
+
+<h1 Style="color:black;"> OneAccount</h1>
+
+<script type="text/javascript">
+var slideimages = new Array() // create new array to preload images
+slideimages[0] = new Image() // create new instance of image object
+slideimages[0].src = "http://www.expatweaver.com/wp-content/uploads/2013/06/Global-Corporate-Finance-Accounting-Services-1024x319.jpg" // set image src property to image path, preloading image in the process
+slideimages[1] = new Image()
+slideimages[1].src = "http://i.imgur.com/kbV2PH7.jpg"
+slideimages[2] = new Image()
+slideimages[2].src = "http://i.imgur.com/HuxdRjK.jpg"
+slideimages[3] = new Image()
+slideimages[3].src = "http://i.imgur.com/uRUF3Mw.jpg"
+slideimages[4] = new Image()
+slideimages[4].src = "http://i.imgur.com/wJLZPTW.jpg"
+</script>
+
+<img style="margin-top:10px"src="http://www.expatweaver.com/wp-content/uploads/2013/06/Global-Corporate-Finance-Accounting-Services-1024x319.jpg" id="slide" width="100%" height="400" />
+
+<script type="text/javascript">
+//variable that will increment through the images
+var step=0
+function slideit(){
+ //if browser does not support the image object, exit.
+ if (!document.images)
+  return
+ document.getElementById('slide').src = slideimages[step].src
+ if (step<4)
+  step++
+ else
+  step=0
+ //call function "slideit()" every 2.5 seconds
+  setTimeout("slideit()",2500)
+}
+
+slideit()
+</script>
+>>>>>>> Review
 
 </body>
 
@@ -69,10 +120,8 @@
 
 <h4 style="font-family:helvetica; text-align:center; color:white; "> Best New Apps </h4>
 <section id="section1">
-    <div class="pic-container1">
-     <div class="pic-row">
-
-     </div>
+   <div class="pic-container1">
+     <div class="pic-row"></div>
    </div>
 </section>
 
@@ -99,6 +148,7 @@
 <style style="text/css">
 
 .section1{
+<<<<<<< HEAD
 	overflow:scroll;
 }
  
@@ -162,39 +212,125 @@
 body{
 	overflow:scroll;
 	background-color:#F8F8F8 ;
+=======
+  overflow:scroll;
+}
+
+#tfnewsearch{
+  float:right;
+  padding:20px;
+}
+	
+.tftextinput{
+  margin: 0;
+  padding: 5px 15px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size:14px;
+  border:1px solid #0076a3; border-right:0px;
+  border-top-left-radius: 5px 5px;
+  border-bottom-left-radius: 5px 5px;
+}
+
+.tfbutton {
+  padding: 5px 15px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size:14px;
+  outline: none;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  color: #ffffff;
+  border: solid 1px #0076a3; border-right:0px;
+  background: #0095cd;
+  background: -webkit-gradient(linear, left top, left bottom, from(#00adee), to(#0078a5));
+  background: -moz-linear-gradient(top,  #00adee,  #0078a5);
+  border-top-right-radius: 5px 5px;
+  border-bottom-right-radius: 5px 5px;
+}
+	
+.Search {
+  width: 550px;
+  margin-left:950px;
+  margin-top:10px;
+  color: white;
+}
+	
+.tfbutton:hover {
+  text-decoration: none;
+  background: #007ead;
+  background: -webkit-gradient(linear, left top, left bottom, from(#0095cc), to(#00678e));
+  background: -moz-linear-gradient(top,  #0095cc,  #00678e);
+}
+
+.tfbutton::-moz-focus-inner {
+  border: 0;
+}
+	
+.tfclear{
+ clear:both;
+}
+
+h1{
+ text-align:center;
+ font-family:helvetica , sans-serif; 
+ margin-top:1px;
+}
+   
+body{
+  overflow:scroll;
+  background-color:#F8F8F8 ;
+>>>>>>> Review
 }
 
 section {
-	width:100%;
-	left:0;
-	right:0;
-	white-space:nowrap;
+  width:100%;
+  left:0;
+  right:0;
+  white-space:nowrap;
   overflow:hidden;
-	
 }
 
 .pic-container {
-	width:1500px;
+  width:1500px;
 }
 
 .Search {
+<<<<<<< HEAD
       width: 550px;
       margin-left:950px;
       margin-top:10px;
       color: black;
 }
    
+=======
+  width: 550px;
+  margin-left:950px;
+  margin-top:10px;
+  color: white;
+}
+
+>>>>>>> Review
 .content{
-	margin-top:60px;
+  margin-top:60px;
 }
 
 header {
+<<<<<<< HEAD
 	text-align: center;
     height:50px;
     background:#F0F0F0;
     border:1px solid #CCC;
     width:100%;
     margin:0px auto;
+=======
+  text-align: center;
+  height:50px;
+  background:#F0F0F0;
+  border:1px solid #CCC;
+  width:100%;
+  margin:0px auto;
+  box-shadow: 0px 2px 2px 2px #ccc;
+>>>>>>> Review
 }
 
 .grey{
@@ -211,7 +347,10 @@ header {
   background-color:#F0F0F0
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> Review
 </style>
 
 </html>
