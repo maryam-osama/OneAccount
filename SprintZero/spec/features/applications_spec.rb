@@ -18,12 +18,6 @@ RSpec.feature "Applications", type: :feature do
      application = Application.create!(:appname => 'Viber' ,:description => 'Good' ,:price => 11 ,:publisher_email => "maryam@gmail.com")
     end    
     
-    it 'assigns a rate to @application' do
-        purchase = Purchase.create!(:app_id => application.id ,:user_email => "maryam@gmail.com")
-        visit 'applications/show'
-        
-       page.should have_content('') 
-    
-    end
+   
 end
 end

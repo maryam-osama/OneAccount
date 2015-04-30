@@ -29,7 +29,8 @@
     <% if user_signed_in? %>
       <div class="container">
         <div class="navbar-header">
-          <a class="navbar-brand" href="https://oneaccount.com">OneAccount</a>
+          <a class="navbar-brand" href="<%= url_for controller: 'welcome', action: 'homepage' %>">OneAccount</a>
+         
         </div>
           <ul class="nav navbar-nav">
             <li class="active"><a href="<%= url_for controller: 'welcome', action: 'homepage' %>" >Home</a> </li>
