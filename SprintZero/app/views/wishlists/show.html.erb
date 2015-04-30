@@ -5,10 +5,11 @@
 
 </tr>
 <% Wishlist.all.each do |wishlist| %>
+
 <% if wishlist.email == current_user.email %>
+
 <% if wishlist.app_id != nil %>
 <% @application = Application.find (wishlist.app_id) %>
-
 <tr>
 <td><%= link_to  @application.appname , application_path(@application) %></td>
 </tr>
