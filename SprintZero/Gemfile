@@ -7,6 +7,8 @@ group :development, :test do
 gem 'sqlite3'
 
 gem 'rspec-rails' , '~> 3.0'
+gem 'capybara'
+gem 'factory_girl_rails'
 
 end
 gem 'rails_12factor', group: :production
@@ -46,5 +48,12 @@ gem 'font-awesome-rails'
 gem 'devise'
 
 gem 'stripe',:git => 'https://github.com/stripe/stripe-ruby'
+<<<<<<< HEAD
+
+gem "ratyrate"
+
+ 
+=======
 gem 'foreigner', '~> 1.7.4'
+>>>>>>> Review
 
