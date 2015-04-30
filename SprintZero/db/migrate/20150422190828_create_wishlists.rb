@@ -7,6 +7,5 @@ class CreateWishlists < ActiveRecord::Migration
       t.timestamps
       t.references :user, index: true
     end
-    add_foreign_key :wishlists, :users
   end
 end

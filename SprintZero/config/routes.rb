@@ -13,8 +13,9 @@ Rails.application.routes.draw do
   get 'applications/notify'
   get 'applications/myapps'
   post 'wishlist' => 'wishlists#wishlist'
-
-  
+  get 'wishlist' => 'wishlists#show'
+  get 'wishlist/:id' => 'wishlists#destroy'
+  get 'wishlists/show' 
 resources :notifications
 resources :wishlists
 resources :requests 
