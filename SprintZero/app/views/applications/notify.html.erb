@@ -5,21 +5,17 @@
     
     body {
      text-align: left;
-     background-image: url("http://i.imgur.com/6RnDnuz.jpg");
      background-repeat: no-repeat;
      background-size: cover;
     }
-
     header {
-
-	text-align: center;
+	   text-align: center;
     height:50px;
     background:#F0F0F0;
     border:1px solid #CCC;
     width:100%;
     margin:0px auto;
     box-shadow: 0px 2px 2px 2px #ccc;
-
     }
   </style>
 </head>
@@ -93,6 +89,7 @@
 
 <% if (@purchase.blank?) && 
  !(@application.publisher_email == current_user.email) %>
+ 
 <%= form_tag charges_path(:number => @number ,:application => @application ) do %>
 
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
@@ -102,7 +99,16 @@
           </script> ></script>
 <% end %>
 
-<% else %>
+<div class="row">
+ 
+<div class="small-2 large-4 columns">
+   
+<% else %>  
+
+<% if !(Purchase.where(:user_email => current_user.email ,:app_id => @application).blank?) %>
+<%= rating_for @application, "Rate", disable_after_rate: true, imdb_avg: true %>  
+<% end %>
+
 
 <% if !(@purchase.blank?) %>
 
@@ -130,3 +136,5 @@
 
 
 
+
+  

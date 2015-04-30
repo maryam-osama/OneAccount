@@ -5,12 +5,11 @@
     
     body {
      text-align: left;
-     background-image: url("http://i.imgur.com/6RnDnuz.jpg");
      background-repeat: no-repeat;
      background-size: cover;
     }
     header {
-	text-align: center;
+   	text-align: center;
     height:50px;
     background:#F0F0F0;
     border:1px solid #CCC;
@@ -90,6 +89,7 @@
 
 <% if (@purchase.blank?) && 
  !(@application.publisher_email == current_user.email) %>
+ 
 <%= form_tag charges_path(:number => @number ,:application => @application ) do %>
 
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
@@ -108,11 +108,7 @@
 <% if !(Purchase.where(:user_email => current_user.email ,:app_id => @application).blank?) %>
 <%= rating_for @application, "Rate", disable_after_rate: true, imdb_avg: true %>  
 <% end %>
-</div>
- 
-</div>
 
-<% else %>
 
 <% if !(@purchase.blank?) %>
 
