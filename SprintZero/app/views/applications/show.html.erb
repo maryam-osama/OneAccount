@@ -77,8 +77,6 @@
  
 <% end %>
 
-
-
 <%= form_for([@application, @application.comments.build]) do |f| %> 
     <p><%= f.text_area :body%>
     <%= f.submit 'Add Comment' , :class => 'btn btn-lg btn-primary'%></p>
@@ -97,11 +95,8 @@
 <form action="/wishlist/<%= @test.id %>" class="button_to" method="delete"><div><input name="_method" type="hidden" value="delete"><input class="blue-btn" data="are you hopaa?" type="submit" value="Delete"><input name="authenticity_token" type="hidden" value="hnaKSnQ9cJUshvhYPSqHE9ZBRmltD04nVP6Lh0/Mkqw="></div></form>
 <%end%>
 
-
 <% @number =  @application.price * 100 %>
 
- 
- 
 <%  @purchase = Purchase.where(:user_email => current_user.email ,:app_id => @application) %>
 
 <% if (@purchase.blank?) && 
@@ -109,7 +104,7 @@
  
 <%= form_tag charges_path(:number => @number ,:application => @application ) do %>
 
-  <script src="https://checkout.stripe.com/checkout.js" class="blue-btn"
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
           data-description="Payment"
           data-amount= <%= @application.price * 100 =%>

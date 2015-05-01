@@ -25,39 +25,34 @@
         <h1 style=" text-align:center; color:#202020;">New Category</h1>
       </div>
           <div class="row" style="width:50%; margin-left: 290px; ">
-             <div class="col-sm-4"  style="width:105%;">
-                 <div class="panel panel-default">
-                 <div class="panel-heading">
-              <h3 class="panel-title">Category Name</h3>
-            </div>
-            
-            <div class="panel-body" >
-             <%= form_for :category, url: categories_path do |f| %>
-         <% if @category.errors.any? %>
-        <div id="error_explanation">
-       <h2>
-        Invalid Name!
-       </h2>
-
-       <ul>
-         <% @category.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-<% end %>
-
-<p>
- 
-  <%= f.text_field :name %>
-  <%= f.submit %>
-</p>
- 
-<% end %>
-            </div>
+          <div class="col-sm-4"  style="width:105%;">
+          <div class="panel panel-default">
+          <div class="panel-heading">
+          <h3 class="panel-title">Category Name</h3>
           </div>
+          <div class="panel-body" >
+             <%= form_for :category, url: categories_path do |f| %>
+             <% if @category.errors.any? %>
+          <div id="error_explanation">
+          <h2>
+          Invalid Name!
+          </h2>
+          <ul>
+          <% @category.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+          <% end %>
+          </ul>
+          </div>
+         <% end %>
+         <p>
+           <%= f.text_field :name %>
+           <%= f.submit %>
+         </p>
+        <% end %>
+         </div>
+         </div>
     
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="../../dist/js/bootstrap.min.js"></script>
 <script src="../../assets/js/docs.min.js"></script>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
@@ -83,12 +78,11 @@
      
 }
 th {
-     float: left;
+  float: left;
   width: 100%;
   margin: 100px 0 20px;
   font-family: proxima-nova,sans-serif;
   font-style: normal;
-  
   text-shadow: 0 1px 3px #145769;
   text-align:center;
   color: #FFD700;
@@ -99,12 +93,12 @@ td {
     font-size:12.5pt;
     color:white;
     Text-align:center;
-  float: left;
-  width: 100%;
-margin: 40px 0 10px;
-  font-family: proxima-nova,sans-serif;
-  font-style: normal;
-  text-shadow: 0 1px 3px #145769;
+    float: left;
+    width: 100%;
+    margin: 40px 0 10px;
+    font-family: proxima-nova,sans-serif;
+    font-style: normal;
+    text-shadow: 0 1px 3px #145769;
     
 }
 body{
@@ -118,7 +112,7 @@ header {
     border:1px solid #CCC;
     width:100%;
     margin:0px auto;
-  box-shadow: 0px 2px 2px 2px #ccc;
+    box-shadow: 0px 2px 2px 2px #ccc;
 }
 </style>
 </html>

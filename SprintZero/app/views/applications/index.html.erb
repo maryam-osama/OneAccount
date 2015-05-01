@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     <!-- Bootstrap core CSS -->
     <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
@@ -23,25 +23,22 @@
 
       <div class="page-header"style="width:50%; margin-left: 305px ">
         <h1 style=" text-align:left; color:#FFFFFF">Search Results</h1>
-      </div>
+        </div>
           <div class="row" style="width:50%; margin-left: 290px; ">
-             <div class="col-sm-4"  style="width:105%;">
-                 <div class="panel panel-default">
-                 <div class="panel-heading">
-              <h3 class="panel-title">Applications</h3>
+          <div class="col-sm-4"  style="width:105%;">
+          <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Applications</h3>
             </div>
-            
             <div class="panel-body" >
                <% @applications.each do |application| %>
-    <tr>
-      <td><%= link_to  application.appname , application_path(application) %></td>
-     
-    </tr>
-  <%end%>
+            <tr>
+            <td><br><%= link_to  application.appname , application_path(application) %></br></td>
+            </tr>
+               <%end%>
             </div>
-          </div>
-    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="../../dist/js/bootstrap.min.js"></script>
 <script src="../../assets/js/docs.min.js"></script>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
@@ -61,13 +58,13 @@
     border-radius:10px;
     background-color: transparent;
     box-shadow: 5px 5px 5px #8888888;
-     visibility: visible;
-     margin-top:100px;
-   border-color : black;
-     
-}
+    visibility: visible;
+    margin-top:100px;
+    border-color : black;
+    }
+    
 th {
-     float: left;
+  float: left;
   width: 100%;
   margin: 100px 0 20px;
   font-family: proxima-nova,sans-serif;
@@ -78,17 +75,17 @@ th {
   color: #FFD700;
 }
 td {
-    height: 15px;
-    vertical-align: middle;
-    font-size:12.5pt;
-    color:white;
-    Text-align:center;
-  float: left;
-  width: 100%;
-margin: 40px 0 10px;
-  font-family: proxima-nova,sans-serif;
-  font-style: normal;
-  text-shadow: 0 1px 3px #145769;
+   height: 15px;
+   vertical-align: middle;
+   font-size:12.5pt;
+   color:white;
+   Text-align:center;
+   float: left;
+   width: 100%;
+   margin: 40px 0 10px;
+   font-family: proxima-nova,sans-serif;
+   font-style: normal;
+   text-shadow: 0 1px 3px #145769;
     
 }
 body{
@@ -102,7 +99,7 @@ header {
     border:1px solid #CCC;
     width:100%;
     margin:0px auto;
-  box-shadow: 0px 2px 2px 2px #ccc;
+    box-shadow: 0px 2px 2px 2px #ccc;
 }
 </style>
 </html>

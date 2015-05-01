@@ -26,33 +26,24 @@
  </div>
   
   <div class="row" style="width:50%; margin-left: 290px; ">
-             <div class="col-sm-4"  style="width:105%;">
-                 <div class="panel panel-default">
-                 <div class="panel-heading">
-              <h3 class="panel-title">My Applications</h3>
-            </div>
-        <div class="panel-body" >
+          <div class="col-sm-4"  style="width:105%;">
+          <div class="panel panel-default">
+          <div class="panel-heading">
+          <h3 class="panel-title">My Applications</h3>
+          </div>
+          <div class="panel-body" >
           
-          
-  <table>
+<table>
 
-          <% @applications.each do |application| %>
+ <% @applications.each do |application| %>
     <tr>
       <td><%= link_to  application.appname , application_path(application) %></td>
       <td width = 50px><%= link_to 'Update' , applications_updates_path(:app => application.id),{:class => "btn btn-lg btn-warning" , :type => "button"} %> </td>
-
     </tr>
   <%end%>
 
-
 </table>
-          
-       
-
-
 </body>
-
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="../../dist/js/bootstrap.min.js"></script>
 <script src="../../assets/js/docs.min.js"></script>
