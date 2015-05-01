@@ -22,7 +22,7 @@
 
   
  <div class="page-header"style="width:50%; margin-left: 305px ">
-        <h1 style=" text-align:center; color:#202020;">Appliation Information</h1>
+        <h1 style=" text-align:center; color:#202020;">Application Information</h1>
  </div>
  
  <p>
@@ -54,12 +54,12 @@
  <% if (current_user.email == Sprint0::Application.config.my_key) ||
  !(Application.where(:publisher_email => current_user.email ,:id => @application).blank?)%>
   
-<button  type="button" class = " btn btn-danger " style =" margin-left:300px ;margin-top:60px; "><%= link_to 'Delete Appliation', application_path(@application), method: :delete %></button>
+<button  type="button" class = " btn btn-danger " style =" margin-left:300px ;margin-top:40px; "><%= link_to 'Delete Appliation', application_path(@application), method: :delete %></button>
  <% end %>
  
 
  <% if !(Application.where(:publisher_email => current_user.email ,:id => @application).blank?)%>
-    <button style=" margin-left: 350px; margin-top:60px;" type="button" class = " btn btn-info "><%= link_to 'Edit Appliation', edit_application_path(@application) %></button>
+    <button style=" margin-left: 350px; margin-top:40px;" type="button" class = " btn btn-info "><%= link_to 'Edit Appliation', edit_application_path(@application) %></button>
  <% end %>
 
 <% @application.comments.each do |comment| %>
@@ -67,11 +67,9 @@
   <p>
     <strong><%= comment.commenter %> :</strong>
     <%= comment.body %>
-  </p>
-  
-  <% if current_user.email == comment.commenter %>
-    <p>
-  <%= link_to 'Destroy Comment', [comment.application, comment],
+<% if current_user.email == comment.commenter %>
+   
+    <%= link_to 'Delete', [comment.application, comment],
     method: :delete,
     data: { confirm: 'Are you sure?' } %>
     </p>
@@ -82,9 +80,8 @@
 
 
 <%= form_for([@application, @application.comments.build]) do |f| %> 
-  <p style=" margin-left:300px; margin-top: 75px; color:white;"><%= f.label :comment %></p>
-    <p><%= f.text_area :body%></p>
-   <p style=" margin-left:310px;"><%= f.submit 'Add Comment' , :class => 'btn btn-lg btn-primary'%></p>
+    <p><%= f.text_area :body%>
+    <%= f.submit 'Add Comment' , :class => 'btn btn-lg btn-primary'%></p>
 
 <% end %>
 
@@ -112,7 +109,7 @@
  
 <%= form_tag charges_path(:number => @number ,:application => @application ) do %>
 
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+  <script src="https://checkout.stripe.com/checkout.js" class="blue-btn"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
           data-description="Payment"
           data-amount= <%= @application.price * 100 =%>
@@ -147,13 +144,6 @@
 
 <% end %>
 <% end %>
-
-
-
-
-
-
-
 
   <style>
  
@@ -205,6 +195,17 @@
   background-image: none;
   border: 1px solid transparent;
   border-radius: 4px;
+}
+.blue-btn {
+background: #2b9ab6;
+color: #FFF;
+padding: 8px;
+text-align: center;
+width: 120px;
+border-radius: 5px;
+display: block;
+text-decoration: none;
+margin-bottom: 5px;
 }
 
 button, input, select, textarea {
@@ -279,12 +280,15 @@ html {
 }
 Pseudo ::before element
 :after, :before {
+  
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
+
 Pseudo ::after element
 :after, :before {
+
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -319,6 +323,7 @@ Pseudo ::after element
       font-weight:bold;
       font-family: Helvetica, 'sans-serif' ;
       }
+      
       
     
  </style>

@@ -36,17 +36,14 @@
             <li class="active"><a href="<%= url_for controller: 'welcome', action: 'homepage' %>" >Home</a> </li>
             <li><a <%= link_to 'Categories', categories_index_path %> </li>
             <li> <a <%= link_to 'My Purchases' , :controller => "purchases", :action => "index" %> </li>
-               <li> <a <%= link_to "Sign Out",destroy_user_session_path, :method => :delete %> </li>
-                <li> <a <%= link_to 'Wishlist', wishlist_path %> </li>
+              <li> <a <%= link_to 'Wishlist', wishlist_path %> </li>
              <% if current_user.try(:publisher?) %> 
              <li> <a <%= link_to 'Add Application', new_application_path %> </li>
              <li> <a <%= link_to 'View MyApps', applications_myapps_url %></button> </li>
              <% end %>
              
             <% if current_user.email == Sprint0::Application.config.my_key %>
-              <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
-              <ul class="dropdown-menu" role="menu">
+             
                 <li><a <%= link_to 'View Requests', requests_index_path %> </li>
                 <li><a <%= link_to 'Add Category', new_category_path %> </li>
                 <li><a <%= link_to 'View Notifications', notifications_path %> </li>
@@ -55,6 +52,7 @@
                  <li><a  <%= link_to 'Request', new_request_path %></a></li>
                  <% end %>
                 <% end %>
+                 <li> <a <%= link_to "Sign Out",destroy_user_session_path, :method => :delete %> </li>
             <% end %>
             </ul>
           </li>

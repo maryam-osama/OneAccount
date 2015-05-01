@@ -22,13 +22,13 @@
     <body background="https://download.unsplash.com/13/unsplash_523ae1f5502d6_1.JPG">
 
       <div class="page-header"style="width:50%; margin-left: 305px ">
-        <h1 style=" text-align:left; color:#202020;">Notifications</h1>
+        <h1 style=" text-align:center; color:#202020;">Notifications</h1>
       </div>
           <div class="row" style="width:50%; margin-left: 290px; ">
              <div class="col-sm-4"  style="width:105%;">
                  <div class="panel panel-default">
                  <div class="panel-heading">
-              <h3 class="panel-title">Publisher Email</h3>
+              <h3 class="panel-title" style =" margin-left:90px ">Publisher Email</h3>
             
             </div>
             
@@ -40,8 +40,7 @@
     <tr>
      <% if (Application.where(id: notification.app_id).exists?) %>
        <td><%= notification.user_email %></td>
-       <td><%= notification.appname%> </td>
-       <td><%= link_to 'View' , notification_path(@notification,:notification_id => notification.id ),
+       <td><%= link_to  notification.appname ,notification_path(@notification,:notification_id => notification.id ),
            method: :delete  %></td>
     </tr>
     
