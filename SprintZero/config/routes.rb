@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  post '/rate' => 'rater#create', :as => 'rate'
   devise_for :users
   get 'index' => 'welcome#index'
   get 'requests/form'
@@ -16,6 +17,10 @@ Rails.application.routes.draw do
   get 'wishlist' => 'wishlists#show'
   get 'wishlist/:id' => 'wishlists#destroy'
   get 'wishlists/show' 
+  get 'applications/updates'
+  get 'purchases/updated'
+
+  
 resources :notifications
 resources :wishlists
 resources :requests 
@@ -24,6 +29,9 @@ end
 resources :charges
 resources :purchases
 resources :categories
+resources :applications do
+  resources :comments
+end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

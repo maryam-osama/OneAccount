@@ -8,6 +8,8 @@ gem 'sqlite3'
 
 gem 'rspec-rails' , '~> 3.0'
 
+gem 'factory_girl_rails'
+
 end
 gem 'rails_12factor', group: :production
 # Use SCSS for stylesheets
@@ -45,8 +47,10 @@ gem 'font-awesome-rails'
 # gem 'debugger', group: [:development, :test]
 gem 'devise'
 
-
 gem 'stripe',:git => 'https://github.com/stripe/stripe-ruby'
 
- 
+gem "ratyrate"
+
+gem 'foreigner', '~> 1.7.4'
+
 
