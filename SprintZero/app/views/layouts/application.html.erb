@@ -37,6 +37,7 @@
             <li><a <%= link_to 'Categories', categories_index_path %> </li>
             <li> <a <%= link_to 'My Purchases' , :controller => "purchases", :action => "index" %> </li>
                <li> <a <%= link_to "Sign Out",destroy_user_session_path, :method => :delete %> </li>
+                <li> <a <%= link_to 'Wishlist', wishlist_path %> </li>
              <% if current_user.try(:publisher?) %> 
              <li> <a <%= link_to 'Add Application', new_application_path %> </li>
              <li> <a <%= link_to 'View MyApps', applications_myapps_url %></button> </li>

@@ -62,6 +62,11 @@ class ApplicationsController < ApplicationController
 
   # It returns the articles whose titles contain one or more words that form the query
   def show
+    if Wishlist.where(email: current_user.email, app_id: params[:id]).length > 0
+      @inWishList = true
+    else
+      @inWishList = false
+    end
     @application = Application.find(params[:id])
   end
     
@@ -121,6 +126,7 @@ class ApplicationsController < ApplicationController
     @application.save
     redirect_to welcome_homepage_url
   end 
+ 
   
   private
   def application_params

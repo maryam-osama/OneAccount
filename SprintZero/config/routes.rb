@@ -13,14 +13,19 @@ Rails.application.routes.draw do
   get 'categories/index'
   get 'applications/notify'
   get 'applications/myapps'
+  post 'wishlist' => 'wishlists#wishlist'
+  get 'wishlist' => 'wishlists#show'
+  get 'wishlist/:id' => 'wishlists#destroy'
+  get 'wishlists/show' 
   get 'applications/updates'
   get 'purchases/updated'
 
   
 resources :notifications
-
+resources :wishlists
 resources :requests 
-resources :applications
+resources :applications do
+end
 resources :charges
 resources :purchases
 resources :categories

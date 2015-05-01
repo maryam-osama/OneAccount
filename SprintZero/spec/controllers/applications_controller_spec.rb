@@ -116,4 +116,3 @@ it "Should notify users with an app update " do
   end
 
 end
-
