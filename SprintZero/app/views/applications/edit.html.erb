@@ -1,43 +1,66 @@
-<h1>Editing app</h1>
- 
+<!DOCTYPE html>
+<hmtl >
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <!-- Bootstrap core CSS -->
+    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap theme -->
+    <link href="../../dist/css/bootstrap-theme.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="theme.css" rel="stylesheet">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+  </head>
+  
+
 <%= form_for :application, url: application_path(@application), method: :patch do |f| %>
-  <% if @application.errors.any? %>
-    <div id="error_explanation">
-      <h2>
+ 
+<div class="page-header"style="width:50%; margin-left: 305px ">
+        <h1 style=" text-align:center; color:white;">Please enter the following information </h1></h1>
+ </div>
+ <div class="row" style="width:50%; margin-left: 290px; ">
+      <div class="col-sm-4"  style="width:105%;">
+      <div class="panel panel-default" style= " background-color:gray; color: gray;" </div>
+                   
+     <% if @application.errors.any? %>
+     <div id="error_explanation">
+       <h2>
         <%= pluralize(@application.errors.count, "error") %> prohibited
         this application from being saved:
-      </h2>
-      <ul>
+       </h2>
+       <ul>
         <% @application.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
+        <li><%= msg %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
- 
+    <div class="panel-body" >
+  
   <p>
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
+    <%= f.text_field :description,:placeholder => "Description" %>
   </p>
   
   <p>
-    <%= f.label :price %><br>
-    <%= f.text_field :price %>
+    <%= f.text_field :price ,:placeholder => "Price" %>
   </p>
   
   <p>
-    <%= f.label :appstore_url %><br>
-    <%= f.text_field :appstore_url %>
+    <%= f.text_field :appstore_url,:placeholder => "AppStore URL" %>
   </p>
   
    <p>
-    <%= f.label :playstore_url %><br>
-    <%= f.text_field :playstore_url %>
+    <%= f.text_field :playstore_url ,:placeholder => "PlayStore URL"  %>
   </p>
  
   <p>
-    <%= f.label :windows_url %><br>
-    <%= f.text_field :windows_url %>
+    <%= f.text_field :windows_url ,:placeholder => "WindowsStore URL"  %>
   </p>
   
   <p>
@@ -45,5 +68,43 @@
   </p>
  
 <% end %>
+</div>
+</body>
+<style>
+  
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+button, html input[type=button], input[type=reset], input[type=submit] {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+button, select {
+  text-transform: none;
+}
+button {
+  overflow: visible;
+}
+button, input, optgroup, select, textarea {
+  margin: 0;
+  font: inherit;
+  color: inherit;
+}
+    
+    body {
+    
+      text-align: center;
+      background: url("https://download.unsplash.com/photo-1423347834838-5162bb452ca7");
+      background-size: cover;
+      background-position: center;
+      color: white;
+      font-family: Helvetica 'Sans serif';
+    }
+    
  
-<%= link_to 'Back', application_path %>
+
+ </style>
+
+</html>
