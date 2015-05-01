@@ -27,13 +27,12 @@
         <h1 style=" text-align:center; color:#6495ED;">Wishlist</h1>
       </div>
           <div class="row" style="width:50%; margin-left: 290px; ">
-             <div class="col-sm-4"  style="width:105%;">
-                 <div class="panel panel-default">
-                 <div class="panel-heading">
-              <h3 class="panel-title">Applications</h3>
-            </div>
-            
-            <div class="panel-body" >
+          <div class="col-sm-4"  style="width:105%;">
+          <div class="panel panel-default">
+          <div class="panel-heading">
+          <h3 class="panel-title">Applications</h3>
+          </div>
+          <div class="panel-body" >
               
 <% Wishlist.all.each do |wishlist| %>
 <% if wishlist.email == current_user.email %>
@@ -48,10 +47,10 @@
 <% end %>
 <% end %>
               
-            </div>
-          </div>
+     </div>
+    </div>
     
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="../../dist/js/bootstrap.min.js"></script>
 <script src="../../assets/js/docs.min.js"></script>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
@@ -71,21 +70,20 @@
     border-radius:10px;
     background-color: transparent;
     box-shadow: 5px 5px 5px #8888888;
-     visibility: visible;
-     margin-top:100px;
-   border-color : black;
+    visibility: visible;
+    margin-top:100px;
+    border-color : black;
      
 }
 th {
-     float: left;
-  width: 100%;
-  margin: 100px 0 20px;
-  font-family: proxima-nova,sans-serif;
-  font-style: normal;
-  
-  text-shadow: 0 1px 3px #145769;
-  text-align:center;
-  color: #FFD700;
+   float: left;
+   width: 100%;
+   margin: 100px 0 20px;
+   font-family: proxima-nova,sans-serif;
+   font-style: normal;
+   text-shadow: 0 1px 3px #145769;
+   text-align:center;
+   color: #FFD700;
 }
 td {
     height: 15px;
@@ -93,12 +91,12 @@ td {
     font-size:12.5pt;
     color:white;
     Text-align:center;
-  float: left;
-  width: 100%;
-margin: 40px 0 10px;
-  font-family: proxima-nova,sans-serif;
-  font-style: normal;
-  text-shadow: 0 1px 3px #145769;
+    float: left;
+    width: 100%;
+    margin: 40px 0 10px;
+    font-family: proxima-nova,sans-serif;
+    font-style: normal;
+    text-shadow: 0 1px 3px #145769;
     
 }
 body{
@@ -112,17 +110,7 @@ header {
     border:1px solid #CCC;
     width:100%;
     margin:0px auto;
-  box-shadow: 0px 2px 2px 2px #ccc;
+    box-shadow: 0px 2px 2px 2px #ccc;
 }
 </style>
 </html>
-
-
-
-
-
-
-
-
-
-

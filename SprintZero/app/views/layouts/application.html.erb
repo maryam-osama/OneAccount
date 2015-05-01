@@ -25,18 +25,18 @@
 
 <header>
 
-  <nav class="navbar navbar-inverse navbar-fixed-top">
+  
     <% if user_signed_in? %>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
           <a class="navbar-brand" href="<%= url_for controller: 'welcome', action: 'homepage' %>">OneAccount</a>
          
         </div>
           <ul class="nav navbar-nav">
-            <li class="active"><a href="<%= url_for controller: 'welcome', action: 'homepage' %>" >Home</a> </li>
+            <li class="active"><a href="<%= url_for controller: 'welcome', action: 'homepage' %>" ><div class = home><i class="fa fa-home"></i></div>Home</a> </li>
             <li><a <%= link_to 'Categories', categories_index_path %> </li>
-            <li> <a <%= link_to 'My Purchases' , :controller => "purchases", :action => "index" %> </li>
-              <li> <a <%= link_to 'Wishlist', wishlist_path %> </li>
+            
              <% if current_user.try(:publisher?) %> 
              <li> <a <%= link_to 'Add Application', new_application_path %> </li>
              <li> <a <%= link_to 'View MyApps', applications_myapps_url %></button> </li>
@@ -45,14 +45,16 @@
             <% if current_user.email == Sprint0::Application.config.my_key %>
              
                 <li><a <%= link_to 'View Requests', requests_index_path %> </li>
-                <li><a <%= link_to 'Add Category', new_category_path %> </li>
-                <li><a <%= link_to 'View Notifications', notifications_path %> </li>
+                <li><a <%= link_to '<div class= category><i class="fa fa-plus-circle"></i></div>'.html_safe, new_category_path %> </li>
+                <li><a <%= link_to '<div class= notify><i class="fa fa-exclamation-circle"></i></div>'.html_safe, notifications_path %> </li>
                 <% else %>
-                 <% if current_user.publisher == nil %> 
-                 <li><a  <%= link_to 'Request', new_request_path %></a></li>
-                 <% end %>
+                <% if current_user.publisher == nil %> 
+                <li><a  <%= link_to 'Request', new_request_path %></a></li>
                 <% end %>
-                 <li> <a <%= link_to "Sign Out",destroy_user_session_path, :method => :delete %> </li>
+                <% end %>
+                <li> <a <%= link_to '<div class= purchase><i class="fa fa-credit-card"></i></div>'.html_safe , :controller => "purchases", :action => "index" %> </li>
+                <li> <a <%= link_to '<div class= wish><i class="fa fa-list-ul"></i></div>'.html_safe, wishlist_path %> </li>
+                <li> <a <%= link_to '<div class= signout><i class="fa fa-sign-out"></i></div>'.html_safe,destroy_user_session_path, :method => :delete %> </li>
             <% end %>
             </ul>
           </li>
@@ -189,6 +191,46 @@ Pseudo ::after element
   box-sizing: border-box;
 }
 
+.wish{
+  font-size: 15px;
+}
+.wish:hover:after{
+  content:'Wishlist';
+  color: white;
+}
+
+.purchase{
+  font-size: 15px;
+}
+.purchase:hover:after{
+  content:'Purchases';
+  color: white;
+}
+
+.notify{
+  font-size: 15px;
+}
+.notify:hover:after{
+  content:'Notifications';
+  color: white;
+}
+.category{
+  font-size: 15px;
+}
+.category:hover:after{
+  content:'Add Category';
+  color: white;
+}
+.signout{
+  font-size: 15px;
+}
+.signout:hover:after{
+  content:'Sign out';
+  color: white;
+}
+.home{
+  display:inline-block
+}
 </style>
 
 </html>

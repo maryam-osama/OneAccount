@@ -26,23 +26,22 @@
       </div>
           <div class="row" style="width:50%; margin-left: 290px; ">
              <div class="col-sm-4"  style="width:105%;">
-                 <div class="panel panel-default">
-                <div class="panel-heading">
-              <h3 class="panel-title">Applications</h3>
-            </div>
-        <div class="panel-body" >
+             <div class="panel panel-default">
+             <div class="panel-heading">
+             <h3 class="panel-title">Applications</h3>
+           </div>
+       <div class="panel-body" >
 
-<% @applications.each do |application| %>
-    <tr>
-       <td><%= link_to  application.appname , application_path(application) %></td>
-   </tr>
+       <% @applications.each do |application| %>
+       <tr>
+       <td><br><%= link_to  application.appname , application_path(application) %></br></td>
+       </tr>
+       <% end %>
 
-<% end %>
-
-            </div>
-          </div>
+    </div>
+  </div>
     
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="../../dist/js/bootstrap.min.js"></script>
 <script src="../../assets/js/docs.min.js"></script>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->

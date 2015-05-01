@@ -28,12 +28,11 @@
              <div class="col-sm-4"  style="width:105%;">
                  <div class="panel panel-default">
                  <div class="panel-heading">
-              <h3 class="panel-title">User Email</h3>
+              <h3 class="panel-title" style =" margin-left:50px ">User Email</h3>
             </div>
             
             <div class="panel-body" >
-               
-
+      
  <table>
   
  
@@ -43,19 +42,16 @@
      <td><%= link_to 'View' , request_path(request), :class => "View" %></td>
      <td><%= link_to '<div class = "check"><i class="fa fa-check-circle"></i></div>'.html_safe, request_path(request, :number => "1"),
              method: :delete %> </td>
-    <td><%= link_to '<div class = "x"><i class="fa fa-times-circle"></i></div>'.html_safe, request_path(request, :number => "0"),
+     <td><%= link_to '<div class = "x"><i class="fa fa-times-circle"></i></div>'.html_safe, request_path(request, :number => "0"),
              method: :delete %></td>
-
   </tr>
- 
 <% end %>
-
 </table>
               
-            </div>
-          </div>
+        </div>
+        </div>
     
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="../../dist/js/bootstrap.min.js"></script>
 <script src="../../assets/js/docs.min.js"></script>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
@@ -79,7 +75,7 @@
      
 }
 th {
-     float: left;
+  float: left;
   width: 100%;
   margin: 100px 0 20px;
   font-family: proxima-nova,sans-serif;
@@ -91,12 +87,10 @@ th {
 }
 td {
    text-align: center;
-     
-      width:30%;
-      height:10px;
-
-    
-}
+   width:30%;
+   height:10px;
+   }
+   
 body{
     background-repeat:no-repeat;
     background-size:100%;
@@ -108,7 +102,7 @@ header {
     border:1px solid #CCC;
     width:100%;
     margin:0px auto;
-  box-shadow: 0px 2px 2px 2px #ccc;
+    box-shadow: 0px 2px 2px 2px #ccc;
 }
 
 
@@ -145,13 +139,3 @@ header {
 
 </style>
 </html>
-
-
-
-
-
-
-
-
-
-
