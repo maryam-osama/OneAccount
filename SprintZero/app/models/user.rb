@@ -7,5 +7,6 @@ class User < ActiveRecord::Base
   has_one :wishlist
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :trackable, :validatable
-         
+  
+  ratyrate_rater      
 end
