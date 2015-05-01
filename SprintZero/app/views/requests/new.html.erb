@@ -1,64 +1,27 @@
-<style>
-    body{
-      background: black url(http://ak.picdn.net/shutterstock/videos/3925448/preview/stock-footage-industrial-background-with-object-light-bulb-swinging-on-plain-wall-background.jpg);
-      background-size: 890pt;
-      background-repeat: no-repeat;
-      font-size: 115%;
-      font-family: 'Times New Roman', cursive;
-    }
-    
-    h1{
-      font-family: 'Arial', bold;
-      color: white;
-      font-size: 170%;
-      text-align: center;
-    }
-    
-    email{
-      visibility: hidden;
-    }
-    
-    .form {
-      width: 550px;
-      margin: 0 auto;
-      color: white;
-    }
-    
-    .email{
-      visibility: hidden;
-    }
-    
-    p{
-      font-size: 100%;
-      font-family: 'Arial';
-      font-weight: bold;
-    }
-    
-    .Request{
-      background-color: black;
-      border: black;
-      font-weight: bold;
-      color: white;
-      padding: 10px 20px;
-      position: relative;
-      top: -50px;
-      border-radius: 35%;
-    }
-    
-    header {
-    	text-align: center;
-      height:50px;
-      background:#F0F0F0;
-      border:1px solid #CCC;
-      width:100%;
-      margin:0px auto;
-      box-shadow: 0px 2px 2px 2px #ccc;
-    }
-    
-</style>
-
-<h1>Want to be a publisher? Share your reason below!</h1>
-
+<!DOCTYPE html> 
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <!-- Bootstrap core CSS -->
+    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap theme -->
+    <link href="../../dist/css/bootstrap-theme.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="theme.css" rel="stylesheet">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+  </head>
+  
+ <body>
+  
+ <h1 style="color:white; margin-left: 20px; margin-right:730px;">Want to be a publisher? Share your reason below!</h1>
+ <hr style="width:50%; margin-right:700px; margin-left:10px;" >
 <%= form_for :request, url: requests_path do |f| %>
     <% if @request.errors.any? %>
     <div id="error_explanation">
@@ -73,16 +36,230 @@
     </div>
 <% end %>
   
-   <div class= "form">
+   <div class= "form" style=" margin-left:10px;">
      <p>
-       <%= f.label :reason %><br>
-       <%= f.text_area :reason, :size => "80x25" %>
+       <%= f.text_area :reason, :size => "90x25" %>
    <div class= "email"> <%= f.text_area :user_email, :value => current_user.email %> </div>
      </p>
  
     <p>
-     <%= f.submit 'Save Request' , :class => 'Request' %>
+  
+   <%= f.submit 'Save Request' , :class => 'btn btn-sucess' %>
     </p>
    </div>
    
+  
 <% end %>
+ </body>
+ 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="../../dist/js/bootstrap.min.js"></script>
+<script src="../../assets/js/docs.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+
+
+<svg xmlns="http://www.w3.org/2000/svg" width="1140" height="500" viewBox="0 0 1140 500" preserveAspectRatio="none" style="visibility: hidden; position: absolute; top: -100%; left: -100%;"><defs></defs><text x="0" y="53" style="font-weight:bold;font-size:53pt;font-family:Arial, Helvetica, Open Sans, sans-serif;dominant-baseline:middle">Thirdslide</text></svg>
+<div id="global-zeroclipboard-html-bridge" class="global-zeroclipboard-container" title="" style="position: absolute; left: 0px; top: -9999px; width: 15px; height: 15px; z-index: 999999999;" data-original-title="Copy to clipboard">      <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" id="global-zeroclipboard-flash-bridge" width="100%" height="100%">         <param name="movie" value="/assets/flash/ZeroClipboard.swf?noCache=1430060381063">         <param name="allowScriptAccess" value="sameDomain">         <param name="scale" value="exactfit">         <param name="loop" value="false">         <param name="menu" value="false">         <param name="quality" value="best">         <param name="bgcolor" value="#ffffff">         <param name="wmode" value="transparent">         <param name="flashvars" value="trustedOrigins=getbootstrap.com%2C%2F%2Fgetbootstrap.com%2Chttp%3A%2F%2Fgetbootstrap.com">         <embed src="/assets/flash/ZeroClipboard.swf?noCache=1430060381063" loop="false" menu="false" quality="best" bgcolor="#ffffff" width="100%" height="100%" name="global-zeroclipboard-flash-bridge" allowscriptaccess="sameDomain" allowfullscreen="false" type="application/x-shockwave-flash" wmode="transparent" pluginspage="http://www.macromedia.com/go/getflashplayer" flashvars="trustedOrigins=getbootstrap.com%2C%2F%2Fgetbootstrap.com%2Chttp%3A%2F%2Fgetbootstrap.com" scale="exactfit">                </object></div>
+ 
+ 
+<style>
+.theme-showcase > p > .btn {
+  margin: 5px 0;
+}
+.btn-success {
+  background-image: -webkit-linear-gradient(top,#5cb85c 0,#419641 100%);
+  background-image: -o-linear-gradient(top,#5cb85c 0,#419641 100%);
+  background-image: -webkit-gradient(linear,left top,left bottom,from(#5cb85c),to(#419641));
+  background-image: linear-gradient(to bottom,#5cb85c 0,#419641 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff5cb85c', endColorstr='#ff419641', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+  background-repeat: repeat-x;
+  border-color: #3e8f3e;
+}
+.btn-danger, .btn-default, .btn-info, .btn-primary, .btn-success, .btn-warning {
+  text-shadow: 0 -1px 0 rgba(0,0,0,.2);
+  -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.15),0 1px 1px rgba(0,0,0,.075);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.15),0 1px 1px rgba(0,0,0,.075);
+}
+.btn-success {
+  color: gray;
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+  font-weight: bold;
+  padding: 10px 20px;
+  position: relative;
+  top: -40px;
+  border-radius: 35%;
+}
+.btn {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+button, html input[type=button], input[type=reset], input[type=submit] {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+button, select {
+  text-transform: none;
+}
+button {
+  overflow: visible;
+}
+button, input, optgroup, select, textarea {
+  margin: 0;
+  font: inherit;
+  color: inherit;
+}
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+user agent stylesheetinput[type="button" i], input[type="submit" i], input[type="reset" i], input[type="file" i]::-webkit-file-upload-button, button {
+  padding: 1px 6px;
+}
+user agent stylesheetinput[type="button" i], input[type="submit" i], input[type="reset" i], input[type="file" i]::-webkit-file-upload-button, button {
+  align-items: flex-start;
+  text-align: center;
+  cursor: default;
+  color: buttontext;
+  padding: 2px 6px 3px;
+  border: 2px outset buttonface;
+  border-image-source: initial;
+  border-image-slice: initial;
+  border-image-width: initial;
+  border-image-outset: initial;
+  border-image-repeat: initial;
+  background-color: buttonface;
+  box-sizing: border-box;
+}
+user agent stylesheetinput, textarea, keygen, select, button {
+  margin: 0em;
+  font: normal normal normal 13.3333330154419px/normal Arial;
+  text-rendering: auto;
+  color: initial;
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: start;
+}
+user agent stylesheetinput, textarea, keygen, select, button, meter, progress {
+  -webkit-writing-mode: horizontal-tb;
+}
+user agent stylesheetbutton {
+  -webkit-appearance: button;
+}
+
+html {
+  font-size: 10px;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  font-family: sans-serif;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+Pseudo ::before element
+:after, :before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+Pseudo ::after element
+:after, :before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+
+body{
+      background: url(https://download.unsplash.com/38/awhCbhLqRceCdjcPQUnn_IMG_0249.jpg);
+      background-size:  100% ;
+      background-repeat: no-repeat;
+      font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+      font-size: 14px;
+      line-height: 1.42857143;
+      color: #333;
+      background-color: #fff;
+    }
+    
+    h1{
+      font-family: 'Arial', bold;
+      color: white;
+      font-size: 170%;
+      text-align: center;
+    }
+  
+    
+    .form {
+      margin-left:20px;
+      width: 550px;
+      margin: 0 auto;
+      color: gray;
+    }
+    
+    .email{
+      visibility: hidden;
+    }
+    
+    .Request{
+      background-color: black;
+      border: black;
+      font-weight: bold;
+      color: white;
+      padding: 10px 20px;
+      position: relative;
+      top: -50px;
+      border-radius: 35%;
+    }
+    
+  p {
+  margin: 0 0 10px;
+}
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+user agent stylesheetp {
+  display: block;
+  -webkit-margin-before: 1em;
+  -webkit-margin-after: 1em;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+}
+
+
+
+  
+  
+  
+  
+</style>
+
+</html>

@@ -43,7 +43,7 @@
              <li> <a <%= link_to 'View MyApps', applications_myapps_url %></button> </li>
              <% end %>
              
-             <% if current_user.email == Sprint0::Application.config.my_key %>
+            <% if current_user.email == Sprint0::Application.config.my_key %>
               <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
