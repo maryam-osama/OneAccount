@@ -30,6 +30,8 @@ end
  describe "GET show" do
  
   it "renders the #show view" do
+    user
+    sign_in(user)
     application = Application.create!(:appname => 'Viber' ,:description => 'Good' ,:price => 11)   
     get :show, id: application.id
     expect(response).to render_template("show")
