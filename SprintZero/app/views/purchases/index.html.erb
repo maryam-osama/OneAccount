@@ -1,25 +1,73 @@
 <!DOCTYPE html>
 <html>
+    <head>
+          <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+ <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <!-- Bootstrap core CSS -->
+    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap theme -->
+    <link href="../../dist/css/bootstrap-theme.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="theme.css" rel="stylesheet">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    </head>
   
-    <body background="http://www.fbnstatic.com/static/managed/img/Customer-Using-iPhone-4S-FBN.jpg">
+    <body background="https://download.unsplash.com/13/unsplash_523ae1f5502d6_1.JPG">
 
-    
-<table align="center">
- <tr>
-    <th style=" font-size:30pt; margin-top:0;"><Strong> My purchases </Strong></th>
- </tr>
+      <div class="page-header"style="width:50%; margin-left: 305px ">
+        <h1 style=" text-align:center; color:#202020;">Purchases</h1>
+      </div>
+          <div class="row" style="width:50%; margin-left: 290px; ">
+             <div class="col-sm-4"  style="width:105%;">
+                 <div class="panel panel-default">
+                 <div class="panel-heading">
+              <h3 class="panel-title">Applications</h3>
+            </div>
+            <div class="panel-body" >
+               <% @app_names.each do |application| %>
+            <% if !(application.nil?) %>
+            <td><br><%= link_to  application.appname , application_path(application) %></br></td>
+
+  <%  @purchase = Purchase.where(:user_email => current_user.email ,:app_id => application.id , :updated => false) %>
+  <% if @purchase.exists? %>
+  <%  @purchase_id = (@purchase.take!).id %>
+
+  <% if !(application.appstore_url.blank?) %>
+  <td> <%= link_to 'Update on AppStore', purchases_updated_url(:number => @purchase_id ,:url => application.appstore_url ) %> </td> 
+  <% end %>
+  
+  <% if !(application.playstore_url.blank?) %>
+  <td> <%= link_to 'Update on Play Store', purchases_updated_url(:number => @purchase_id ,:url => application.playstore_url ) %> </td>
+  <% end %>
+  
+  <% if !(application.windows_url.blank?) %>
+  <td> <%= link_to 'Update on Windows Store', purchases_updated_url(:number => @purchase_id ,:url => application.windows_url) %> </td>
+  <% end %>
+  
+  <% end %>
+  <% end %>
+  <% end %>
+              
+  </div>
+  </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="../../dist/js/bootstrap.min.js"></script>
+<script src="../../assets/js/docs.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+
+<svg xmlns="http://www.w3.org/2000/svg" width="1140" height="500" viewBox="0 0 1140 500" preserveAspectRatio="none" style="visibility: hidden; position: absolute; top: -100%; left: -100%;"><defs></defs><text x="0" y="53" style="font-weight:bold;font-size:53pt;font-family:Arial, Helvetica, Open Sans, sans-serif;dominant-baseline:middle">Thirdslide</text></svg>
+<div id="global-zeroclipboard-html-bridge" class="global-zeroclipboard-container" title="" style="position: absolute; left: 0px; top: -9999px; width: 15px; height: 15px; z-index: 999999999;" data-original-title="Copy to clipboard">      <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" id="global-zeroclipboard-flash-bridge" width="100%" height="100%">         <param name="movie" value="/assets/flash/ZeroClipboard.swf?noCache=1430060381063">         <param name="allowScriptAccess" value="sameDomain">         <param name="scale" value="exactfit">         <param name="loop" value="false">         <param name="menu" value="false">         <param name="quality" value="best">         <param name="bgcolor" value="#ffffff">         <param name="wmode" value="transparent">         <param name="flashvars" value="trustedOrigins=getbootstrap.com%2C%2F%2Fgetbootstrap.com%2Chttp%3A%2F%2Fgetbootstrap.com">         <embed src="/assets/flash/ZeroClipboard.swf?noCache=1430060381063" loop="false" menu="false" quality="best" bgcolor="#ffffff" width="100%" height="100%" name="global-zeroclipboard-flash-bridge" allowscriptaccess="sameDomain" allowfullscreen="false" type="application/x-shockwave-flash" wmode="transparent" pluginspage="http://www.macromedia.com/go/getflashplayer" flashvars="trustedOrigins=getbootstrap.com%2C%2F%2Fgetbootstrap.com%2Chttp%3A%2F%2Fgetbootstrap.com" scale="exactfit">                </object></div>
  
-<% @app_names.each do |application| %>
-<tr>
-<td><%= application.appname %></td>
-<% end %>
-</table>
-
-
-</body>
-
 <style type="text/css">
-
  
  table{
     border: 1px solid white;
@@ -27,19 +75,18 @@
     height:70px;
     border-radius:10px;
     background-color: transparent;
-    box-shadow: 5px 5px 5px #888888;
-     visibility: visible;
-     margin-top:100px;
-   
+    box-shadow: 5px 5px 5px #8888888;
+    visibility: visible;
+    margin-top:100px;
+    border-color : black;
      
 }
 th {
-     float: left;
+  float: left;
   width: 100%;
   margin: 100px 0 20px;
   font-family: proxima-nova,sans-serif;
   font-style: normal;
-  
   text-shadow: 0 1px 3px #145769;
   text-align:center;
   color: #FFD700;
@@ -50,12 +97,12 @@ td {
     font-size:12.5pt;
     color:white;
     Text-align:center;
-  float: left;
-  width: 100%;
-margin: 40px 0 10px;
-  font-family: proxima-nova,sans-serif;
-  font-style: normal;
-  text-shadow: 0 1px 3px #145769;
+    float: left;
+    width: 100%;
+    margin: 40px 0 10px;
+    font-family: proxima-nova,sans-serif;
+    font-style: normal;
+    text-shadow: 0 1px 3px #145769;
     
 }
 body{
@@ -69,7 +116,7 @@ header {
     border:1px solid #CCC;
     width:100%;
     margin:0px auto;
-  box-shadow: 0px 2px 2px 2px #ccc;
+    box-shadow: 0px 2px 2px 2px #ccc;
 }
 </style>
 </html>
