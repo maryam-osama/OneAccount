@@ -88,6 +88,18 @@
 
 <% end %>
 
+<% if @inWishList %>
+<!--do something-->
+<% else %>
+<!--<a href="#" id="add_to_wishlist" class="blue-btn">Add to wishlist</a>-->
+<%= link_to "Add Wishlist", {controller: "wishlists", action: "new", app_id: @application.id}, class:"blue-btn"%>
+<% end %>
+
+<% @test = Wishlist.find_by(app_id: @application.id, user_id: current_user.id) %>
+<% if !@test.nil? %>
+<form action="/wishlist/<%= @test.id %>" class="button_to" method="delete"><div><input name="_method" type="hidden" value="delete"><input class="blue-btn" data="are you hopaa?" type="submit" value="Delete"><input name="authenticity_token" type="hidden" value="hnaKSnQ9cJUshvhYPSqHE9ZBRmltD04nVP6Lh0/Mkqw="></div></form>
+<%end%>
+
 
 <% @number =  @application.price * 100 %>
 

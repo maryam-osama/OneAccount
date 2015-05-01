@@ -32,13 +32,22 @@
               <h3 class="panel-title">My Applications</h3>
             </div>
         <div class="panel-body" >
-         <% @applications.each do |application| %>
-       <tr colspan = "3">
-      <td><br><%= link_to  application.appname , application_path(application),{:style=>'color:black;''text-decoration:none;' 'border-radius:10px;' 'font: helvetica;', :class => "css_class"} %></td>
-    <td width = 50px><%= link_to 'Update' , applications_updates_path(:app => application.id),{:class => "btn btn-lg btn-warning" , :type => "button"} %> </br></td>
-<%end%>
-</div>
+          
+          
+  <table>
 
+          <% @applications.each do |application| %>
+    <tr>
+      <td><%= link_to  application.appname , application_path(application) %></td>
+      <td width = 50px><%= link_to 'Update' , applications_updates_path(:app => application.id),{:class => "btn btn-lg btn-warning" , :type => "button"} %> </td>
+
+    </tr>
+  <%end%>
+
+
+</table>
+          
+       
 
 
 </body>
@@ -217,5 +226,15 @@ Pseudo ::after element
      margin-left: 20px;
        
      }
+     table{
+   
+    width:600px;
+    height:40px;
+    border-radius:20px;
+    background-color: white;
+    visibility: visible;
+    margin-top:10px;
+     
+}
      
   
