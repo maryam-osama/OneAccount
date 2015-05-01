@@ -1,15 +1,205 @@
+<!DOCTYPE html>
+<hmtl >
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <!-- Bootstrap core CSS -->
+    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap theme -->
+    <link href="../../dist/css/bootstrap-theme.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="theme.css" rel="stylesheet">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+  </head>
+ 
+ 
+<body>
+  
+ <div class="page-header"style="width:50%; margin-left: 305px ">
+        <h1 style=" text-align:center; color:#202020;">Uploads</h1>
+ </div>
+  
+  <div class="row" style="width:50%; margin-left: 290px; ">
+             <div class="col-sm-4"  style="width:105%;">
+                 <div class="panel panel-default">
+                 <div class="panel-heading">
+              <h3 class="panel-title">My Applications</h3>
+            </div>
+        <div class="panel-body" >
+         <% @applications.each do |application| %>
+       <tr colspan = "3">
+      <td><br><%= link_to  application.appname , application_path(application),{:style=>'color:black;''text-decoration:none;' 'border-radius:10px;' 'font: helvetica;', :class => "css_class"} %></td>
+    <td width = 50px><%= link_to 'Update' , applications_updates_path(:app => application.id),{:class => "btn btn-lg btn-warning" , :type => "button"} %> </br></td>
+<%end%>
+</div>
+
+
+
+</body>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="../../dist/js/bootstrap.min.js"></script>
+<script src="../../assets/js/docs.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+
+
+<svg xmlns="http://www.w3.org/2000/svg" width="1140" height="500" viewBox="0 0 1140 500" preserveAspectRatio="none" style="visibility: hidden; position: absolute; top: -100%; left: -100%;"><defs></defs><text x="0" y="53" style="font-weight:bold;font-size:53pt;font-family:Arial, Helvetica, Open Sans, sans-serif;dominant-baseline:middle">Thirdslide</text></svg>
+<div id="global-zeroclipboard-html-bridge" class="global-zeroclipboard-container" title="" style="position: absolute; left: 0px; top: -9999px; width: 15px; height: 15px; z-index: 999999999;" data-original-title="Copy to clipboard">      <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" id="global-zeroclipboard-flash-bridge" width="100%" height="100%">         <param name="movie" value="/assets/flash/ZeroClipboard.swf?noCache=1430060381063">         <param name="allowScriptAccess" value="sameDomain">         <param name="scale" value="exactfit">         <param name="loop" value="false">         <param name="menu" value="false">         <param name="quality" value="best">         <param name="bgcolor" value="#ffffff">         <param name="wmode" value="transparent">         <param name="flashvars" value="trustedOrigins=getbootstrap.com%2C%2F%2Fgetbootstrap.com%2Chttp%3A%2F%2Fgetbootstrap.com">         <embed src="/assets/flash/ZeroClipboard.swf?noCache=1430060381063" loop="false" menu="false" quality="best" bgcolor="#ffffff" width="100%" height="100%" name="global-zeroclipboard-flash-bridge" allowscriptaccess="sameDomain" allowfullscreen="false" type="application/x-shockwave-flash" wmode="transparent" pluginspage="http://www.macromedia.com/go/getflashplayer" flashvars="trustedOrigins=getbootstrap.com%2C%2F%2Fgetbootstrap.com%2Chttp%3A%2F%2Fgetbootstrap.com" scale="exactfit">                </object></div>
+ 
+ 
 <style>
+
+.theme-showcase > p > .btn {
+  margin: 5px 0;
+}
+.btn-success {
+  background-image: -webkit-linear-gradient(top,#5cb85c 0,#419641 100%);
+  background-image: -o-linear-gradient(top,#5cb85c 0,#419641 100%);
+  background-image: -webkit-gradient(linear,left top,left bottom,from(#5cb85c),to(#419641));
+  background-image: linear-gradient(to bottom,#5cb85c 0,#419641 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff5cb85c', endColorstr='#ff419641', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+  background-repeat: repeat-x;
+  border-color: #3e8f3e;
+}
+.btn-danger, .btn-default, .btn-info, .btn-primary, .btn-success, .btn-warning {
+  text-shadow: 0 -1px 0 rgba(0,0,0,.2);
+  -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.15),0 1px 1px rgba(0,0,0,.075);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.15),0 1px 1px rgba(0,0,0,.075);
+}
+.btn-success {
+  color: gray;
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+  font-weight: bold;
+  padding: 10px 20px;
+  position: relative;
+  top: -40px;
+  border-radius: 35%;
+}
+.btn {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+button, html input[type=button], input[type=reset], input[type=submit] {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+button, select {
+  text-transform: none;
+}
+button {
+  overflow: visible;
+  
+}
+button, input, optgroup, select, textarea {
+  margin: 0;
+  font: inherit;
+  color: inherit;
+}
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+user agent stylesheetinput[type="button" i], input[type="submit" i], input[type="reset" i], input[type="file" i]::-webkit-file-upload-button, button {
+  padding: 1px 6px;
+}
+user agent stylesheetinput[type="button" i], input[type="submit" i], input[type="reset" i], input[type="file" i]::-webkit-file-upload-button, button {
+  align-items: flex-start;
+  text-align: center;
+  cursor: default;
+  color: buttontext;
+  padding: 2px 6px 3px;
+  border: 2px outset buttonface;
+  border-image-source: initial;
+  border-image-slice: initial;
+  border-image-width: initial;
+  border-image-outset: initial;
+  border-image-repeat: initial;
+  background-color: buttonface;
+  box-sizing: border-box;
+}
+user agent stylesheetinput, textarea, keygen, select, button {
+  margin: 0em;
+  font: normal normal normal 13.3333330154419px/normal Arial;
+  text-rendering: auto;
+  color: initial;
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: start;
+}
+user agent stylesheetinput, textarea, keygen, select, button, meter, progress {
+  -webkit-writing-mode: horizontal-tb;
+}
+user agent stylesheetbutton {
+  -webkit-appearance: button;
+}
+
+html {
+  font-size: 10px;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  font-family: sans-serif;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+Pseudo ::before element
+:after, :before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+Pseudo ::after element
+:after, :before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
     h1{
-      background: black;
+      color:black;
       text-align: center;
-      color: #2ECCFA;
-      font-size: 160%;
-      margin-right: 40pt;
-      font-family: Helvetica, 'sans-serid' ;
+      font-size: 30pt;
+      font-weight:bold;
+      font-family: Helvetica, 'sans-serif' ;
       }
   
     body{
-      background: black url("http://i.imgur.com/cnJRHic.jpg");
+      background: black url("https://unsplash.com/photos/GANqCr1BRTU/download");
       background-repeat: no-repeat;
       background-size: cover;
       color: white;
@@ -18,51 +208,14 @@
     }
     
     th{
-      color: #2ECCFA;
+      color: black;
+      font-size: 20pt;
+      font-family: Helvetica, 'sans-serif' ;
+      margin-left:20px;
      }
-    .apple{
-      color: #E6E6E6;
-      display:inline-block
-    }
-    
-    .android{
-      color: #04B404;
-      display:inline-block
-    }
-    
-    .windows{
-      color: #2E9AFE;
-      display:inline-block
-    }
-    
-    header {
-	  text-align: center;
-      height:50px;
-      background:#F0F0F0;
-      border:1px solid #CCC;
-      width:100%;
-      margin:0px auto;
-      box-shadow: 0px 2px 2px 2px #ccc;
-    }
-</style>
-
- <h1> Your Applications <div class = "apple"><i class = "fa fa-apple"></i></div> <div class = "android"> <i class = "fa fa-android"></i></div> <div class = "windows"> <i class = "fa fa-windows"></i></div> </h1> 
-</body>
-
-<table>
-
-  <tr>
-    <th>Uploads</th>
-    <th colspan = "3"></th>
-  </tr>
+     table{
+     margin-left: 20px;
+       
+     }
+     
   
-<% @applications.each do |application| %>
-    <tr>
-
-    <td><%= link_to  application.appname , application_path(application),{:style=>'color:white;''text-decoration:none;' 'border-radius:10px;' 'font: helvetica;', :class => "css_class"} %></td>
-    <td><%= link_to 'Update' , applications_updates_path(:app => application.id),{:style=>'color:blue;''text-decoration:none;' 'border-radius:10px;' 'font: helvetica;', :class => "css_class"} %></td>
-   </tr>
-   
-<%end%>
-
-</table>

@@ -22,7 +22,7 @@ class WishlistsController < ApplicationController
   def show
     Wishlist.all.each do |wishlist| 
       if wishlist.email == current_user.email
-        if wishlist.app_id != nil
+      if (Application.where(id: wishlist.app_id)).exists?
           @application = Application.find (wishlist.app_id)
         end
       end

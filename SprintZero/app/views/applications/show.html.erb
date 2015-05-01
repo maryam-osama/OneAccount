@@ -49,26 +49,6 @@ box-shadow: 0px 2px 2px 2px #ccc;
 
 <p>
 <strong>price: $</strong>
-<%=  @application.price %>
-</p>
-
-<p>
-<strong>category name: </strong>
-<%=  @application.category_name %>
-</p>
-
-<p>
-<strong>appname:</strong>
-<%= @application.appname  %>
-</p>
-
-<p>
-<strong>description:</strong>
-<%= @application.description %>
-</p>
-
-<p>
-<strong>price: $</strong>
 <%= @application.price %>
 </p>
 
@@ -77,7 +57,6 @@ box-shadow: 0px 2px 2px 2px #ccc;
 <%= @application.category_name %>
 </p>
 
-<% @number =  @application.price * 100 %>
 
 <h2>Comments</h2>
 <% @application.comments.each do |comment| %>
@@ -124,67 +103,60 @@ data: { confirm: 'Are you sure?' } %>
 
 <% @number =  @application.price * 100 %>
 
-<<<<<<< HEAD
-<% if (current_user.email == Sprint0::Application.config.my_key) ||
-!(Application.where(:publisher_email => current_user.email ,:id => @application).blank?)%>
-<td><%= link_to 'DeleteApp', application_path(@application),method: :delete %></td>
-<% end %>
 
-<% if (Purchase.where(:user_email => current_user.email ,:app_id => @application).blank?) && 
-!(@application.publisher_email == current_user.email) %>
-
-<% if (current_user.email == Sprint0::Application.config.my_key) ||
-!(Application.where(:publisher_email => current_user.email ,:id => @application).blank?)%>
-<td><%= link_to 'DeleteApp', application_path(@application), method: :delete %></td>
-<% end %>
-
-<% if !(Application.where(:publisher_email => current_user.email ,:id => @application).blank?)%>
-<td><%= link_to 'Edit', edit_application_path(@application) %></td>
-<% end %>
-
+ <% if (current_user.email == Sprint0::Application.config.my_key) ||
+ !(Application.where(:publisher_email => current_user.email ,:id => @application).blank?)%>
+  <td><%= link_to 'DeleteApp', application_path(@application), method: :delete %></td>
+ <% end %>
+ 
+ <% if !(Application.where(:publisher_email => current_user.email ,:id => @application).blank?)%>
+    <td><%= link_to 'Edit', edit_application_path(@application) %></td>
+ <% end %>
+ 
 <%  @purchase = Purchase.where(:user_email => current_user.email ,:app_id => @application) %>
 
 <% if (@purchase.blank?) && 
-!(@application.publisher_email == current_user.email) %>
-
+ !(@application.publisher_email == current_user.email) %>
+ 
 <%= form_tag charges_path(:number => @number ,:application => @application ) do %>
 
-<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-data-description="Payment"
-data-amount= <%= @application.price * 100 =%>
-</script> ></script>
-
-<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-data-description="Payment"
-data-amount= <%= @application.price * 100 =%>
-</script> ></script>
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-description="Payment"
+          data-amount= <%= @application.price * 100 =%>
+          </script> ></script>
 <% end %>
 
 <div class="row">
-
+ 
 <div class="small-2 large-4 columns">
-
+   
 <% else %>  
 
 <% if !(Purchase.where(:user_email => current_user.email ,:app_id => @application).blank?) %>
 <%= rating_for @application, "Rate", disable_after_rate: true, imdb_avg: true %>  
 <% end %>
 
+
 <% if !(@purchase.blank?) %>
 
 <% if !(@application.appstore_url.blank?) %>
-<td> <%= link_to 'Download from AppStore',  @application.appstore_url  , :target => '_blank' %> </td>
+ <td> <%= link_to 'Download from AppStore',  @application.appstore_url  , :target => '_blank' %> </td>
 <% end %>
 
 <% if !(@application.playstore_url.blank?) %>
-<td> <%= link_to 'Download from PlayStore',  @application.playstore_url , :target => '_blank'  %> </td>
+ <td> <%= link_to 'Download from PlayStore',  @application.playstore_url , :target => '_blank'  %> </td>
+ 
 <% end %>
 
 <% if !(@application.windows_url.blank?) %>
-<td> <%= link_to 'Download from Windows Store',  @application.windows_url , :target => '_blank' %> </td>
+ <td> <%= link_to 'Download from Windows Store',  @application.windows_url , :target => '_blank' %> </td>
 <% end %>
 
 <% end %>
 <% end %>
+
+
+
+
+
