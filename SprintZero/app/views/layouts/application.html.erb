@@ -1,48 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>OneAccount</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+<title>OneAccount</title>
+<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+<%= csrf_meta_tags %>
 </head>
 
 <header>
- 
- <% if user_signed_in? %>
-  <div class="header" style="margin-top:17.5px">
-   
- <a href="<%= url_for controller: 'welcome', action: 'homepage' %>" >Home</a>
- <a <%= link_to 'Categories', categories_index_path %> 
-   <%= link_to 'My Purchases' , :controller => "purchases", :action => "index" %> 
-   <%= link_to 'Wishlist', wishlist_path %>
+<% if user_signed_in? %>
+<div class="header" style="margin-top:17.5px">
+<a href="<%= url_for controller: 'welcome', action: 'homepage' %>" >Home</a>
+<a <%= link_to 'Categories', categories_index_path %> 
+<%= link_to 'My Purchases' , :controller => "purchases", :action => "index" %> 
+<%= link_to 'Wishlist', wishlist_path %>
 
- <% if current_user.try(:publisher?) %> 
-  <%= link_to 'Add Application', new_application_path %>
-  <%= link_to 'View MyApps', applications_myapps_url %></button>
- <% end %>
+<% if current_user.try(:publisher?) %> 
+<%= link_to 'Add Application', new_application_path %>
+<%= link_to 'View MyApps', applications_myapps_url %></button>
+<% end %>
 
-  <% if current_user.email == Sprint0::Application.config.my_key %> 
-  <%= link_to 'View Requests', requests_index_path %>
-  <%= link_to 'Add Category', new_category_path %>
-  <%= link_to 'View Notifications', notifications_path %>
-  <% else %>
+<% if current_user.email == Sprint0::Application.config.my_key %> 
+<%= link_to 'View Requests', requests_index_path %>
+<%= link_to 'Add Category', new_category_path %>
+<%= link_to 'View Notifications', notifications_path %>
+<% else %>
 
- <% if current_user.publisher == nil %> 
- <%= link_to 'Request', new_request_path %>
- <% end %>
- <% end %>
+<% if current_user.publisher == nil %> 
+<%= link_to 'Request', new_request_path %>
+<% end %>
+<% end %>
 
-  <a <%= link_to "Sign Out",destroy_user_session_path, :method => :delete %> 
+<a <%= link_to "Sign Out",destroy_user_session_path, :method => :delete %> 
 </div>
 <% end %>
-</header>
-  
 
- 
- <%= yield %>   
-    
+</header>
+
+<%= yield %>   
+
 <style>
+
 .header a:link{
 color:#006699;
 font-size:16px;
@@ -50,6 +48,7 @@ font-family: helvetica, sans-serif;
 text-decoration:none;
 padding:5px;
 }
+
 .header a:visited{
 color:#003399;
 font-size:16px;
@@ -57,6 +56,7 @@ font-family: helvetica, sans-serif;
 text-decoration:none;
 padding:5px;
 }
+
 .header a:hover{
 color:#0099CC;
 font-size:16px;
@@ -64,7 +64,6 @@ font-family: helvetica, sans-serif;
 text-decoration:none;
 padding:5px;
 }
- 
 
 </style>
 
