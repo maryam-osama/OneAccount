@@ -27,36 +27,40 @@
           <div class="row" style="width:50%; margin-left: 290px; ">
              <div class="col-sm-4"  style="width:105%;">
                  <div class="panel panel-default">
-                 <div class="panel-heading">
-              <h3 class="panel-title">Applications</h3>
-            </div>
+               
             <div class="panel-body" >
+                
+                
+    <table>
+   
+        <tr>
                <% @app_names.each do |application| %>
             <% if !(application.nil?) %>
-            <td><br><%= link_to  application.appname , application_path(application) %></br></td>
+            <td><%= link_to  application.appname , application_path(application) %></td>
 
   <%  @purchase = Purchase.where(:user_email => current_user.email ,:app_id => application.id , :updated => false) %>
   <% if @purchase.exists? %>
   <%  @purchase_id = (@purchase.take!).id %>
 
   <% if !(application.appstore_url.blank?) %>
-  <td> <%= link_to 'Update on AppStore', purchases_updated_url(:number => @purchase_id ,:url => application.appstore_url ) %> </td> 
+  <td><button class ='btn btn-sucess'  type = "button">  <%= link_to 'Update on AppStore', purchases_updated_url(:number => @purchase_id ,:url => application.appstore_url ) %></button> </td> 
   <% end %>
   
   <% if !(application.playstore_url.blank?) %>
-  <td> <%= link_to 'Update on Play Store', purchases_updated_url(:number => @purchase_id ,:url => application.playstore_url ) %> </td>
+  <td><button class ='btn btn-sucess'  type = "button">  <%= link_to 'Update on Play Store', purchases_updated_url(:number => @purchase_id ,:url => application.playstore_url ) %></button> </td> 
   <% end %>
   
   <% if !(application.windows_url.blank?) %>
-  <td> <%= link_to 'Update on Windows Store', purchases_updated_url(:number => @purchase_id ,:url => application.windows_url) %> </td>
+  <td><button class ='btn btn-sucess'  type = "button"> <%= link_to 'Update on Windows Store', purchases_updated_url(:number => @purchase_id ,:url => application.windows_url) %></button> </td> 
+  <% end %>
+ 
+  <% end %>
+  <% end %>
+   </tr>
   <% end %>
   
-  <% end %>
-  <% end %>
-  <% end %>
-              
-  </div>
-  </div>
+</table>
+ 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="../../dist/js/bootstrap.min.js"></script>
@@ -69,16 +73,14 @@
  
 <style type="text/css">
  
- table{
-    border: 1px solid white;
-    width:500px;
-    height:70px;
-    border-radius:10px;
-    background-color: transparent;
-    box-shadow: 5px 5px 5px #8888888;
+table{
+   
+    width:600px;
+    height:40px;
+    border-radius:20px;
+    background-color: white;
     visibility: visible;
-    margin-top:100px;
-    border-color : black;
+    margin-top:10px;
      
 }
 th {
@@ -92,19 +94,10 @@ th {
   color: #FFD700;
 }
 td {
-    height: 15px;
-    vertical-align: middle;
-    font-size:12.5pt;
-    color:white;
-    Text-align:center;
-    float: left;
-    width: 100%;
-    margin: 40px 0 10px;
-    font-family: proxima-nova,sans-serif;
-    font-style: normal;
-    text-shadow: 0 1px 3px #145769;
-    
-}
+   text-align: center;
+   width:30%;
+   height:10px;
+   }
 body{
     background-repeat:no-repeat;
     background-size:100%;

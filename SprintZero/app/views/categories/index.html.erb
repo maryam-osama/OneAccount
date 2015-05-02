@@ -36,7 +36,7 @@
     <tr>
       <td> <%= link_to category.name , category_path(category) %> </td>
       <% if current_user.email == Sprint0::Application.config.my_key  %> 
-      <td><button class ="btn btn-lg btn-danger" type = "button"> <%= link_to 'Delete category', category_path(category), method: :delete  %> </button></td>
+      <td ><button class ='btn btn-sucess'  type = "button"> <%= link_to 'Delete category', category_path(category), method: :delete  %> </button></td>
      <% end %>
     </tr>
     <% end %>

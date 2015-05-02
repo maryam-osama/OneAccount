@@ -22,26 +22,21 @@
 
   
  <div class="page-header"style="width:50%; margin-left: 305px ">
-        <h1 style=" text-align:center; color:#202020;">Application Information</h1>
+        <h1 style=" text-align:center; color:#202020;">  <%= @application.appname  %> </h1>
  </div>
- 
- <p>
-  <strong>Application Name: </strong>
-  <%= @application.appname  %>
- </p>
- 
- <p>
+
+ <p style=" margin-left:300px" >
   <strong>Description: </strong>
   <%= @application.description %>
  </p>
 
- <p>
+ <p style=" margin-left:300px" >
   <strong>Price: $</strong>
   <%= @application.price %>
  </p>
 
  
- <p>
+ <p style=" margin-left:300px" >
   <strong>Category Name: </strong>
   <%= @application.category_name %>
  </p>
@@ -54,64 +49,74 @@
  <% if (current_user.email == Sprint0::Application.config.my_key) ||
  !(Application.where(:publisher_email => current_user.email ,:id => @application).blank?)%>
   
-<button  type="button" class = " btn btn-danger " style =" margin-left:300px ;margin-top:40px; "><%= link_to 'Delete Appliation', application_path(@application), method: :delete %></button>
+<button  type="button" class = 'btn btn-sucess' style =" margin-left:300px ;margin-top:50px; "><%= link_to 'Delete Appliation', application_path(@application), method: :delete %></button>
  <% end %>
  
 
  <% if !(Application.where(:publisher_email => current_user.email ,:id => @application).blank?)%>
-    <button style=" margin-left: 350px; margin-top:40px;" type="button" class = " btn btn-info "><%= link_to 'Edit Appliation', edit_application_path(@application) %></button>
+    <button style=" margin-left: 470px; margin-top:50px;" type="button" class = 'btn btn-sucess'><%= link_to 'Edit Appliation', edit_application_path(@application) %></button>
  <% end %>
 
+
+
 <% @application.comments.each do |comment| %>
-  
-  <p>
+    
+    <p style=" margin-left:300px ; margin-top:25px" >
     <strong><%= comment.commenter %> :</strong>
-    <%= comment.body %>
-<% if current_user.email == comment.commenter %>
    
-    <%= link_to 'Delete', [comment.application, comment],
-    method: :delete,
-    data: { confirm: 'Are you sure?' } %>
-    </p>
+    <%= comment.body %>
+   
+<% if current_user.email == comment.commenter %>
+    <%= link_to 'Delete', [comment.application, comment],method: :delete, data: { confirm: 'Are you sure?' } %> </p>
 <% end %>
- 
 <% end %>
 
 
 
 <%= form_for([@application, @application.comments.build]) do |f| %> 
-    <p><%= f.text_area :body%>
-    <%= f.submit 'Add Comment' , :class => 'btn btn-lg btn-primary'%></p>
+    <p style=" margin-left:300px  ;margin-top:25px" ><%= f.text_area :body%></p>
+    <p style=" margin-left:500px; margin-top: -52.5px;" style=" margin-left:20px"><%= f.submit 'Add Comment' , :class => 'btn btn-lg btn-primary'%></p>
 
 <% end %>
 
+<% if (@purchase.blank?) && 
+ !(@application.publisher_email == current_user.email) %>
 <% if @inWishList %>
 <!--do something-->
 <% else %>
 <!--<a href="#" id="add_to_wishlist" class="blue-btn">Add to wishlist</a>-->
-<%= link_to "Add Wishlist", {controller: "wishlists", action: "new", app_id: @application.id}, class:"blue-btn"%>
+<span style=" margin-left:305px; margin-top:250px;"><%= link_to "Add to Wishlist", {controller: "wishlists", action: "new", app_id: @application.id}, class:"btn btn-primary"%> </span>
 <% end %>
 
 <% @test = Wishlist.find_by(app_id: @application.id, user_id: current_user.id) %>
 <% if !@test.nil? %>
-<form action="/wishlist/<%= @test.id %>" class="button_to" method="delete"><div><input name="_method" type="hidden" value="delete"><input class="blue-btn" data="are you hopaa?" type="submit" value="Delete"><input name="authenticity_token" type="hidden" value="hnaKSnQ9cJUshvhYPSqHE9ZBRmltD04nVP6Lh0/Mkqw="></div></form>
+ <form action="/wishlist/<%= @test.id %>" class="button_to" method="delete">
+   <div>
+      <input name="_method" type="hidden" value="delete">
+      <input style=" margin-left:305px; margin-top:0px;" class="btn btn-primary" data="are you hopaa?" type="submit" value="Delete">
+      <input name="authenticity_token" type="hidden" value="hnaKSnQ9cJUshvhYPSqHE9ZBRmltD04nVP6Lh0/Mkqw=">
+     
+  </div>
+ </form>
 <%end%>
+<%end%>
+
 
 
 <% @number =  @application.price * 100 %>
 
-<%  @purchase = Purchase.where(:user_email => current_user.email ,:app_id => @application) %>
+
 
 <% if (@purchase.blank?) && 
  !(@application.publisher_email == current_user.email) %>
  
 <%= form_tag charges_path(:number => @number ,:application => @application ) do %>
 
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" 
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
           data-description="Payment"
           data-amount= <%= @application.price * 100 =%>
-          </script> ></script>
+      ></script>
 <% end %>
 
 <div class="row">
@@ -123,7 +128,7 @@
 
 <% if !(Purchase.where(:user_email => current_user.email ,:app_id => @application).blank?) %>
 
-<%= rating_for @application, "Rate", disable_after_rate: true, imdb_avg: true %> 
+<span style="position:relative; top:-150px; left:900px;"><%= rating_for @application, "Rate", disable_after_rate: true, imdb_avg: true %> </span>
 
 <% end %>
 
@@ -131,18 +136,19 @@
 <% if !(@purchase.blank?) %>
 
 <% if !(@application.appstore_url.blank?) %>
- <td> <%= link_to 'Download from AppStore',  @application.appstore_url  , :target => '_blank' %> </td>
+
+ <p style=" margin-left:300px ; margin-top:25px"> <%= link_to 'Download from AppStore',  @application.appstore_url  , :target => '_blank' %> 
 <% end %>
 
 <% if !(@application.playstore_url.blank?) %>
- <td> <%= link_to 'Download from PlayStore',  @application.playstore_url , :target => '_blank'  %> </td>
+ <%= link_to 'Download from PlayStore',  @application.playstore_url , :target => '_blank'  %> 
  
 <% end %>
 
 <% if !(@application.windows_url.blank?) %>
- <td> <%= link_to 'Download from Windows Store',  @application.windows_url , :target => '_blank' %> </td>
+ <%= link_to 'Download from Windows Store',  @application.windows_url , :target => '_blank' %>
 <% end %>
-
+</p>
 <% end %>
 <% end %>
 
@@ -296,7 +302,7 @@ Pseudo ::after element
 }
 
     body {
-      background: url(https://download.unsplash.com/photo-1422022098106-b3a9edc463af);
+      background: url(https://download.unsplash.com/photo-1414073875831-b47709631146);
      text-align: left;
      background-repeat: no-repeat;
      background-size: cover;
@@ -311,7 +317,7 @@ Pseudo ::after element
     box-shadow: 0px 2px 2px 2px #ccc;
     }
     p{
-    
+       margin-left:5px;
       color:black;
       text-align: left;
       font-size: 14pt;
@@ -325,6 +331,7 @@ Pseudo ::after element
       font-weight:bold;
       font-family: Helvetica, 'sans-serif' ;
       }
+
       
       
     
