@@ -79,7 +79,7 @@
 
 <% end %>
 
-<% if (@purchase.blank?) && 
+<% if (@purchase.blank?) &&
  !(@application.publisher_email == current_user.email) %>
 <% if @inWishList %>
 <!--do something-->
@@ -105,7 +105,7 @@
 
 <% @number =  @application.price * 100 %>
 
-
+<%  @purchase = Purchase.where(:user_email => current_user.email ,:app_id => @application) %>
 
 <% if (@purchase.blank?) && 
  !(@application.publisher_email == current_user.email) %>
@@ -132,23 +132,22 @@
 
 <% end %>
 
-
 <% if !(@purchase.blank?) %>
 
 <% if !(@application.appstore_url.blank?) %>
 
- <p style=" margin-left:300px ; margin-top:25px"> <%= link_to 'Download from AppStore',  @application.appstore_url  , :target => '_blank' %> 
+ <p style=" margin-left:300px ; margin-top:25px"> <%= link_to 'Download from AppStore',  @application.appstore_url  , :target => '_blank' %></p> 
 <% end %>
-
+</p>
 <% if !(@application.playstore_url.blank?) %>
- <%= link_to 'Download from PlayStore',  @application.playstore_url , :target => '_blank'  %> 
+<p style=" margin-left:600px ; margin-top:-37px"> <%= link_to 'Download from PlayStore',  @application.playstore_url , :target => '_blank'  %></p> 
  
 <% end %>
 
 <% if !(@application.windows_url.blank?) %>
- <%= link_to 'Download from Windows Store',  @application.windows_url , :target => '_blank' %>
+<p style=" margin-left:900px ; margin-top:25px"> <%= link_to 'Download from Windows Store',  @application.windows_url , :target => '_blank' %></p>
 <% end %>
-</p>
+
 <% end %>
 <% end %>
 

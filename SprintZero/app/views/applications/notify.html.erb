@@ -1,16 +1,207 @@
 <!DOCTYPE html>
-<head>
+<hmtl>
+ <head>
+  <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <!-- Bootstrap core CSS -->
+    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap theme -->
+    <link href="../../dist/css/bootstrap-theme.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="theme.css" rel="stylesheet">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+</head>
 
-<title>Applications</title>
-<style>
+<body background="#">
 
-body {
-text-align: left;
-background-image: url("http://i.imgur.com/6RnDnuz.jpg");
-background-repeat: no-repeat;
-background-size: cover;
+  
+ <div class="page-header"style="width:50%; margin-left: 305px ">
+        <h1 style=" text-align:center; color:#202020;">  <%= @application.appname  %> </h1>
+ </div>
+
+ <p style=" margin-left:300px" >
+  <strong>Description: </strong>
+  <%= @application.description %>
+ </p>
+
+ <p style=" margin-left:300px" >
+  <strong>Price: $</strong>
+  <%= @application.price %>
+ </p>
+
+ 
+ <p style=" margin-left:300px" >
+  <strong>Category Name: </strong>
+  <%= @application.category_name %>
+ </p>
+
+
+<% @number =  @application.price * 100 %>
+ 
+ 
+ 
+ <% if (current_user.email == Sprint0::Application.config.my_key) ||
+ !(Application.where(:publisher_email => current_user.email ,:id => @application).blank?)%>
+  
+<button  type="button" class = 'btn btn-sucess' style =" margin-left:300px ;margin-top:50px; "><%= link_to 'Delete Appliation', application_path(@application), method: :delete %></button>
+ <% end %>
+ 
+
+ <% if !(Application.where(:publisher_email => current_user.email ,:id => @application).blank?)%>
+    <button style=" margin-left: 470px; margin-top:50px;" type="button" class = 'btn btn-sucess'><%= link_to 'Edit Appliation', edit_application_path(@application) %></button>
+ <% end %>
+
+
+
+<% @application.comments.each do |comment| %>
+    
+    <p style=" margin-left:300px ; margin-top:25px" >
+    <strong><%= comment.commenter %> :</strong>
+   
+    <%= comment.body %>
+   
+<% if current_user.email == comment.commenter %>
+    <%= link_to 'Delete', [comment.application, comment],method: :delete, data: { confirm: 'Are you sure?' } %> </p>
+<% end %>
+<% end %>
+
+
+
+<%= form_for([@application, @application.comments.build]) do |f| %> 
+    <p style=" margin-left:300px  ;margin-top:25px" ><%= f.text_area :body%></p>
+    <p style=" margin-left:500px; margin-top: -52.5px;" style=" margin-left:20px"><%= f.submit 'Add Comment' , :class => 'btn btn-lg btn-primary'%></p>
+
+<% end %>
+
+<% if (@purchase.blank?) &&
+ !(@application.publisher_email == current_user.email) %>
+<% if @inWishList %>
+<!--do something-->
+<% else %>
+<!--<a href="#" id="add_to_wishlist" class="blue-btn">Add to wishlist</a>-->
+<span style=" margin-left:305px; margin-top:250px;"><%= link_to "Add to Wishlist", {controller: "wishlists", action: "new", app_id: @application.id}, class:"btn btn-primary"%> </span>
+<% end %>
+
+<% @test = Wishlist.find_by(app_id: @application.id, user_id: current_user.id) %>
+<% if !@test.nil? %>
+ <form action="/wishlist/<%= @test.id %>" class="button_to" method="delete">
+   <div>
+      <input name="_method" type="hidden" value="delete">
+      <input style=" margin-left:305px; margin-top:0px;" class="btn btn-primary" data="are you hopaa?" type="submit" value="Delete">
+      <input name="authenticity_token" type="hidden" value="hnaKSnQ9cJUshvhYPSqHE9ZBRmltD04nVP6Lh0/Mkqw=">
+     
+  </div>
+ </form>
+<%end%>
+<%end%>
+
+
+
+<% @number =  @application.price * 100 %>
+
+<%  @purchase = Purchase.where(:user_email => current_user.email ,:app_id => @application) %>
+
+<% if (@purchase.blank?) && 
+ !(@application.publisher_email == current_user.email) %>
+ 
+<%= form_tag charges_path(:number => @number ,:application => @application ) do %>
+
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" 
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-description="Payment"
+          data-amount= <%= @application.price * 100 =%>
+      ></script>
+<% end %>
+
+<div class="row">
+ 
+<div class="small-2 large-4 columns">
+   
+<% else %>  
+
+
+<% if !(Purchase.where(:user_email => current_user.email ,:app_id => @application).blank?) %>
+
+<span style="position:relative; top:-150px; left:900px;"><%= rating_for @application, "Rate", disable_after_rate: true, imdb_avg: true %> </span>
+
+<% end %>
+
+<% if !(@purchase.blank?) %>
+
+<% if !(@application.appstore_url.blank?) %>
+
+ <p style=" margin-left:300px ; margin-top:25px"> <%= link_to 'Download from AppStore',  @application.appstore_url  , :target => '_blank' %></p> 
+<% end %>
+</p>
+<% if !(@application.playstore_url.blank?) %>
+<p style=" margin-left:600px ; margin-top:-37px"> <%= link_to 'Download from PlayStore',  @application.playstore_url , :target => '_blank'  %></p> 
+ 
+<% end %>
+
+<% if !(@application.windows_url.blank?) %>
+<p style=" margin-left:900px ; margin-top:25px"> <%= link_to 'Download from Windows Store',  @application.windows_url , :target => '_blank' %></p>
+<% end %>
+
+<% end %>
+<% end %>
+
+  <style>
+ 
+    .theme-showcase > p > .btn {
+  margin: 5px 0;
 }
-
+.btn-success {
+  background-image: -webkit-linear-gradient(top,#5cb85c 0,#419641 100%);
+  background-image: -o-linear-gradient(top,#5cb85c 0,#419641 100%);
+  background-image: -webkit-gradient(linear,left top,left bottom,from(#5cb85c),to(#419641));
+  background-image: linear-gradient(to bottom,#5cb85c 0,#419641 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff5cb85c', endColorstr='#ff419641', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+  background-repeat: repeat-x;
+  border-color: #3e8f3e;
+}
+.btn-danger, .btn-default, .btn-info, .btn-primary, .btn-success, .btn-warning {
+  text-shadow: 0 -1px 0 rgba(0,0,0,.2);
+  -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.15),0 1px 1px rgba(0,0,0,.075);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.15),0 1px 1px rgba(0,0,0,.075);
+}
+.btn-success {
+  color: gray;
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+  font-weight: bold;
+  padding: 10px 20px;
+  position: relative;
+  top: -40px;
+  border-radius: 35%;
+}
+.btn {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
 .blue-btn {
 background: #2b9ab6;
 color: #FFF;
@@ -23,143 +214,126 @@ text-decoration: none;
 margin-bottom: 5px;
 }
 
-header {
-text-align: center;
-height:50px;
-background:#F0F0F0;
-border:1px solid #CCC;
-width:100%;
-margin:0px auto;
-box-shadow: 0px 2px 2px 2px #ccc;
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
 }
-</style>
+button, html input[type=button], input[type=reset], input[type=submit] {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+button, select {
+  text-transform: none;
+}
+button {
+  overflow: visible;
+}
+button, input, optgroup, select, textarea {
+  margin: 0;
+  font: inherit;
+  color: inherit;
+}
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+user agent stylesheetinput[type="button" i], input[type="submit" i], input[type="reset" i], input[type="file" i]::-webkit-file-upload-button, button {
+  padding: 1px 6px;
+}
+user agent stylesheetinput[type="button" i], input[type="submit" i], input[type="reset" i], input[type="file" i]::-webkit-file-upload-button, button {
+  align-items: flex-start;
+  text-align: center;
+  cursor: default;
+  color: buttontext;
+  padding: 2px 6px 3px;
+  border: 2px outset buttonface;
+  border-image-source: initial;
+  border-image-slice: initial;
+  border-image-width: initial;
+  border-image-outset: initial;
+  border-image-repeat: initial;
+  background-color: buttonface;
+  box-sizing: border-box;
+}
+user agent stylesheetinput, textarea, keygen, select, button {
+  margin: 0em;
+  font: normal normal normal 13.3333330154419px/normal Arial;
+  text-rendering: auto;
+  color: initial;
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: start;
+}
+user agent stylesheetinput, textarea, keygen, select, button, meter, progress {
+  -webkit-writing-mode: horizontal-tb;
+}
+user agent stylesheetbutton {
+  -webkit-appearance: button;
+}
 
-</head>
+html {
+  font-size: 10px;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  font-family: sans-serif;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+Pseudo ::before element
+:after, :before {
+  
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
 
-<div id="hidden_app_id" style="display: none;"><%= @application.id %></div>
+Pseudo ::after element
+:after, :before {
 
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
 
-<p>
-<strong>appname:</strong>
-<%= @application.appname  %>
-</p>
-
-<p>
-<strong>description:</strong>
-<%= @application.description %>
-</p>
-
-<p>
-<strong>price: $</strong>
-<%= @application.price %>
-</p>
-
-<p>
-<strong>category name: </strong>
-<%= @application.category_name %>
-</p>
-
-<% @number =  @application.price * 100 %>
-
-<h2>Comments</h2>
-<% @application.comments.each do |comment| %>
-
-<p>
-<strong><%= comment.commenter %> :</strong>
-<%= comment.body %>
-</p>
-
-<% if current_user.email == comment.commenter %>
-<p>
-<%= link_to 'Destroy Comment', [comment.application, comment],
-method: :delete,
-data: { confirm: 'Are you sure?' } %>
-</p>
-<% end %>
-
-<% end %>
-
-<h2>Add a comment:</h2>
-<%= form_for([@application, @application.comments.build]) do |f| %> 
-<p>
-<%= f.label :comment %><br>
-<%= f.text_area :body%>
-</p>
-
-<p>
-<%= f.submit %>
-</p>
-<% end %>
-
-<!--checks if the user has already added this app to the wishlist. Refrence Applications controller/show-->
-<% if @inWishList %>
-<!--do something-->
-<% else %>
-<!--<a href="#" id="add_to_wishlist" class="blue-btn">Add to wishlist</a>-->
-<%= link_to "Add Wishlist", {controller: "wishlists", action: "new", app_id: @application.id}, class:"blue-btn"%>
-<% end %>
-
-<% @test = Wishlist.find_by(app_id: @application.id, user_id: current_user.id) %>
-<% if !@test.nil? %>
-<form action="/wishlist/<%= @test.id %>" class="button_to" method="delete"><div><input name="_method" type="hidden" value="delete"><input class="blue-btn" data="are you hopaa?" type="submit" value="Delete"><input name="authenticity_token" type="hidden" value="hnaKSnQ9cJUshvhYPSqHE9ZBRmltD04nVP6Lh0/Mkqw="></div></form>
-<%end%>
-
-<% @number =  @application.price * 100 %>
-
-
- <% if (current_user.email == Sprint0::Application.config.my_key) ||
- !(Application.where(:publisher_email => current_user.email ,:id => @application).blank?)%>
-  <td><%= link_to 'DeleteApp', application_path(@application), method: :delete %></td>
- <% end %>
- 
- <% if !(Application.where(:publisher_email => current_user.email ,:id => @application).blank?)%>
-    <td><%= link_to 'Edit', edit_application_path(@application) %></td>
- <% end %>
- 
-<%  @purchase = Purchase.where(:user_email => current_user.email ,:app_id => @application) %>
-
-<% if (@purchase.blank?) && 
- !(@application.publisher_email == current_user.email) %>
- 
-<%= form_tag charges_path(:number => @number ,:application => @application ) do %>
-
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-description="Payment"
-          data-amount= <%= @application.price * 100 =%>
-          </script> ></script>
-<% end %>
-
-<div class="row">
- 
-<div class="small-2 large-4 columns">
+    body {
+      background: url(https://download.unsplash.com/photo-1414073875831-b47709631146);
+     text-align: left;
+     background-repeat: no-repeat;
+     background-size: cover;
+    }
+    header {
+   	text-align: center;
+    height:50px;
+    background:#F0F0F0;
+    border:1px solid #CCC;
+    width:100%;
+    margin:0px auto;
+    box-shadow: 0px 2px 2px 2px #ccc;
+    }
+    p{
+       margin-left:5px;
+      color:black;
+      text-align: left;
+      font-size: 14pt;
+      font-family: Helvetica, 'sans-serif' ;
+    }
    
-<% else %>  
+       h1{
+      color:black;
+      text-align: center;
+      font-size: 30pt;
+      font-weight:bold;
+      font-family: Helvetica, 'sans-serif' ;
+      }
 
-<% if !(Purchase.where(:user_email => current_user.email ,:app_id => @application).blank?) %>
-<%= rating_for @application, "Rate", disable_after_rate: true, imdb_avg: true %>  
-<% end %>
+      
+      
+    
+ </style>
 
-
-<% if !(@purchase.blank?) %>
-
-<% if !(@application.appstore_url.blank?) %>
- <td> <%= link_to 'Download from AppStore',  @application.appstore_url  , :target => '_blank' %> </td>
-<% end %>
-
-<% if !(@application.playstore_url.blank?) %>
- <td> <%= link_to 'Download from PlayStore',  @application.playstore_url , :target => '_blank'  %> </td>
- 
-<% end %>
-
-<% if !(@application.windows_url.blank?) %>
- <td> <%= link_to 'Download from Windows Store',  @application.windows_url , :target => '_blank' %> </td>
-<% end %>
-
-<% end %>
-<% end %>
-
-
-
-
-
+</html>
