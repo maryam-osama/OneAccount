@@ -77,6 +77,8 @@
  
 <% end %>
 
+
+
 <%= form_for([@application, @application.comments.build]) do |f| %> 
     <p><%= f.text_area :body%>
     <%= f.submit 'Add Comment' , :class => 'btn btn-lg btn-primary'%></p>
@@ -94,6 +96,7 @@
 <% if !@test.nil? %>
 <form action="/wishlist/<%= @test.id %>" class="button_to" method="delete"><div><input name="_method" type="hidden" value="delete"><input class="blue-btn" data="are you hopaa?" type="submit" value="Delete"><input name="authenticity_token" type="hidden" value="hnaKSnQ9cJUshvhYPSqHE9ZBRmltD04nVP6Lh0/Mkqw="></div></form>
 <%end%>
+
 
 <% @number =  @application.price * 100 %>
 
@@ -117,8 +120,11 @@
    
 <% else %>  
 
+
 <% if !(Purchase.where(:user_email => current_user.email ,:app_id => @application).blank?) %>
-<%= rating_for @application, "Rate", disable_after_rate: true, imdb_avg: true %>  
+
+<%= rating_for @application, "Rate", disable_after_rate: true, imdb_avg: true %> 
+
 <% end %>
 
 
@@ -305,12 +311,13 @@ Pseudo ::after element
     box-shadow: 0px 2px 2px 2px #ccc;
     }
     p{
-      margin-left:300px;
+    
       color:black;
       text-align: left;
       font-size: 14pt;
       font-family: Helvetica, 'sans-serif' ;
     }
+   
        h1{
       color:black;
       text-align: center;
