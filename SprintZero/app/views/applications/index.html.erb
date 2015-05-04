@@ -1,25 +1,97 @@
 <!DOCTYPE html>
-<head>
-  <title>Applications</title>
-  <style>
-    body {
-      text-align: center;
-      background-image: url("http://i.imgur.com/cnJRHic.jpg");
-      background-repeat: no-repeat;
-      background-size: cover;
-      font-family: Sans-serif;
-      
-      color: white;
+<html>
+    <head>
+          <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <!-- Bootstrap core CSS -->
+    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap theme -->
+    <link href="../../dist/css/bootstrap-theme.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="theme.css" rel="stylesheet">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    </head>
+  
+    <body background="https://download.unsplash.com/uploads/14120938606568dde6e2b/c9e42240">
+
+      <div class="page-header"style="width:50%; margin-left: 305px ">
+        <h1 style=" text-align:left; color:#FFFFFF">Search Results</h1>
+        </div>
+          <div class="row" style="width:50%; margin-left: 290px; ">
+          <div class="col-sm-4"  style="width:105%;">
+          <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Applications</h3>
+            </div>
+            <div class="panel-body" >
+               <% @applications.each do |application| %>
+            <tr>
+            <td><br><%= link_to  application.appname , application_path(application) %></br></td>
+            </tr>
+               <%end%>
+            </div>
+        </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="../../dist/js/bootstrap.min.js"></script>
+<script src="../../assets/js/docs.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+
+
+<svg xmlns="http://www.w3.org/2000/svg" width="1140" height="500" viewBox="0 0 1140 500" preserveAspectRatio="none" style="visibility: hidden; position: absolute; top: -100%; left: -100%;"><defs></defs><text x="0" y="53" style="font-weight:bold;font-size:53pt;font-family:Arial, Helvetica, Open Sans, sans-serif;dominant-baseline:middle">Thirdslide</text></svg>
+<div id="global-zeroclipboard-html-bridge" class="global-zeroclipboard-container" title="" style="position: absolute; left: 0px; top: -9999px; width: 15px; height: 15px; z-index: 999999999;" data-original-title="Copy to clipboard">      <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" id="global-zeroclipboard-flash-bridge" width="100%" height="100%">         <param name="movie" value="/assets/flash/ZeroClipboard.swf?noCache=1430060381063">         <param name="allowScriptAccess" value="sameDomain">         <param name="scale" value="exactfit">         <param name="loop" value="false">         <param name="menu" value="false">         <param name="quality" value="best">         <param name="bgcolor" value="#ffffff">         <param name="wmode" value="transparent">         <param name="flashvars" value="trustedOrigins=getbootstrap.com%2C%2F%2Fgetbootstrap.com%2Chttp%3A%2F%2Fgetbootstrap.com">         <embed src="/assets/flash/ZeroClipboard.swf?noCache=1430060381063" loop="false" menu="false" quality="best" bgcolor="#ffffff" width="100%" height="100%" name="global-zeroclipboard-flash-bridge" allowscriptaccess="sameDomain" allowfullscreen="false" type="application/x-shockwave-flash" wmode="transparent" pluginspage="http://www.macromedia.com/go/getflashplayer" flashvars="trustedOrigins=getbootstrap.com%2C%2F%2Fgetbootstrap.com%2Chttp%3A%2F%2Fgetbootstrap.com" scale="exactfit">                </object></div>
+ 
+    
+<style type="text/css">
+ 
+ table{
+    border: 1px solid white;
+    width:500px;
+    height:70px;
+    border-radius:10px;
+    background-color: transparent;
+    box-shadow: 5px 5px 5px #8888888;
+    visibility: visible;
+    margin-top:100px;
+    border-color : black;
     }
     
-    p {
- font-size: 22px; 
+th {
+  float: left;
+  width: 100%;
+  margin: 100px 0 20px;
+  font-family: proxima-nova,sans-serif;
+  font-style: normal;
+  
+  text-shadow: 0 1px 3px #145769;
+  text-align:center;
+  color: #FFD700;
 }
-
-input[type=show] {
-    width: 50em;  height: 30em;
+td {
+   height: 15px;
+   vertical-align: middle;
+   font-size:12.5pt;
+   color:white;
+   Text-align:center;
+   float: left;
+   width: 100%;
+   margin: 40px 0 10px;
+   font-family: proxima-nova,sans-serif;
+   font-style: normal;
+   text-shadow: 0 1px 3px #145769;
+    
 }
-
+body{
+    background-repeat:no-repeat;
+    background-size:100%;
+}
 header {
 	text-align: center;
     height:50px;
@@ -27,40 +99,17 @@ header {
     border:1px solid #CCC;
     width:100%;
     margin:0px auto;
-  box-shadow: 0px 2px 2px 2px #ccc;
+    box-shadow: 0px 2px 2px 2px #ccc;
 }
-   
-  </style>
-</head>
+</style>
+</html>
 
 
-<body> 
-<h1> Applications </h1> 
 
-</body>
-<table>
-  <tr>
-    <th>Appname</th>
-    <th>Price</th>
-     
-    <th colspan="3"></th>
-  </tr>
-  
- 
-  <% @applications.each do |application| %>
-    <tr>
-      <td><%= application.appname %></td>
-      <td><%= application.price %></td>
-   
-      <td><%= link_to 'View' , application_path(application) %></td>
 
-  </tr>
-  <%end%>
-</table>
-<!--<div style='float:left; width:25%; font-size: 30px'>
-    Appname
-</div>
- <div style='float:left; width:25%; margin-left:12px; font-size: 30px'>
-    Price
-</div>
-<div class="button big-btn"> <FORM> <INPUT Type="BUTTON" VALUE="View" ONCLICK="window.location.href='http://www.computerhope.com/'" > </FORM> 
+
+
+
+
+
+
